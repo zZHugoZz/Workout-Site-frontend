@@ -12,7 +12,7 @@ const LoginPage = () => {
       <h1>Login</h1>
       <form onSubmit={handleLogin}>
         <input
-          type="text"
+          type="email"
           name="username"
           value={data.username}
           onChange={handleChange}

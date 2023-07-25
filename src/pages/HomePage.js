@@ -6,6 +6,7 @@ const HomePage = () => {
     <>
       <span>
         <StyledNavLink to={"/login/"}>Login</StyledNavLink>
+        <StyledNavLink to={"/signup/"}>Signup</StyledNavLink>
       </span>
     </>
   );

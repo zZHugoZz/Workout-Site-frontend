@@ -5,6 +5,7 @@ import Headers from "./components/Headers";
 import GlobalStyle from "./styles/GlobalStyles";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
 import ProfilePage from "./pages/ProfilePage";
 import ManagePage from "./pages/ManagePage";
 import NutritionPage from "./pages/NutritionPage";
@@ -30,6 +31,7 @@ function App() {
           </Route>
           <Route exact path="/" element={<HomePage />} />
           <Route path="/login/" element={<LoginPage />} />
+          <Route path="/signup/" element={<SignupPage />} />
         </Routes>
       </AuthProvider>
     </>

@@ -3,6 +3,7 @@ import axios from "axios";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import jwtDecode from "jwt-decode";
+import dayjs from "dayjs";
 
 export const AuthContext = createContext();
 
@@ -72,10 +73,6 @@ export default function AuthProvider({ children }) {
     handleChange: handleChange,
     handleLogout: handleLogout,
   };
-
-  useEffect(() => {
-    console.log(user);
-  }, []);
 
   return (
     <AuthContext.Provider value={contextData}>{children}</AuthContext.Provider>
