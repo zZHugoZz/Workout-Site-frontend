@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import axios from "axios";
 import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import jwtDecode from "jwt-decode";
-import dayjs from "dayjs";
 
 export const AuthContext = createContext();
 

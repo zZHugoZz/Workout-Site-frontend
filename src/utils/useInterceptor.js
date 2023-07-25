@@ -8,7 +8,10 @@ const useInterceptor = () => {
   const { authTokens, setUser, setAuthTokens } = useContext(AuthContext);
 
   const axiosInstance = axios.create({
-    headers: { Authorization: `Bearer ${authTokens?.access_token}` },
+    headers: {
+      Authorization: `Bearer ${authTokens?.access_token}`,
+      "Content-Type": "application/json",
+    },
   });
 
   axiosInstance.interceptors.request.use(async (request) => {
@@ -17,16 +20,16 @@ const useInterceptor = () => {
 
     if (!isExpired) return request;
 
-    const response = await axios.post("/refresh/", {
-      refresh_token: authTokens.refresh_token,
+    const response = await axios.post("/refresh_token/", null, {
+      headers: {
+        Authorization: `Bearer ${authTokens.refresh_token}`,
+      },
     });
-
+    console.log("data: ", response.data);
     localStorage.setItem("authTokens", JSON.stringify(response.data));
-
     setAuthTokens(response.data);
-    setUser(jwtDecode(response.data.access));
-
-    request.headers.Authorization = `Bearer ${response.data.access}`;
+    setUser(jwtDecode(response.data.access_token));
+    request.headers.Authorization = `Bearer ${response.data.access_token}`;
     return request;
   });
 
