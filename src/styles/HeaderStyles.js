@@ -16,4 +16,13 @@ const StyledSiteHeader = styled.header`
     cursor: pointer;
   }
 `;
-export { StyledSiteHeader };
+
+const StyledPageHeader = styled.header`
+  background-color: #394867;
+  color: #92a2c1;
+
+  div {
+    padding: 25px 70px;
+  }
+`;
+export { StyledSiteHeader, StyledPageHeader };

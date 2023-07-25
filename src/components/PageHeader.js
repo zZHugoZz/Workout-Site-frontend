@@ -6,6 +6,7 @@ import EditNoteIcon from "@mui/icons-material/EditNote";
 import EggIcon from "@mui/icons-material/Egg";
 import ExploreIcon from "@mui/icons-material/Explore";
 import ForumIcon from "@mui/icons-material/Forum";
+import { StyledPageHeader } from "../styles/HeaderStyles";
 
 const PageHeader = () => {
   const [PageName, setPageName] = useState("");
@@ -34,8 +35,8 @@ const PageHeader = () => {
   }, [location]);
   return (
     <>
-      <header>
-        <div style={{ padding: "30px 0" }}>
+      <StyledPageHeader>
+        <div>
           <span
             style={{
               fontSize: "25px",
@@ -48,7 +49,7 @@ const PageHeader = () => {
           </span>
           <i style={{ display: "inline-flex", verticalAlign: "top" }}>{icon}</i>
         </div>
-      </header>
+      </StyledPageHeader>
     </>
   );
 };

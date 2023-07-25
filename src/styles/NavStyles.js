@@ -6,5 +6,9 @@ const StyledSiteHeaderNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  span {
+    font-size: 18px;
+  }
 `;
 export { StyledSiteHeaderNav };

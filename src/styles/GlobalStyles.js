@@ -34,8 +34,14 @@ const GlobalStyle = createGlobalStyle`
       font-family: "Bold";
     }
 
-    span, h2, h3, h4, h5, h6 {
+    span, h2, h3, h4, h5, h6, p {
       font-family: "Regular";
+    }
+
+    p {
+      color: #7D8893;
+      line-height: 1.4;
+      font-size: 18px;
     }
 
     ul {
