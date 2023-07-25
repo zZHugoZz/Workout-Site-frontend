@@ -2,13 +2,21 @@ import React from "react";
 import ExploreSearchBar from "../components/ExploreSearchBar";
 import { StyledArticleContainer } from "../styles/StyledArticle";
 import { StyledLine } from "../styles/LineStyles";
+import { ExploreContainer } from "../styles/ContainerStyles";
 
 const ExplorePage = () => {
   return (
     <>
       <StyledArticleContainer>
         <div>
-          <h1>Overview</h1>
+          <ExploreContainer>
+            <div>
+              <h1>Overview</h1>
+            </div>
+            <div>
+              <ExploreSearchBar />
+            </div>
+          </ExploreContainer>
           <p>
             Dolore pariatur ut velit culpa qui incididunt id ut officia qui
             nostrud. Culpa commodo reprehenderit sunt laboris laborum ut tempor

@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import ExploreResults from "./ExploreResults";
 import { AuthContext } from "../context/AuthContext";
+import { StyledSearchBar } from "../styles/InputStyles";
 
 const ExploreSearchBar = () => {
   const [results, setResults] = useState([]);
@@ -29,7 +30,7 @@ const ExploreSearchBar = () => {
 
   return (
     <>
-      <input
+      <StyledSearchBar
         type="text"
         placeholder="Search exercises..."
         onChange={handleChange}
