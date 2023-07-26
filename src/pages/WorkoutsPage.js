@@ -10,6 +10,7 @@ import useInterceptor from "../utils/useInterceptor";
 const WorkoutsPage = () => {
   const { id } = useParams();
   const [workout, setWorkout] = useState({});
+  const [exercises, setExercises] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
     sets: "",
@@ -24,14 +25,14 @@ const WorkoutsPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(formData);
-    axios.post("/workout_exercises/", formData);
+    axiosInterceptor.post("/workout_exercises/", formData);
     setFormData({
       name: "",
       sets: "",
       reps: "",
       weight: "",
       unit: "kg",
-      workout_id: null,
+      workout_id: id,
     });
   };
 
@@ -40,14 +41,11 @@ const WorkoutsPage = () => {
   };
 
   useEffect(() => {
-    console.log("formData: ", formData);
-  }, [formData]);
-
-  useEffect(() => {
     axiosInterceptor.get(`/workouts/${id}`).then((response) => {
       setWorkout(response.data);
+      setExercises(response.data.exercises);
     });
-  }, []);
+  });
 
   const openDialog = () => {
     const dialog = document.querySelector(".workout-dialog");
@@ -62,8 +60,8 @@ const WorkoutsPage = () => {
   return (
     <>
       <h1>Workouts</h1>
-      <WorkoutExerciseList workout={workout} />
       <button onClick={openDialog}>Add exercise</button>
+      <WorkoutExerciseList exercises={exercises} />
       <StyledDialog className="workout-dialog">
         <AddWorkoutForm
           formData={formData}
