@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import AddWorkoutForm from "../components/AddWorkoutForm";
 import WorkoutExerciseList from "../components/WorkoutExerciseList";
 import { StyledDialog } from "../styles/DialogStyles";
@@ -9,7 +8,6 @@ import useInterceptor from "../utils/useInterceptor";
 
 const WorkoutsPage = () => {
   const { id } = useParams();
-  const [workout, setWorkout] = useState({});
   const [exercises, setExercises] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
@@ -42,7 +40,6 @@ const WorkoutsPage = () => {
 
   useEffect(() => {
     axiosInterceptor.get(`/workouts/${id}`).then((response) => {
-      setWorkout(response.data);
       setExercises(response.data.exercises);
     });
   });
