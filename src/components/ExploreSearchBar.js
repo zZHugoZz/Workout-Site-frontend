@@ -6,6 +6,7 @@ import useInterceptor from "../utils/useInterceptor";
 
 const ExploreSearchBar = () => {
   const [results, setResults] = useState([]);
+
   const axiosInterceptor = useInterceptor();
 
   const handleChange = (e) => {

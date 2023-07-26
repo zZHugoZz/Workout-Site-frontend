@@ -1,6 +1,6 @@
 import React from "react";
 
-const WorkoutExerciseList = ({ exercises }) => {
+const WorkoutExerciseList = ({ workout }) => {
   return (
     <>
       <table></table>

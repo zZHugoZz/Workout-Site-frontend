@@ -1,32 +1,37 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import AddWorkoutForm from "../components/AddWorkoutForm";
 import WorkoutExerciseList from "../components/WorkoutExerciseList";
 import { StyledDialog } from "../styles/DialogStyles";
+import useInterceptor from "../utils/useInterceptor";
 
 const WorkoutsPage = () => {
   const { id } = useParams();
   const [workout, setWorkout] = useState({});
-  const [exercises, setExercises] = useState([]);
   const [formData, setFormData] = useState({
-    exercise: "",
+    name: "",
     sets: "",
     reps: "",
     weight: "",
     unit: "kg",
-    corresponding_workout_id: null,
+    workout_id: id,
   });
+
+  const axiosInterceptor = useInterceptor();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    axios.post("/api/workout_exercises/", formData);
-    console.log("exercises: ", exercises);
+    console.log(formData);
+    axios.post("/workout_exercises/", formData);
     setFormData({
-      exercise: "",
+      name: "",
       sets: "",
       reps: "",
       weight: "",
       unit: "kg",
-      corresponding_workout_id: null,
+      workout_id: null,
     });
   };
 
@@ -35,29 +40,31 @@ const WorkoutsPage = () => {
   };
 
   useEffect(() => {
-    axios.get(`/api/workouts/${id}`).then((response) => {
+    console.log("formData: ", formData);
+  }, [formData]);
+
+  useEffect(() => {
+    axiosInterceptor.get(`/workouts/${id}`).then((response) => {
       setWorkout(response.data);
-      setExercises(response.data.exercises);
-      formData.corresponding_workout_id = response.data.id;
     });
-  }, [id, exercises]);
+  }, []);
 
   const openDialog = () => {
-    const dialog = document.querySelector("#workout-dialog");
+    const dialog = document.querySelector(".workout-dialog");
     dialog.showModal();
   };
 
   const closeDialog = () => {
-    const dialog = document.querySelector("#workout-dialog");
-    dialog.showModal();
+    const dialog = document.querySelector(".workout-dialog");
+    dialog.close();
   };
 
   return (
     <>
       <h1>Workouts</h1>
-      <WorkoutExerciseList exercises={exercises} />
+      <WorkoutExerciseList workout={workout} />
       <button onClick={openDialog}>Add exercise</button>
-      <StyledDialog id="workout-dialog">
+      <StyledDialog className="workout-dialog">
         <AddWorkoutForm
           formData={formData}
           handleSubmit={handleSubmit}

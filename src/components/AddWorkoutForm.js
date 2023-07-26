@@ -4,15 +4,15 @@ const AddWorkoutForm = ({ formData, handleSubmit, handleChange }) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <Input
+        <input
           type="text"
-          name="exercise"
+          name="name"
           placeholder="Exercise..."
-          value={formData.exercise}
+          value={formData.name}
           onChange={handleChange}
           required
         />
-        <Input
+        <input
           type="number"
           min="1"
           name="sets"
@@ -21,7 +21,7 @@ const AddWorkoutForm = ({ formData, handleSubmit, handleChange }) => {
           onChange={handleChange}
           required
         />
-        <Input
+        <input
           type="number"
           min="1"
           name="reps"
@@ -30,7 +30,7 @@ const AddWorkoutForm = ({ formData, handleSubmit, handleChange }) => {
           onChange={handleChange}
           required
         />
-        <Input
+        <input
           type="number"
           min="1"
           name="weight"
@@ -39,10 +39,10 @@ const AddWorkoutForm = ({ formData, handleSubmit, handleChange }) => {
           onChange={handleChange}
           required
         />
-        <Select name="unit" value={formData.unit} onChange={handleChange}>
+        <select name="unit" value={formData.unit} onChange={handleChange}>
           <option value="kg">Kg</option>
           <option value="lbs">Lbs</option>
-        </Select>
+        </select>
         <button>Add exercise</button>
       </form>
     </>
