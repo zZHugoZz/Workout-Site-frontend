@@ -10,13 +10,16 @@ const WorkoutsList = () => {
     axiosInterceptor.delete(`/workouts/${id}`).then((response) => {
       console.log("response: ", response);
     });
+    axiosInterceptor.get("/workouts").then((response) => {
+      setWorkouts(response.data);
+    });
   };
 
   useEffect(() => {
     axiosInterceptor.get("/workouts").then((response) => {
       setWorkouts(response.data);
     });
-  });
+  }, []);
 
   return (
     <>

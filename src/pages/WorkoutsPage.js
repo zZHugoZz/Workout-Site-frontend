@@ -32,6 +32,9 @@ const WorkoutsPage = () => {
       unit: "kg",
       workout_id: id,
     });
+    axiosInterceptor.get(`/workouts/${id}`).then((response) => {
+      setExercises(response.data.exercises);
+    });
   };
 
   const handleChange = (event) => {
@@ -42,7 +45,7 @@ const WorkoutsPage = () => {
     axiosInterceptor.get(`/workouts/${id}`).then((response) => {
       setExercises(response.data.exercises);
     });
-  });
+  }, []);
 
   const openDialog = () => {
     const dialog = document.querySelector(".workout-dialog");
