@@ -6,6 +6,12 @@ const WorkoutsList = () => {
 
   const axiosInterceptor = useInterceptor();
 
+  const handleDelete = (id) => {
+    axiosInterceptor.delete(`/workouts/${id}`).then((response) => {
+      console.log("response: ", response);
+    });
+  };
+
   useEffect(() => {
     axiosInterceptor.get("/workouts").then((response) => {
       setWorkouts(response.data);
@@ -16,7 +22,10 @@ const WorkoutsList = () => {
     <>
       <ul>
         {workouts.map((workout) => (
-          <li key={workout.id}>{workout.created_at}</li>
+          <li key={workout.id}>
+            {workout.created_at}
+            <button onClick={() => handleDelete(workout.id)}>Delete</button>
+          </li>
         ))}
       </ul>
     </>
