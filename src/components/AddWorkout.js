@@ -10,8 +10,7 @@ const AddWorkout = () => {
     axiosInterceptor
       .post("/workouts/")
       .then((response) => {
-        const instanceId = response.data.id;
-        navigate(`workouts/${instanceId}`);
+        navigate(`workouts/${response.data.id}`);
       })
       .catch((error) => {
         console.error("Error:", error);
