@@ -1,5 +1,6 @@
 import React from "react";
 import useInterceptor from "../utils/useInterceptor";
+import AddProgramExercise from "./AddProgramExercise";
 
 const ProgramDaysList = ({ days, id, setDays }) => {
   const axiosInterceptor = useInterceptor();
@@ -17,6 +18,7 @@ const ProgramDaysList = ({ days, id, setDays }) => {
         {days.map((day, i) => (
           <div key={day.id}>
             <h2>Day {i + 1}</h2>
+            <AddProgramExercise dayId={day.id} />
             <button onClick={() => handleDeleteDay(day.id)}>Delete day</button>
             {day.exercises.map((exercise) => (
               <div key={exercise.id}></div>
