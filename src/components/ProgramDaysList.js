@@ -12,6 +12,13 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
     });
   };
 
+  const handleDeleteExercise = async (exerciseId) => {
+    await axiosInterceptor.delete(`/program_exercises/${exerciseId}`);
+    axiosInterceptor.get(`/programs/${programId}`).then((response) => {
+      setDays(response.data.days);
+    });
+  };
+
   return (
     <>
       <div>
@@ -27,6 +34,9 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
             {day.exercises.map((exercise) => (
               <div key={exercise.id}>
                 <p>{exercise.name}</p>
+                <button onClick={() => handleDeleteExercise(exercise.id)}>
+                  Delete exercise
+                </button>
               </div>
             ))}
           </div>
