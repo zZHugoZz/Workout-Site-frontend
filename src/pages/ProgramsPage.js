@@ -25,7 +25,7 @@ const ProgramsPage = () => {
     <>
       <h1>Programs</h1>
       <ProgramDaysList days={days} />
-      <AddDay id={id} />
+      <AddDay id={id} setDays={setDays} />
     </>
   );
 };
