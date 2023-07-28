@@ -2,12 +2,12 @@ import React from "react";
 import useInterceptor from "../utils/useInterceptor";
 import AddProgramExercise from "./AddProgramExercise";
 
-const ProgramDaysList = ({ days, id, setDays }) => {
+const ProgramDaysList = ({ days, programId, setDays }) => {
   const axiosInterceptor = useInterceptor();
 
-  const handleDeleteDay = async (day_id) => {
-    await axiosInterceptor.delete(`/program_days/${day_id}`);
-    axiosInterceptor.get(`/programs/${id}`).then((response) => {
+  const handleDeleteDay = async (dayId) => {
+    await axiosInterceptor.delete(`/program_days/${dayId}`);
+    axiosInterceptor.get(`/programs/${programId}`).then((response) => {
       setDays(response.data.days);
     });
   };
@@ -18,10 +18,16 @@ const ProgramDaysList = ({ days, id, setDays }) => {
         {days.map((day, i) => (
           <div key={day.id}>
             <h2>Day {i + 1}</h2>
-            <AddProgramExercise dayId={day.id} />
+            <AddProgramExercise
+              dayId={day.id}
+              setDays={setDays}
+              programId={programId}
+            />
             <button onClick={() => handleDeleteDay(day.id)}>Delete day</button>
             {day.exercises.map((exercise) => (
-              <div key={exercise.id}></div>
+              <div key={exercise.id}>
+                <p>{exercise.name}</p>
+              </div>
             ))}
           </div>
         ))}

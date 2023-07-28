@@ -24,7 +24,7 @@ const ProgramsPage = () => {
   return (
     <>
       <h1>Programs</h1>
-      <ProgramDaysList days={days} id={id} setDays={setDays} />
+      <ProgramDaysList days={days} programId={id} setDays={setDays} />
       <AddDay id={id} setDays={setDays} />
     </>
   );
