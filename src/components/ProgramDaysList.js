@@ -1,6 +1,7 @@
 import React from "react";
 import useInterceptor from "../utils/useInterceptor";
 import AddProgramExercise from "./AddProgramExercise";
+import { StyledProgramContainer } from "../styles/ContainerStyles";
 
 const ProgramDaysList = ({ days, programId, setDays }) => {
   const axiosInterceptor = useInterceptor();
@@ -21,9 +22,9 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
 
   return (
     <>
-      <div>
+      <StyledProgramContainer>
         {days.map((day, i) => (
-          <div key={day.id}>
+          <article key={day.id}>
             <h2>Day {i + 1}</h2>
             <AddProgramExercise
               dayId={day.id}
@@ -31,17 +32,19 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
               programId={programId}
             />
             <button onClick={() => handleDeleteDay(day.id)}>Delete day</button>
-            {day.exercises.map((exercise) => (
-              <div key={exercise.id}>
-                <p>{exercise.name}</p>
-                <button onClick={() => handleDeleteExercise(exercise.id)}>
-                  Delete exercise
-                </button>
-              </div>
-            ))}
-          </div>
+            <ul>
+              {day.exercises.map((exercise) => (
+                <li key={exercise.id}>
+                  <p>{exercise.name}</p>
+                  <button onClick={() => handleDeleteExercise(exercise.id)}>
+                    Delete exercise
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </article>
         ))}
-      </div>
+      </StyledProgramContainer>
     </>
   );
 };

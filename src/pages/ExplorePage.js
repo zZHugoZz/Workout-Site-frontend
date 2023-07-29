@@ -1,22 +1,22 @@
 import React from "react";
 import ExploreSearchBar from "../components/ExploreSearchBar";
-import { StyledArticleContainer } from "../styles/StyledArticle";
+import { ExplorePageWrapper } from "../styles/WrapperStyles";
 import { StyledLine } from "../styles/LineStyles";
-import { ExploreContainer } from "../styles/ContainerStyles";
+import { StyledExploreContainer } from "../styles/ContainerStyles";
 
 const ExplorePage = () => {
   return (
     <>
-      <StyledArticleContainer>
+      <ExplorePageWrapper>
         <div>
-          <ExploreContainer>
+          <StyledExploreContainer>
             <div>
               <h1>Overview</h1>
             </div>
             <div>
               <ExploreSearchBar />
             </div>
-          </ExploreContainer>
+          </StyledExploreContainer>
           <p>
             Dolore pariatur ut velit culpa qui incididunt id ut officia qui
             nostrud. Culpa commodo reprehenderit sunt laboris laborum ut tempor
@@ -142,7 +142,7 @@ const ExplorePage = () => {
             excepteur.
           </p>
         </div>
-      </StyledArticleContainer>
+      </ExplorePageWrapper>
     </>
   );
 };

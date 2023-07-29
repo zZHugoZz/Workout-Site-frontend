@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const StyledArticleContainer = styled.main`
+const ExplorePageWrapper = styled.main`
   background-color: #020a10;
   width: 100%;
   display: flex;
@@ -24,4 +24,16 @@ const StyledArticleContainer = styled.main`
     padding-top: 50px;
   }
 `;
-export { StyledArticleContainer };
+
+const ProgramsPageWrapper = styled.div`
+  background-color: #020a10;
+  width: 100%;
+  padding: 50px 0;
+
+  h1,
+  h2 {
+    color: #97a6b5;
+  }
+`;
+
+export { ExplorePageWrapper, ProgramsPageWrapper };
