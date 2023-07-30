@@ -4,6 +4,7 @@ import AddProgramExercise from "./AddProgramExercise";
 import { StyledProgramContainer } from "../styles/ContainerStyles";
 import { HoverButton } from "../styles/ButtonStyles";
 import { StyledIconContainer } from "../styles/IconStyles";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { StyledProgramDayContainer } from "../styles/ContainerStyles";
 
@@ -36,7 +37,7 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
               <div>
                 <HoverButton onClick={() => handleDeleteDay(day.id)}>
                   <StyledIconContainer>
-                    <RemoveIcon style={{ color: "#E84444" }} />
+                    <DeleteForeverIcon style={{ color: "#E84444" }} />
                   </StyledIconContainer>
                 </HoverButton>
               </div>
