@@ -2,11 +2,12 @@ import React from "react";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { StyledIconContainer } from "../styles/IconStyles";
 import { HoverButton } from "../styles/ButtonStyles";
+import { StyledProgramExerciseTable } from "../styles/TableStyles";
 
 const ProgramExerciseList = ({ day, handleDeleteExercise }) => {
   return (
     <>
-      <table>
+      <StyledProgramExerciseTable>
         <thead>
           <tr>
             <th>Exercise</th>
@@ -39,7 +40,7 @@ const ProgramExerciseList = ({ day, handleDeleteExercise }) => {
             <td colSpan={"3"}></td>
           </tr>
         </tfoot>
-      </table>
+      </StyledProgramExerciseTable>
     </>
   );
 };
