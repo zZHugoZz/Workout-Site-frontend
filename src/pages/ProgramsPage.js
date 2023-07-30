@@ -5,7 +5,7 @@ import useInterceptor from "../utils/useInterceptor";
 import ProgramDaysList from "../components/ProgramDaysList";
 import AddDay from "../components/AddDay";
 import { ProgramsPageWrapper } from "../styles/WrapperStyles";
-import { StyledLine } from "../styles/LineStyles";
+import { BrightLine } from "../styles/LineStyles";
 
 const ProgramsPage = () => {
   const [days, setDays] = useState([]);
@@ -28,7 +28,7 @@ const ProgramsPage = () => {
       <ProgramsPageWrapper>
         <div>
           <h1>Programs</h1>
-          <StyledLine style={{ marginBottom: "50px" }} />
+          <BrightLine style={{ marginBottom: "50px" }} />
           <ProgramDaysList days={days} programId={id} setDays={setDays} />
           <AddDay id={id} setDays={setDays} />
         </div>

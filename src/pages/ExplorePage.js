@@ -1,7 +1,7 @@
 import React from "react";
 import ExploreSearchBar from "../components/ExploreSearchBar";
 import { ExplorePageWrapper } from "../styles/WrapperStyles";
-import { StyledLine } from "../styles/LineStyles";
+import { BrightLine } from "../styles/LineStyles";
 import { StyledExploreTitleContainer } from "../styles/ContainerStyles";
 import { StyledExploreMainContainer } from "../styles/ContainerStyles";
 
@@ -36,7 +36,7 @@ const ExplorePage = () => {
                 eu pariatur. Ea do consequat aliqua ipsum elit. Do ut voluptate
                 excepteur Lorem commodo ea excepteur.
               </p>
-              <StyledLine />
+              <BrightLine />
             </article>
             <article>
               <h2>Back</h2>
@@ -56,7 +56,7 @@ const ExplorePage = () => {
                 eu pariatur. Ea do consequat aliqua ipsum elit. Do ut voluptate
                 excepteur Lorem commodo ea excepteur.
               </p>
-              <StyledLine />
+              <BrightLine />
             </article>
             <article>
               <h2>Chest</h2>
@@ -76,7 +76,7 @@ const ExplorePage = () => {
                 eu pariatur. Ea do consequat aliqua ipsum elit. Do ut voluptate
                 excepteur Lorem commodo ea excepteur.
               </p>
-              <StyledLine />
+              <BrightLine />
             </article>
             <article>
               <h2>Shoulders</h2>
@@ -96,7 +96,7 @@ const ExplorePage = () => {
                 eu pariatur. Ea do consequat aliqua ipsum elit. Do ut voluptate
                 excepteur Lorem commodo ea excepteur.
               </p>
-              <StyledLine />
+              <BrightLine />
             </article>
             <article>
               <h2>Arms</h2>
@@ -116,7 +116,7 @@ const ExplorePage = () => {
                 eu pariatur. Ea do consequat aliqua ipsum elit. Do ut voluptate
                 excepteur Lorem commodo ea excepteur.
               </p>
-              <StyledLine />
+              <BrightLine />
             </article>
             <article>
               <h2>Abs</h2>
@@ -136,7 +136,7 @@ const ExplorePage = () => {
                 eu pariatur. Ea do consequat aliqua ipsum elit. Do ut voluptate
                 excepteur Lorem commodo ea excepteur.
               </p>
-              <StyledLine />
+              <BrightLine />
             </article>
             <article>
               <h2>Legs</h2>

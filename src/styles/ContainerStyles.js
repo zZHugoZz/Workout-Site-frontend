@@ -28,13 +28,20 @@ const StyledProgramContainer = styled.main`
 `;
 
 const StyledProgramDayContainer = styled.main`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: relative
   width: 100%;
+  padding-bottom: 40px;
 
-  div {
-    width: auto;
+  h2 {
+    width: max-content;
+    position: absolute;
+    left: 1;
+  }
+
+  button {
+    width: max-content;
+    position: absolute;
+    right: 0;
   }
 `;
 
