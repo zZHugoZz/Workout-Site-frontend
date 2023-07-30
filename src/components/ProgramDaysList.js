@@ -5,6 +5,8 @@ import { StyledProgramContainer } from "../styles/ContainerStyles";
 import { HoverButton } from "../styles/ButtonStyles";
 import { StyledIconContainer } from "../styles/IconStyles";
 import RemoveIcon from "@mui/icons-material/Remove";
+import { StyledProgramDayContainer } from "../styles/ContainerStyles";
+
 const ProgramDaysList = ({ days, programId, setDays }) => {
   const axiosInterceptor = useInterceptor();
 
@@ -27,13 +29,24 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
       <StyledProgramContainer>
         {days.map((day, i) => (
           <article key={day.id}>
-            <h2>Day {i + 1}</h2>
+            <StyledProgramDayContainer>
+              <div>
+                <h2>Day {i + 1}</h2>
+              </div>
+              <div>
+                <HoverButton onClick={() => handleDeleteDay(day.id)}>
+                  <StyledIconContainer>
+                    <RemoveIcon style={{ color: "#E84444" }} />
+                  </StyledIconContainer>
+                </HoverButton>
+              </div>
+            </StyledProgramDayContainer>
+
             <AddProgramExercise
               dayId={day.id}
               setDays={setDays}
               programId={programId}
             />
-            <button onClick={() => handleDeleteDay(day.id)}>Delete day</button>
             <ul>
               {day.exercises.map((exercise) => (
                 <li key={exercise.id}>

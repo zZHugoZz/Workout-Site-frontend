@@ -27,8 +27,19 @@ const StyledProgramContainer = styled.main`
   }
 `;
 
+const StyledProgramDayContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+
+  div {
+    width: auto;
+  }
+`;
+
 export {
   StyledExploreTitleContainer,
   StyledExploreMainContainer,
   StyledProgramContainer,
+  StyledProgramDayContainer,
 };
