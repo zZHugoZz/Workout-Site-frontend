@@ -23,12 +23,13 @@ const ExplorePageWrapper = styled.main`
 
 const ProgramsPageWrapper = styled.div`
   background-color: #020a10;
-  padding: 50px 0;
+  width: 100%;
+  padding: 50px 30px;
   display: flex;
   justify-content: center;
 
   div {
-    max-width: 1500px;
+    width: 80%;
   }
 
   h1,

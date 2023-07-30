@@ -28,7 +28,7 @@ const ProgramsPage = () => {
       <ProgramsPageWrapper>
         <div>
           <h1>Programs</h1>
-          <StyledLine />
+          <StyledLine style={{ marginBottom: "50px" }} />
           <ProgramDaysList days={days} programId={id} setDays={setDays} />
           <AddDay id={id} setDays={setDays} />
         </div>
