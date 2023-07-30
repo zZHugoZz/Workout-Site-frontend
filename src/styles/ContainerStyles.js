@@ -42,6 +42,7 @@ const StyledProgramDayContainer = styled.main`
     width: max-content;
     position: absolute;
     right: 0;
+    margin-right: 10px;
   }
 `;
 

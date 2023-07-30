@@ -30,7 +30,7 @@ const WorkoutExerciseList = ({ exercises, openDialog }) => {
             <td colSpan={"5"}>
               <button
                 onClick={openDialog}
-                style={{ width: "100%", height: "35px" }}
+                style={{ width: "100%", height: "35px", cursor: "pointer" }}
               >
                 +
               </button>

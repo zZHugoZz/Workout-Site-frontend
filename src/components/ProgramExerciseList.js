@@ -6,18 +6,40 @@ import { HoverButton } from "../styles/ButtonStyles";
 const ProgramExerciseList = ({ day, handleDeleteExercise }) => {
   return (
     <>
-      <ul>
-        {day.exercises.map((exercise) => (
-          <li key={exercise.id}>
-            <p>{exercise.name}</p>
-            <HoverButton onClick={() => handleDeleteExercise(exercise.id)}>
-              <StyledIconContainer>
-                <RemoveIcon style={{ color: "#E84444" }} />
-              </StyledIconContainer>
-            </HoverButton>
-          </li>
-        ))}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Exercise</th>
+            <th>Set range</th>
+            <th>Rep range</th>
+          </tr>
+        </thead>
+        <tbody>
+          {day.exercises.map((exercise) => (
+            <tr key={exercise.id}>
+              <td>
+                {exercise.name}-
+                <HoverButton onClick={() => handleDeleteExercise(exercise.id)}>
+                  <StyledIconContainer>
+                    <RemoveIcon style={{ color: "#E84444" }} />
+                  </StyledIconContainer>
+                </HoverButton>
+              </td>
+              <td>
+                {exercise.min_sets}-{exercise.max_sets}
+              </td>
+              <td>
+                {exercise.min_reps}-{exercise.max_reps}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan={"3"}></td>
+          </tr>
+        </tfoot>
+      </table>
     </>
   );
 };
