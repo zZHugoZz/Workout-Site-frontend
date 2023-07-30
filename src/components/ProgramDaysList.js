@@ -7,6 +7,7 @@ import { StyledIconContainer } from "../styles/IconStyles";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { StyledProgramDayContainer } from "../styles/ContainerStyles";
+import ProgramExerciseList from "./ProgramExerciseList";
 
 const ProgramDaysList = ({ days, programId, setDays }) => {
   const axiosInterceptor = useInterceptor();
@@ -29,7 +30,23 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
     <>
       <StyledProgramContainer>
         {days.map((day, i) => (
-          <article key={day.id}>
+          <article key={day.id} style={{ position: "relative" }}>
+            {/* <h2 style={{ position: "absolute", left: "0" }}>Day {i + 1}</h2>
+            <HoverButton
+              onClick={() => handleDeleteDay(day.id)}
+              style={{ position: "absolute", right: "0" }}
+            >
+              <StyledIconContainer>
+                <DeleteForeverIcon style={{ color: "#E84444" }} />
+              </StyledIconContainer>
+            </HoverButton> */}
+            {/* <div
+              style={{
+                display: "flex",
+                width: "100%",
+                outline: "1px solid red",
+              }}
+            ></div> */}
             <StyledProgramDayContainer>
               <div>
                 <h2>Day {i + 1}</h2>
@@ -42,26 +59,16 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
                 </HoverButton>
               </div>
             </StyledProgramDayContainer>
-
+            <hr />
             <AddProgramExercise
               dayId={day.id}
               setDays={setDays}
               programId={programId}
             />
-            <ul>
-              {day.exercises.map((exercise) => (
-                <li key={exercise.id}>
-                  <p>{exercise.name}</p>
-                  <HoverButton
-                    onClick={() => handleDeleteExercise(exercise.id)}
-                  >
-                    <StyledIconContainer>
-                      <RemoveIcon style={{ color: "#E84444" }} />
-                    </StyledIconContainer>
-                  </HoverButton>
-                </li>
-              ))}
-            </ul>
+            <ProgramExerciseList
+              day={day}
+              handleDeleteExercise={handleDeleteExercise}
+            />
           </article>
         ))}
       </StyledProgramContainer>

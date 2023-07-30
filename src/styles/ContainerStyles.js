@@ -27,10 +27,11 @@ const StyledProgramContainer = styled.main`
   }
 `;
 
-const StyledProgramDayContainer = styled.div`
+const StyledProgramDayContainer = styled.main`
   display: flex;
   justify-content: space-between;
-  align-items: stretch;
+  align-items: center;
+  width: 100%;
 
   div {
     width: auto;
