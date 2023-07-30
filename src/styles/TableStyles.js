@@ -13,7 +13,7 @@ const StyledWorkoutExerciseTable = styled.table`
   }
 
   th,
-  td {
+  td:not(:last-child) {
     padding: 10px 30px;
   }
 `;

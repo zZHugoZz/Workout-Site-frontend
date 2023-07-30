@@ -5,6 +5,7 @@ import { StyledNavLink } from "../styles/LinkStyles";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { AuthContext } from "../context/AuthContext";
 import MenuIcon from "@mui/icons-material/Menu";
+import { InvisibleButton } from "../styles/ButtonStyles";
 
 const SiteHeaderNav = () => {
   const { handleLogout } = useContext(AuthContext);
@@ -37,29 +38,16 @@ const SiteHeaderNav = () => {
             Community
           </StyledNavLink>
         </span>
-        <button
-          style={{
-            backgroundColor: "transparent",
-            border: "none",
-          }}
-          onClick={handleLogout}
-          className="nav-icon"
-        >
+        <InvisibleButton onClick={handleLogout} className="nav-icon">
           <i style={{ display: "inline-flex", verticalAlign: "top" }}>
             <LogoutIcon fontSize="small" />
           </i>
-        </button>
-        <button
-          style={{
-            backgroundColor: "transparent",
-            border: "none",
-          }}
-          className="menu-icon"
-        >
+        </InvisibleButton>
+        <InvisibleButton className="menu-icon">
           <i style={{ display: "inline-flex", verticalAlign: "top" }}>
             <MenuIcon />
           </i>
-        </button>
+        </InvisibleButton>
       </StyledSiteHeaderNav>
     </>
   );

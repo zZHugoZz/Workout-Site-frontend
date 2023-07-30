@@ -28,7 +28,12 @@ const WorkoutExerciseList = ({ exercises, openDialog }) => {
         <tfoot>
           <tr>
             <td colSpan={"5"}>
-              <button onClick={openDialog}>+</button>
+              <button
+                onClick={openDialog}
+                style={{ width: "100%", height: "35px" }}
+              >
+                +
+              </button>
             </td>
           </tr>
         </tfoot>
