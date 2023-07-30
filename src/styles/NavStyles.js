@@ -15,6 +15,15 @@ const StyledSiteHeaderNav = styled.nav`
     font-size: 18px;
   }
 
+  i {
+    color: rgb(154, 178, 201);
+  }
+
+  i:hover {
+    color: #ff7543;
+    cursor: pointer;
+  }
+
   @media only screen and (width <= 980px) {
     width: auto;
 

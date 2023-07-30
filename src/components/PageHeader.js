@@ -7,6 +7,7 @@ import EggIcon from "@mui/icons-material/Egg";
 import ExploreIcon from "@mui/icons-material/Explore";
 import ForumIcon from "@mui/icons-material/Forum";
 import { StyledPageHeader } from "../styles/HeaderStyles";
+import { StyledIconContainer } from "../styles/IconStyles";
 
 const PageHeader = () => {
   const [PageName, setPageName] = useState("");
@@ -47,7 +48,7 @@ const PageHeader = () => {
           >
             {PageName}
           </span>
-          <i style={{ display: "inline-flex", verticalAlign: "top" }}>{icon}</i>
+          <StyledIconContainer>{icon}</StyledIconContainer>
         </div>
       </StyledPageHeader>
     </>
