@@ -6,6 +6,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 import { AuthContext } from "../context/AuthContext";
 import MenuIcon from "@mui/icons-material/Menu";
 import { InvisibleButton } from "../styles/ButtonStyles";
+import { StyledIconContainer } from "../styles/IconStyles";
 
 const SiteHeaderNav = () => {
   const { handleLogout } = useContext(AuthContext);
@@ -39,14 +40,14 @@ const SiteHeaderNav = () => {
           </StyledNavLink>
         </span>
         <InvisibleButton onClick={handleLogout} className="nav-icon">
-          <i style={{ display: "inline-flex", verticalAlign: "top" }}>
+          <StyledIconContainer>
             <LogoutIcon fontSize="small" />
-          </i>
+          </StyledIconContainer>
         </InvisibleButton>
         <InvisibleButton className="menu-icon">
-          <i style={{ display: "inline-flex", verticalAlign: "top" }}>
+          <StyledIconContainer>
             <MenuIcon />
-          </i>
+          </StyledIconContainer>
         </InvisibleButton>
       </StyledSiteHeaderNav>
     </>
