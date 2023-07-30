@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledWorkoutExerciseTable } from "../styles/TableStyles";
 
-const WorkoutExerciseList = ({ exercises }) => {
+const WorkoutExerciseList = ({ exercises, openDialog }) => {
   return (
     <>
       <StyledWorkoutExerciseTable>
@@ -25,6 +25,13 @@ const WorkoutExerciseList = ({ exercises }) => {
             </tr>
           ))}
         </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan={"5"}>
+              <button onClick={openDialog}>+</button>
+            </td>
+          </tr>
+        </tfoot>
       </StyledWorkoutExerciseTable>
     </>
   );

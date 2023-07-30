@@ -60,8 +60,7 @@ const WorkoutsPage = () => {
   return (
     <>
       <h1>Workouts</h1>
-      <button onClick={openDialog}>Add exercise</button>
-      <WorkoutExerciseList exercises={exercises} />
+      <WorkoutExerciseList exercises={exercises} openDialog={openDialog} />
       <StyledDialog className="workout-dialog">
         <AddWorkoutForm
           formData={formData}
