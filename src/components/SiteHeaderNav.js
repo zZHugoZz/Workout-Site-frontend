@@ -4,6 +4,7 @@ import { StyledSiteHeaderNav } from "../styles/NavStyles";
 import { StyledNavLink } from "../styles/LinkStyles";
 import LogoutIcon from "@mui/icons-material/Logout";
 import { AuthContext } from "../context/AuthContext";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const SiteHeaderNav = () => {
   const { handleLogout } = useContext(AuthContext);
@@ -12,19 +13,29 @@ const SiteHeaderNav = () => {
     <>
       <StyledSiteHeaderNav>
         <span>
-          <StyledNavLink to={"/profile/"}>Profile</StyledNavLink>
+          <StyledNavLink to={"/profile/"} className="nav-icon">
+            Profile
+          </StyledNavLink>
         </span>
         <span>
-          <StyledNavLink to={"/manage/"}>Manage</StyledNavLink>
+          <StyledNavLink to={"/manage/"} className="nav-icon">
+            Manage
+          </StyledNavLink>
         </span>
         <span>
-          <StyledNavLink to={"/nutrition/"}>Nutrition</StyledNavLink>
+          <StyledNavLink to={"/nutrition/"} className="nav-icon">
+            Nutrition
+          </StyledNavLink>
         </span>
         <span>
-          <StyledNavLink to={"/explore/"}>Explore</StyledNavLink>
+          <StyledNavLink to={"/explore/"} className="nav-icon">
+            Explore
+          </StyledNavLink>
         </span>
         <span>
-          <StyledNavLink to={"/community/"}>Community</StyledNavLink>
+          <StyledNavLink to={"/community/"} className="nav-icon">
+            Community
+          </StyledNavLink>
         </span>
         <button
           style={{
@@ -32,9 +43,21 @@ const SiteHeaderNav = () => {
             border: "none",
           }}
           onClick={handleLogout}
+          className="nav-icon"
         >
           <i style={{ display: "inline-flex", verticalAlign: "top" }}>
             <LogoutIcon fontSize="small" />
+          </i>
+        </button>
+        <button
+          style={{
+            backgroundColor: "transparent",
+            border: "none",
+          }}
+          className="menu-icon"
+        >
+          <i style={{ display: "inline-flex", verticalAlign: "top" }}>
+            <MenuIcon />
           </i>
         </button>
       </StyledSiteHeaderNav>
