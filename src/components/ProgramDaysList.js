@@ -2,9 +2,9 @@ import React from "react";
 import useInterceptor from "../utils/useInterceptor";
 import AddProgramExercise from "./AddProgramExercise";
 import { StyledProgramContainer } from "../styles/ContainerStyles";
-import { InvisibleButton } from "../styles/ButtonStyles";
+import { HoverButton } from "../styles/ButtonStyles";
+import { StyledIconContainer } from "../styles/IconStyles";
 import RemoveIcon from "@mui/icons-material/Remove";
-
 const ProgramDaysList = ({ days, programId, setDays }) => {
   const axiosInterceptor = useInterceptor();
 
@@ -38,11 +38,13 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
               {day.exercises.map((exercise) => (
                 <li key={exercise.id}>
                   <p>{exercise.name}</p>
-                  <InvisibleButton
+                  <HoverButton
                     onClick={() => handleDeleteExercise(exercise.id)}
                   >
-                    Delete exercise
-                  </InvisibleButton>
+                    <StyledIconContainer>
+                      <RemoveIcon style={{ color: "#E84444" }} />
+                    </StyledIconContainer>
+                  </HoverButton>
                 </li>
               ))}
             </ul>

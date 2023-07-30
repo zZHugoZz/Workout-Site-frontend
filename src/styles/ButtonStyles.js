@@ -5,4 +5,15 @@ const InvisibleButton = styled.button`
   border: none;
 `;
 
-export { InvisibleButton };
+const HoverButton = styled.button`
+  background-color: transparent;
+  border: none;
+  border-radius: 3px;
+
+  &:hover {
+    background-color: #091117;
+    cursor: pointer;
+  }
+`;
+
+export { InvisibleButton, HoverButton };
