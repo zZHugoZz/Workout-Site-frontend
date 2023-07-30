@@ -3,13 +3,9 @@ import styled from "styled-components";
 const ExplorePageWrapper = styled.main`
   background-color: #020a10;
   width: 100%;
+  padding: 50px 30px;
   display: flex;
   justify-content: center;
-  padding: 50px 0;
-
-  div {
-    max-width: 850px;
-  }
 
   h1,
   h2 {
@@ -27,12 +23,21 @@ const ExplorePageWrapper = styled.main`
 
 const ProgramsPageWrapper = styled.div`
   background-color: #020a10;
-  width: 100%;
   padding: 50px 0;
+  display: flex;
+  justify-content: center;
+
+  div {
+    max-width: 1500px;
+  }
 
   h1,
   h2 {
     color: #97a6b5;
+  }
+
+  h1 {
+    padding-bottom: 30px;
   }
 `;
 

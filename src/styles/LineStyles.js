@@ -5,4 +5,5 @@ const StyledLine = styled.hr`
   border-bottom: 2px solid #2a344a;
   width: auto;
 `;
+
 export { StyledLine };
