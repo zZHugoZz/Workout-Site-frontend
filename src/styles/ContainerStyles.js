@@ -22,7 +22,7 @@ const StyledProgramContainer = styled.main`
   article {
     background-color: #02080d;
     outline: 1px solid #1b1e26;
-    border-radius: 7px;
+    border-radius: 5px;
     padding: 10px;
   }
 `;

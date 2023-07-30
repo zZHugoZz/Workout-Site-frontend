@@ -1,26 +1,31 @@
 import React from "react";
+import { StyledWorkoutExerciseTable } from "../styles/TableStyles";
 
 const WorkoutExerciseList = ({ exercises }) => {
   return (
     <>
-      <table>
-        <tr>
-          <th>Exercise</th>
-          <th>Sets</th>
-          <th>Reps</th>
-          <th>Weight</th>
-          <th>Unit</th>
-        </tr>
-        {exercises.map((exercise) => (
-          <tr key={exercise.id}>
-            <th>{exercise.name}</th>
-            <th>{exercise.sets}</th>
-            <th>{exercise.reps}</th>
-            <th>{exercise.weight}</th>
-            <th>{exercise.unit}</th>
+      <StyledWorkoutExerciseTable>
+        <thead>
+          <tr>
+            <th>Exercise</th>
+            <th>Sets</th>
+            <th>Reps</th>
+            <th>Weight</th>
+            <th>Unit</th>
           </tr>
-        ))}
-      </table>
+        </thead>
+        <tbody>
+          {exercises.map((exercise) => (
+            <tr key={exercise.id}>
+              <td>{exercise.name}</td>
+              <td>{exercise.sets}</td>
+              <td>{exercise.reps}</td>
+              <td>{exercise.weight}</td>
+              <td>{exercise.unit}</td>
+            </tr>
+          ))}
+        </tbody>
+      </StyledWorkoutExerciseTable>
     </>
   );
 };
