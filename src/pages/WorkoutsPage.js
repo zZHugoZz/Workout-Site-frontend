@@ -11,6 +11,7 @@ import { BrightLine } from "../styles/LineStyles";
 const WorkoutsPage = () => {
   const { id } = useParams();
   const [exercises, setExercises] = useState([]);
+  const [workoutDate, setWorkoutDate] = useState("");
   const [formData, setFormData] = useState({
     name: "",
     sets: "",
@@ -46,6 +47,7 @@ const WorkoutsPage = () => {
   useEffect(() => {
     axiosInterceptor.get(`/workouts/${id}`).then((response) => {
       setExercises(response.data.exercises);
+      setWorkoutDate(response.data.date);
     });
   }, []);
 
@@ -65,6 +67,7 @@ const WorkoutsPage = () => {
         <div>
           <h1>Workouts</h1>
           <BrightLine style={{ marginBottom: "50px" }} />
+          <h3>{workoutDate}</h3>
           <WorkoutExerciseList exercises={exercises} openDialog={openDialog} />
           <StyledDialog className="workout-dialog">
             <AddWorkoutExerciseForm

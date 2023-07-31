@@ -9,9 +9,7 @@ const WorkoutsList = () => {
   const axiosInterceptor = useInterceptor();
 
   const handleDelete = (id) => {
-    axiosInterceptor.delete(`/workouts/${id}`).then((response) => {
-      console.log("response: ", response);
-    });
+    axiosInterceptor.delete(`/workouts/${id}`);
     axiosInterceptor.get("/workouts").then((response) => {
       setWorkouts(response.data);
     });
@@ -32,7 +30,7 @@ const WorkoutsList = () => {
       <ul>
         {workouts.map((workout) => (
           <li key={workout.id}>
-            {workout.created_at}
+            {workout.date}
             <button onClick={() => handleDelete(workout.id)}>Delete</button>
             <button onClick={() => handleAccess(workout.id)}>Access</button>
           </li>

@@ -29,7 +29,8 @@ const WorkoutsPagewrapper = styled.div`
   justify-content: center;
 
   h1,
-  h2 {
+  h2,
+  h3 {
     color: #97a6b5;
   }
 
@@ -37,7 +38,8 @@ const WorkoutsPagewrapper = styled.div`
     padding-bottom: 30px;
   }
 
-  h2 {
+  h2,
+  h3 {
     padding-bottom: 10px;
   }
 
