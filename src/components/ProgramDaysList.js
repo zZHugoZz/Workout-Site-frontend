@@ -41,14 +41,16 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
               </HoverButton>
             </StyledProgramDayContainer>
             <DarkLine />
-            <AddProgramExercise
+            {/* <AddProgramExercise
               dayId={day.id}
               setDays={setDays}
               programId={programId}
-            />
+            /> */}
             <ProgramExerciseList
               day={day}
               handleDeleteExercise={handleDeleteExercise}
+              setDays={setDays}
+              programId={programId}
             />
           </article>
         ))}

@@ -3,8 +3,14 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import { StyledIconContainer } from "../styles/IconStyles";
 import { HoverButton } from "../styles/ButtonStyles";
 import { StyledProgramExerciseTable } from "../styles/TableStyles";
+import AddProgramExercise from "./AddProgramExercise";
 
-const ProgramExerciseList = ({ day, handleDeleteExercise }) => {
+const ProgramExerciseList = ({
+  day,
+  handleDeleteExercise,
+  setDays,
+  programId,
+}) => {
   return (
     <>
       <StyledProgramExerciseTable>
@@ -19,7 +25,7 @@ const ProgramExerciseList = ({ day, handleDeleteExercise }) => {
           {day.exercises.map((exercise) => (
             <tr key={exercise.id}>
               <td>
-                {exercise.name}-
+                {exercise.name}
                 <HoverButton onClick={() => handleDeleteExercise(exercise.id)}>
                   <StyledIconContainer>
                     <RemoveIcon style={{ color: "#E84444" }} />
@@ -37,7 +43,13 @@ const ProgramExerciseList = ({ day, handleDeleteExercise }) => {
         </tbody>
         <tfoot>
           <tr>
-            <td colSpan={"3"}></td>
+            <td colSpan={"3"}>
+              <AddProgramExercise
+                dayId={day.id}
+                setDays={setDays}
+                programId={programId}
+              />
+            </td>
           </tr>
         </tfoot>
       </StyledProgramExerciseTable>

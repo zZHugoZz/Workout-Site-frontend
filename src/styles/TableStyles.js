@@ -28,7 +28,7 @@ const StyledProgramExerciseTable = styled.table`
 
   th,
   td:not(:last-child) {
-    padding: 10px 30px;
+    padding: 5px 30px;
   }
 `;
 
