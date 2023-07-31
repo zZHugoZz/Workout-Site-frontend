@@ -1,5 +1,8 @@
 import React from "react";
 import { StyledWorkoutExerciseTable } from "../styles/TableStyles";
+import { HoverButton } from "../styles/ButtonStyles";
+import { StyledIconContainer } from "../styles/IconStyles";
+import AddIcon from "@mui/icons-material/Add";
 
 const WorkoutExerciseList = ({ exercises, openDialog }) => {
   return (
@@ -28,12 +31,14 @@ const WorkoutExerciseList = ({ exercises, openDialog }) => {
         <tfoot>
           <tr>
             <td colSpan={"5"}>
-              <button
+              <HoverButton
                 onClick={openDialog}
                 style={{ width: "100%", height: "35px", cursor: "pointer" }}
               >
-                +
-              </button>
+                <StyledIconContainer>
+                  <AddIcon style={{ color: "#3DFF54" }} />
+                </StyledIconContainer>
+              </HoverButton>
             </td>
           </tr>
         </tfoot>

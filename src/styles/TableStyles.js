@@ -21,6 +21,10 @@ const StyledWorkoutExerciseTable = styled.table`
     background-color: #060c13;
   }
 
+  tbody > tr:last-child > td {
+    border-bottom: 1px solid #2a344a;
+  }
+
   th,
   td:not(:last-child) {
     padding: 15px 60px;
