@@ -27,13 +27,12 @@ const AddProgramExercise = ({ dayId, setDays, programId }) => {
         </StyledIconContainer>
       </HoverButton>
       <StyledDialog className={`dialog-${dayId}`}>
-        <h2>Dialog {dayId}</h2>
         <AddProgramExerciseForm
           dayId={dayId}
           setDays={setDays}
           programId={programId}
+          closeDialog={closeDialog}
         />
-        <button onClick={closeDialog}>Close</button>
       </StyledDialog>
     </>
   );

@@ -74,6 +74,11 @@ const ProgramsPageWrapper = styled.div`
     padding-bottom: 30px;
   }
 
+  h2,
+  h3 {
+    padding-bottom: 10px;
+  }
+
   table > thead {
     color: #afc0cf;
     font-family: Bold;

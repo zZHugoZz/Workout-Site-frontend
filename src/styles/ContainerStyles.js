@@ -46,7 +46,7 @@ const StyledProgramDayContainer = styled.main`
   }
 `;
 
-const StyledWorkoutsPageDialogContainer = styled.div`
+const StyledDialogHeaderContainer = styled.main`
   position: relative;
   width: 100%;
   padding-bottom: 40px;
@@ -69,5 +69,5 @@ export {
   StyledExploreMainContainer,
   StyledProgramContainer,
   StyledProgramDayContainer,
-  StyledWorkoutsPageDialogContainer,
+  StyledDialogHeaderContainer,
 };

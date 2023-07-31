@@ -4,7 +4,7 @@ import { DialogLine } from "../styles/LineStyles";
 import { HoverButton } from "../styles/ButtonStyles";
 import { StyledIconContainer } from "../styles/IconStyles";
 import CloseIcon from "@mui/icons-material/Close";
-import { StyledWorkoutsPageDialogContainer } from "../styles/ContainerStyles";
+import { StyledDialogHeaderContainer } from "../styles/ContainerStyles";
 import { GreenButton } from "../styles/ButtonStyles";
 
 const AddWorkoutExerciseForm = ({
@@ -15,14 +15,14 @@ const AddWorkoutExerciseForm = ({
 }) => {
   return (
     <>
-      <StyledWorkoutsPageDialogContainer>
+      <StyledDialogHeaderContainer>
         <h2>Add exercise</h2>
         <HoverButton onClick={closeDialog}>
           <StyledIconContainer>
             <CloseIcon style={{ color: "#AFC0CF" }} />
           </StyledIconContainer>
         </HoverButton>
-      </StyledWorkoutsPageDialogContainer>
+      </StyledDialogHeaderContainer>
       <DialogLine style={{ marginBottom: "30px" }} />
       <form onSubmit={handleSubmit}>
         <div>
