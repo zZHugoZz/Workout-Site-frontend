@@ -18,7 +18,10 @@ const AddProgramExercise = ({ dayId, setDays, programId }) => {
 
   return (
     <>
-      <HoverButton onClick={openDialog}>
+      <HoverButton
+        onClick={openDialog}
+        style={{ width: "100%", height: "35px", cursor: "pointer" }}
+      >
         <StyledIconContainer>
           <AddIcon style={{ color: "#3DFF54" }} />
         </StyledIconContainer>

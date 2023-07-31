@@ -67,6 +67,16 @@ const ProgramsPageWrapper = styled.div`
   h1 {
     padding-bottom: 30px;
   }
+
+  table > thead {
+    color: #afc0cf;
+    font-family: Bold;
+  }
+
+  table > tbody {
+    color: #afc0cf;
+    font-family: Light;
+  }
 `;
 
 export { ExplorePageWrapper, WorkoutsPagewrapper, ProgramsPageWrapper };
