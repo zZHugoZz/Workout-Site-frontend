@@ -17,13 +17,14 @@ const StyledProgramContainer = styled.main`
   display: grid;
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 40px;
 
   article {
     background-color: #02080d;
     outline: 1px solid #1b1e26;
     border-radius: 5px;
     padding: 10px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
   }
 `;
 

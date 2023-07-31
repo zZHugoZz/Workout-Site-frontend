@@ -7,6 +7,7 @@ const StyledWorkoutExerciseTable = styled.table`
   border: 1px solid #2a344a;
   overflow: hidden;
   text-align: center;
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.5);
 
   th {
     background-color: black;
