@@ -36,6 +36,16 @@ const WorkoutsPagewrapper = styled.div`
   h1 {
     padding-bottom: 30px;
   }
+
+  table > thead {
+    color: #afc0cf;
+    font-family: Bold;
+  }
+
+  table > tbody {
+    color: #afc0cf;
+    font-family: Light;
+  }
 `;
 
 const ProgramsPageWrapper = styled.div`

@@ -4,17 +4,26 @@ const StyledWorkoutExerciseTable = styled.table`
   border-spacing: 0;
   border-collapse: separate;
   border-radius: 5px;
-  border: 1px solid black;
+  border: 1px solid #2a344a;
   overflow: hidden;
   text-align: center;
 
-  tr:nth-child(even) {
-    background-color: red;
+  th {
+    background-color: black;
+    border-bottom: 1px solid #2a344a;
+  }
+
+  tbody > tr:nth-child(odd) {
+    background-color: #02080d;
+  }
+
+  tbody > tr:nth-child(even) {
+    background-color: #060c13;
   }
 
   th,
   td:not(:last-child) {
-    padding: 10px 60px;
+    padding: 15px 60px;
   }
 `;
 
