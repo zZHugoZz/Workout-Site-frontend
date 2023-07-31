@@ -16,4 +16,18 @@ const HoverButton = styled.button`
   }
 `;
 
-export { InvisibleButton, HoverButton };
+const GreenButton = styled.button`
+  border: none;
+  outline: 1px solid white;
+  font-family: Bold;
+  color: white;
+  background-color: #2ca92c;
+  border-radius: 3px;
+  padding: 10px;
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export { InvisibleButton, HoverButton, GreenButton };

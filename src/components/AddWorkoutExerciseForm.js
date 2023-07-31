@@ -5,6 +5,7 @@ import { HoverButton } from "../styles/ButtonStyles";
 import { StyledIconContainer } from "../styles/IconStyles";
 import CloseIcon from "@mui/icons-material/Close";
 import { StyledWorkoutsPageDialogContainer } from "../styles/ContainerStyles";
+import { GreenButton } from "../styles/ButtonStyles";
 
 const AddWorkoutExerciseForm = ({
   formData,
@@ -72,7 +73,7 @@ const AddWorkoutExerciseForm = ({
           </select>
         </div>
 
-        <button>Add exercise</button>
+        <GreenButton>Add exercise</GreenButton>
       </form>
     </>
   );

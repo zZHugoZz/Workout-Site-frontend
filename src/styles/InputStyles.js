@@ -28,7 +28,7 @@ const StyledDialogInput = styled.input`
   border-radius: 5px;
   outline: none;
   font-size: 16px;
-  background-color: black;
+  background-color: #03090a;
   color: aliceblue;
   font-family: "Regular";
   caret-color: #ffffff;
