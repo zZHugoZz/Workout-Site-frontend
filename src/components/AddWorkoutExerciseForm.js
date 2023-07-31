@@ -6,6 +6,7 @@ import { StyledIconContainer } from "../styles/IconStyles";
 import CloseIcon from "@mui/icons-material/Close";
 import { StyledDialogHeaderContainer } from "../styles/ContainerStyles";
 import { GreenButton } from "../styles/ButtonStyles";
+import { VerticalForm } from "../styles/FormStyles";
 
 const AddWorkoutExerciseForm = ({
   formData,
@@ -24,39 +25,35 @@ const AddWorkoutExerciseForm = ({
         </HoverButton>
       </StyledDialogHeaderContainer>
       <DialogLine style={{ marginBottom: "30px" }} />
-      <form onSubmit={handleSubmit}>
-        <div>
-          <StyledDialogInput
-            type="text"
-            name="name"
-            placeholder="Exercise..."
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <StyledDialogInput
-            type="number"
-            min="1"
-            name="sets"
-            placeholder="Sets..."
-            value={formData.sets}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <StyledDialogInput
-            type="number"
-            min="1"
-            name="reps"
-            placeholder="Reps..."
-            value={formData.reps}
-            onChange={handleChange}
-            required
-          />
-        </div>
+      <VerticalForm onSubmit={handleSubmit}>
+        <StyledDialogInput
+          type="text"
+          name="name"
+          placeholder="Exercise..."
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+
+        <StyledDialogInput
+          type="number"
+          min="1"
+          name="sets"
+          placeholder="Sets..."
+          value={formData.sets}
+          onChange={handleChange}
+          required
+        />
+
+        <StyledDialogInput
+          type="number"
+          min="1"
+          name="reps"
+          placeholder="Reps..."
+          value={formData.reps}
+          onChange={handleChange}
+          required
+        />
         <div>
           <StyledDialogInput
             type="number"
@@ -72,10 +69,9 @@ const AddWorkoutExerciseForm = ({
             <option value="lbs">Lbs</option>
           </select>
         </div>
-        <div>
-          <GreenButton>Add exercise</GreenButton>
-        </div>
-      </form>
+
+        <GreenButton>Add exercise</GreenButton>
+      </VerticalForm>
     </>
   );
 };

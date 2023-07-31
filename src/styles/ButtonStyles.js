@@ -24,6 +24,7 @@ const GreenButton = styled.button`
   background-color: #2ca92c;
   border-radius: 3px;
   padding: 10px;
+  width: max-content;
 
   &:hover {
     cursor: pointer;
