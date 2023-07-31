@@ -37,6 +37,10 @@ const WorkoutsPagewrapper = styled.div`
     padding-bottom: 30px;
   }
 
+  h2 {
+    padding-bottom: 10px;
+  }
+
   table > thead {
     color: #afc0cf;
     font-family: Bold;

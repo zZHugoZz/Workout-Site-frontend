@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import AddWorkoutForm from "../components/AddWorkoutForm";
+import AddWorkoutExerciseForm from "../components/AddWorkoutExerciseForm";
 import WorkoutExerciseList from "../components/WorkoutExerciseList";
 import { StyledDialog } from "../styles/DialogStyles";
 import useInterceptor from "../utils/useInterceptor";
@@ -67,12 +67,12 @@ const WorkoutsPage = () => {
           <BrightLine style={{ marginBottom: "50px" }} />
           <WorkoutExerciseList exercises={exercises} openDialog={openDialog} />
           <StyledDialog className="workout-dialog">
-            <AddWorkoutForm
+            <AddWorkoutExerciseForm
               formData={formData}
               handleSubmit={handleSubmit}
               handleChange={handleChange}
+              closeDialog={closeDialog}
             />
-            <button onClick={closeDialog}>Close</button>
           </StyledDialog>
         </div>
       </WorkoutsPagewrapper>

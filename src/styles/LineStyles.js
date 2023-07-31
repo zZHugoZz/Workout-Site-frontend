@@ -12,4 +12,10 @@ const DarkLine = styled.hr`
   width: auto;
 `;
 
-export { BrightLine, DarkLine };
+const DialogLine = styled.hr`
+  border: none;
+  border-bottom: 2px solid #121a2f;
+  width: auto;
+`;
+
+export { BrightLine, DarkLine, DialogLine };

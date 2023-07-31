@@ -29,7 +29,7 @@ const StyledProgramContainer = styled.main`
 `;
 
 const StyledProgramDayContainer = styled.main`
-  position: relative
+  position: relative;
   width: 100%;
   padding-bottom: 40px;
 
@@ -43,7 +43,24 @@ const StyledProgramDayContainer = styled.main`
     width: max-content;
     position: absolute;
     right: 0;
-    margin-right: 10px;
+  }
+`;
+
+const StyledWorkoutsPageDialogContainer = styled.div`
+  position: relative;
+  width: 100%;
+  padding-bottom: 40px;
+
+  h2 {
+    width: max-content;
+    position: absolute;
+    left: 1;
+  }
+
+  button {
+    width: max-content;
+    position: absolute;
+    right: 0;
   }
 `;
 
@@ -52,4 +69,5 @@ export {
   StyledExploreMainContainer,
   StyledProgramContainer,
   StyledProgramDayContainer,
+  StyledWorkoutsPageDialogContainer,
 };
