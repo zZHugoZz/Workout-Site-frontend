@@ -72,8 +72,9 @@ const AddWorkoutExerciseForm = ({
             <option value="lbs">Lbs</option>
           </select>
         </div>
-
-        <GreenButton>Add exercise</GreenButton>
+        <div>
+          <GreenButton>Add exercise</GreenButton>
+        </div>
       </form>
     </>
   );

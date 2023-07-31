@@ -8,6 +8,7 @@ import { StyledIconContainer } from "../styles/IconStyles";
 import CloseIcon from "@mui/icons-material/Close";
 import { DialogLine } from "../styles/LineStyles";
 import { GreenButton } from "../styles/ButtonStyles";
+import { VerticalForm } from "../styles/FormStyles";
 
 const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
   const [formData, setFormData] = useState({
@@ -52,64 +53,58 @@ const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
         </HoverButton>
       </StyledDialogHeaderContainer>
       <DialogLine style={{ marginBottom: "30px" }} />
-      <form onSubmit={handleSubmit}>
-        <div>
-          <StyledDialogInput
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            placeholder="Exercise..."
-          />
-        </div>
-        <div>
-          <StyledDialogInput
-            type="number"
-            min={1}
-            name="min_sets"
-            value={formData.min_sets}
-            onChange={handleChange}
-            required
-            placeholder="Min sets..."
-          />
-        </div>
-        <div>
-          <StyledDialogInput
-            type="number"
-            min={1}
-            name="max_sets"
-            value={formData.max_sets}
-            onChange={handleChange}
-            required
-            placeholder="Max sets..."
-          />
-        </div>
-        <div>
-          <StyledDialogInput
-            type="number"
-            min={1}
-            name="min_reps"
-            value={formData.min_reps}
-            onChange={handleChange}
-            required
-            placeholder="Min reps..."
-          />
-        </div>
-        <div>
-          <StyledDialogInput
-            type="number"
-            min={1}
-            name="max_reps"
-            value={formData.max_reps}
-            onChange={handleChange}
-            required
-            placeholder="Max reps..."
-          />
-        </div>
+      <VerticalForm onSubmit={handleSubmit}>
+        <StyledDialogInput
+          type="text"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+          placeholder="Exercise..."
+        />
+
+        <StyledDialogInput
+          type="number"
+          min={1}
+          name="min_sets"
+          value={formData.min_sets}
+          onChange={handleChange}
+          required
+          placeholder="Min sets..."
+        />
+
+        <StyledDialogInput
+          type="number"
+          min={1}
+          name="max_sets"
+          value={formData.max_sets}
+          onChange={handleChange}
+          required
+          placeholder="Max sets..."
+        />
+
+        <StyledDialogInput
+          type="number"
+          min={1}
+          name="min_reps"
+          value={formData.min_reps}
+          onChange={handleChange}
+          required
+          placeholder="Min reps..."
+        />
+
+        <StyledDialogInput
+          type="number"
+          min={1}
+          name="max_reps"
+          value={formData.max_reps}
+          onChange={handleChange}
+          required
+          placeholder="Max reps..."
+        />
 
         <GreenButton>Add exercise</GreenButton>
-      </form>
+      </VerticalForm>
     </>
   );
 };
