@@ -1,6 +1,5 @@
 import React from "react";
 import useInterceptor from "../utils/useInterceptor";
-import AddProgramExercise from "./AddProgramExercise";
 import { StyledProgramContainer } from "../styles/ContainerStyles";
 import { HoverButton } from "../styles/ButtonStyles";
 import { StyledIconContainer } from "../styles/IconStyles";
@@ -40,12 +39,7 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
                 </StyledIconContainer>
               </HoverButton>
             </StyledProgramDayContainer>
-            <DarkLine />
-            {/* <AddProgramExercise
-              dayId={day.id}
-              setDays={setDays}
-              programId={programId}
-            /> */}
+            <DarkLine style={{ marginBottom: "20px" }} />
             <ProgramExerciseList
               day={day}
               handleDeleteExercise={handleDeleteExercise}

@@ -5,6 +5,8 @@ import AddWorkoutForm from "../components/AddWorkoutForm";
 import WorkoutExerciseList from "../components/WorkoutExerciseList";
 import { StyledDialog } from "../styles/DialogStyles";
 import useInterceptor from "../utils/useInterceptor";
+import { WorkoutsPagewrapper } from "../styles/WrapperStyles";
+import { BrightLine } from "../styles/LineStyles";
 
 const WorkoutsPage = () => {
   const { id } = useParams();
@@ -59,16 +61,21 @@ const WorkoutsPage = () => {
 
   return (
     <>
-      <h1>Workouts</h1>
-      <WorkoutExerciseList exercises={exercises} openDialog={openDialog} />
-      <StyledDialog className="workout-dialog">
-        <AddWorkoutForm
-          formData={formData}
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
-        />
-        <button onClick={closeDialog}>Close</button>
-      </StyledDialog>
+      <WorkoutsPagewrapper>
+        <div>
+          <h1>Workouts</h1>
+          <BrightLine style={{ marginBottom: "50px" }} />
+          <WorkoutExerciseList exercises={exercises} openDialog={openDialog} />
+          <StyledDialog className="workout-dialog">
+            <AddWorkoutForm
+              formData={formData}
+              handleSubmit={handleSubmit}
+              handleChange={handleChange}
+            />
+            <button onClick={closeDialog}>Close</button>
+          </StyledDialog>
+        </div>
+      </WorkoutsPagewrapper>
     </>
   );
 };
