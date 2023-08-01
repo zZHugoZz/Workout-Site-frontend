@@ -27,8 +27,16 @@ const StyledManagePageMainContainer = styled.main`
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
   }
 
+  article:nth-of-type(1) {
+    height: 250px;
+  }
+
   article:nth-of-type(3) {
     grid-column: 1 / 3;
+  }
+
+  article:nth-of-type(4) {
+    height: 250px;
   }
 `;
 
