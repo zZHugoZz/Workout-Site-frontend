@@ -13,6 +13,13 @@ const StyledExploreMainContainer = styled.div`
   max-width: 850px;
 `;
 
+const StyledManagePageMainContainer = styled.main`
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+`;
+
 const StyledProgramContainer = styled.main`
   display: grid;
   width: 100%;
@@ -67,6 +74,7 @@ const StyledDialogHeaderContainer = styled.main`
 export {
   StyledExploreTitleContainer,
   StyledExploreMainContainer,
+  StyledManagePageMainContainer,
   StyledProgramContainer,
   StyledProgramDayContainer,
   StyledDialogHeaderContainer,
