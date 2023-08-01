@@ -28,6 +28,10 @@ const ManagePageWrapper = styled.div`
   display: flex;
   justify-content: center;
 
+  div {
+    width: 80%;
+  }
+
   h1,
   h2,
   h3 {
