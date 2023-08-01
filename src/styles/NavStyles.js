@@ -5,7 +5,7 @@ const StyledSiteHeaderNav = styled.nav`
   padding-right: 70px;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
 
   .menu-icon {
     display: none;
