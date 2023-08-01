@@ -26,6 +26,10 @@ const StyledManagePageMainContainer = styled.main`
     padding: 10px;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
   }
+
+  article:nth-of-type(3) {
+    grid-column: 1 / 3;
+  }
 `;
 
 const StyledProgramContainer = styled.main`

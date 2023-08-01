@@ -12,7 +12,7 @@ const ManagePage = () => {
     <>
       <ManagePageWrapper>
         <div>
-          <h1>Manage page</h1>
+          <h1>Overview</h1>
           <BrightLine style={{ marginBottom: "50px" }} />
           <StyledManagePageMainContainer>
             <article>
