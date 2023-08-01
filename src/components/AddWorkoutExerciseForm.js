@@ -34,7 +34,6 @@ const AddWorkoutExerciseForm = ({
           onChange={handleChange}
           required
         />
-
         <StyledDialogInput
           type="number"
           min="1"
@@ -44,7 +43,6 @@ const AddWorkoutExerciseForm = ({
           onChange={handleChange}
           required
         />
-
         <StyledDialogInput
           type="number"
           min="1"
@@ -69,7 +67,6 @@ const AddWorkoutExerciseForm = ({
             <option value="lbs">Lbs</option>
           </select>
         </div>
-
         <GreenButton>Add exercise</GreenButton>
       </VerticalForm>
     </>

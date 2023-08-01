@@ -21,6 +21,24 @@ const ExplorePageWrapper = styled.main`
   }
 `;
 
+const ManagePageWrapper = styled.div`
+  background-color: #020a10;
+  width: 100%;
+  padding: 50px 30px;
+  display: flex;
+  justify-content: center;
+
+  h1,
+  h2,
+  h3 {
+    color: #97a6b5;
+  }
+
+  h1 {
+    padding-bottom: 30px;
+  }
+`;
+
 const WorkoutsPagewrapper = styled.div`
   background-color: #020a10;
   width: 100%;
@@ -90,4 +108,9 @@ const ProgramsPageWrapper = styled.div`
   }
 `;
 
-export { ExplorePageWrapper, WorkoutsPagewrapper, ProgramsPageWrapper };
+export {
+  ExplorePageWrapper,
+  ManagePageWrapper,
+  WorkoutsPagewrapper,
+  ProgramsPageWrapper,
+};

@@ -62,7 +62,6 @@ const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
           required
           placeholder="Exercise..."
         />
-
         <StyledDialogInput
           type="number"
           min={1}
@@ -72,7 +71,6 @@ const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
           required
           placeholder="Min sets..."
         />
-
         <StyledDialogInput
           type="number"
           min={1}
@@ -82,7 +80,6 @@ const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
           required
           placeholder="Max sets..."
         />
-
         <StyledDialogInput
           type="number"
           min={1}
@@ -92,7 +89,6 @@ const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
           required
           placeholder="Min reps..."
         />
-
         <StyledDialogInput
           type="number"
           min={1}
@@ -102,7 +98,6 @@ const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
           required
           placeholder="Max reps..."
         />
-
         <GreenButton>Add exercise</GreenButton>
       </VerticalForm>
     </>
