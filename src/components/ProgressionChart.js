@@ -14,7 +14,7 @@ const ProgressionChart = ({ data, unit }) => {
       legend: {
         labels: {
           font: {
-            family: "Light",
+            family: "Regular",
           },
         },
       },

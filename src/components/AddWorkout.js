@@ -24,7 +24,7 @@ const AddWorkout = () => {
     <>
       <SmallGreenButton onClick={handleAddWorkout} title="Add new workout">
         <StyledIconContainer>
-          <AddIcon />
+          <AddIcon style={{ color: "white" }} />
         </StyledIconContainer>
       </SmallGreenButton>
     </>

@@ -24,7 +24,7 @@ const AddProgram = () => {
     <>
       <SmallGreenButton onClick={handleAddProgram} title="Create new program">
         <StyledIconContainer>
-          <AddIcon />
+          <AddIcon style={{ color: "white" }} />
         </StyledIconContainer>
       </SmallGreenButton>
     </>

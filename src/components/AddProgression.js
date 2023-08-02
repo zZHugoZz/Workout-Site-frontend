@@ -19,7 +19,7 @@ const AddProgression = ({ setProgressions }) => {
     <>
       <SmallGreenButton onClick={openDialog} title="Add a new progression">
         <StyledIconContainer>
-          <AddIcon />
+          <AddIcon style={{ color: "white" }} />
         </StyledIconContainer>
       </SmallGreenButton>
       <dialog className="add-progression-dialog">

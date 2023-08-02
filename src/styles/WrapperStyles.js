@@ -41,6 +41,14 @@ const ManagePageWrapper = styled.div`
   h1 {
     padding-bottom: 30px;
   }
+
+  p,
+  span,
+  li,
+  button {
+    font-family: Regular;
+    color: #afc0cf;
+  }
 `;
 
 const WorkoutsPagewrapper = styled.div`
