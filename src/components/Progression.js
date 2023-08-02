@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import useInterceptor from "../utils/useInterceptor";
 import ProgressionChart from "./ProgressionChart";
 import ProgressionsList from "./ProgressionsList";
+import AddProgression from "./AddProgression";
 
 const Progression = () => {
   const [progressions, setProgressions] = useState([]);
@@ -71,6 +72,7 @@ const Progression = () => {
         setProgressions={setProgressions}
       />
       <ProgressionChart data={chartData} unit={unit} />
+      <AddProgression />
     </>
   );
 };
