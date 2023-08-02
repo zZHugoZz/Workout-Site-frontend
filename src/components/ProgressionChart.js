@@ -36,7 +36,7 @@ const ProgressionChart = ({ data, unit }) => {
   };
   return (
     <>
-      <div style={{ position: "relative", minHeight: "300px" }}>
+      <div style={{ position: "relative", minHeight: "300px", width: "100%" }}>
         <Line data={data} options={options} />
       </div>
     </>

@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import useInterceptor from "../utils/useInterceptor";
 import ProgressionChart from "./ProgressionChart";
+import ProgressionsList from "./ProgressionsList";
 
 const Progression = () => {
   const [progressions, setProgressions] = useState([]);
@@ -23,25 +24,26 @@ const Progression = () => {
   }, []);
 
   useEffect(() => {
-    axiosInterceptor.get("/progression").then((response) => {
+    axiosInterceptor.get("/progressions").then((response) => {
       const lengths = response.data.map(
         (progression) => progression.performances.length
       );
       setProgressions(response.data);
       setLongestProgression(Math.max(...lengths));
-      setDatasets(
-        response.data.map((progression) => ({
-          label: progression.name,
-          data: progression.performances.map(
-            (performance) => performance.weight
-          ),
-          borderColor: progression.color,
-          backgroundColor: progression.color,
-          color: "#AFC0CF",
-        }))
-      );
     });
   }, []);
+
+  useEffect(() => {
+    setDatasets(
+      progressions.map((progression) => ({
+        label: progression.name,
+        data: progression.performances.map((performance) => performance.weight),
+        borderColor: progression.color,
+        backgroundColor: progression.color,
+        color: "#AFC0CF",
+      }))
+    );
+  }, [progressions]);
 
   useEffect(() => {
     setChartData({
@@ -63,6 +65,11 @@ const Progression = () => {
   return (
     <>
       <h2>Progression</h2>
+      <ProgressionsList
+        progressions={progressions}
+        unit={unit}
+        setProgressions={setProgressions}
+      />
       <ProgressionChart data={chartData} unit={unit} />
     </>
   );
