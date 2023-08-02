@@ -4,6 +4,7 @@ import useInterceptor from "../utils/useInterceptor";
 import ProgressionChart from "./ProgressionChart";
 import ProgressionsList from "./ProgressionsList";
 import AddProgression from "./AddProgression";
+import SelectProgressionUnit from "./SelectProgressionUnit";
 
 const Progression = () => {
   const [progressions, setProgressions] = useState([]);
@@ -17,6 +18,13 @@ const Progression = () => {
   });
 
   const axiosInterceptor = useInterceptor();
+
+  const handleUnitChange = (e) => {
+    setUnit(e.target.value);
+    axiosInterceptor.put("/units/1/", {
+      unit: e.target.value,
+    });
+  };
 
   useEffect(() => {
     axiosInterceptor.get("/units/1/").then((response) => {
@@ -66,6 +74,7 @@ const Progression = () => {
   return (
     <>
       <h2>Progression</h2>
+      <SelectProgressionUnit handleUnitChange={handleUnitChange} unit={unit} />
       <ProgressionsList
         progressions={progressions}
         unit={unit}
