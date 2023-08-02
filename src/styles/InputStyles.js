@@ -43,4 +43,15 @@ const StyledDialogInput = styled.input`
   }
 `;
 
-export { StyledSearchBar, StyledDialogInput };
+const StyledSmallSelectInput = styled.select`
+  padding: 3px;
+  border: 1px solid #647183;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  background-color: #03090a;
+  color: aliceblue;
+  font-family: "Regular";
+`;
+
+export { StyledSearchBar, StyledDialogInput, StyledSmallSelectInput };

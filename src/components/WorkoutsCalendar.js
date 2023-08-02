@@ -9,6 +9,7 @@ const WorkoutsCalendar = () => {
   return (
     <>
       <Calendar onChange={setDate} value={date} />
+      <span>{date.toDateString()}</span>
     </>
   );
 };

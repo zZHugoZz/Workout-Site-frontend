@@ -19,8 +19,6 @@ const Workouts = () => {
         <AddWorkout />
       </div>
       <DarkLine style={{ marginBottom: "20px" }} />
-      <WorkoutsCalendar />
-
       <WorkoutsList />
     </>
   );

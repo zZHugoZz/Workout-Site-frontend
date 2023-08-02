@@ -84,9 +84,12 @@ const Progression = () => {
       >
         <h2>Progression</h2>
         <AddProgression setProgressions={setProgressions} />
+        <SelectProgressionUnit
+          handleUnitChange={handleUnitChange}
+          unit={unit}
+        />
       </div>
       <DarkLine style={{ marginBottom: "20px" }} />
-      <SelectProgressionUnit handleUnitChange={handleUnitChange} unit={unit} />
       <ProgressionsList
         progressions={progressions}
         unit={unit}
