@@ -1,5 +1,8 @@
 import React from "react";
 import useInterceptor from "../utils/useInterceptor";
+import { GreenButton } from "../styles/ButtonStyles";
+import { StyledIconContainer } from "../styles/IconStyles";
+import AddIcon from "@mui/icons-material/Add";
 
 const AddDay = ({ id, setDays }) => {
   const axiosInterceptor = useInterceptor();
@@ -14,14 +17,18 @@ const AddDay = ({ id, setDays }) => {
         let article = document.getElementById(`#article-${response.data.id}`);
         console.log("article: ", article);
       });
-    axiosInterceptor.get(`/programs/${id}`).then((response) => {
+    await axiosInterceptor.get(`/programs/${id}`).then((response) => {
       setDays(response.data.days);
     });
   };
 
   return (
     <>
-      <button onClick={handleAddDay}>Add day</button>
+      <GreenButton onClick={handleAddDay}>
+        <StyledIconContainer>
+          <AddIcon />
+        </StyledIconContainer>
+      </GreenButton>
     </>
   );
 };

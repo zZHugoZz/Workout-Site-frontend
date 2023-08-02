@@ -19,25 +19,12 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
     });
   };
 
-  // const handleAddDay = async () => {
-  //   await axiosInterceptor.post("/program_days", {
-  //     program_id: programId,
-  //   });
-  //   axiosInterceptor.get(`/programs/${programId}`).then((response) => {
-  //     setDays(response.data.days);
-  //   });
-  // };
-
   const handleDeleteExercise = async (exerciseId) => {
     await axiosInterceptor.delete(`/program_exercises/${exerciseId}`);
     axiosInterceptor.get(`/programs/${programId}`).then((response) => {
       setDays(response.data.days);
     });
   };
-
-  useEffect(() => {
-    document.getElementById("add-day-button").scrollIntoView();
-  }, [days]);
 
   return (
     <>
@@ -62,9 +49,9 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
             />
           </article>
         ))}
-        <article id="add-day-button">
+        <section>
           <AddDay id={programId} setDays={setDays} />
-        </article>
+        </section>
       </StyledProgramContainer>
     </>
   );

@@ -52,6 +52,15 @@ const StyledProgramContainer = styled.main`
     border-radius: 5px;
     padding: 10px;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    min-height: 200px;
+  }
+
+  section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    min-height: 200px;
   }
 `;
 
