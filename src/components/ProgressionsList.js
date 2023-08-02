@@ -38,7 +38,10 @@ const ProgressionsList = ({ progressions, unit, setProgressions }) => {
             <dialog className={`dialog-${progression.id}`}>
               <h2>{progression.name}</h2>
               <PerformancesList progression={progression} unit={unit} />
-              <AddPerformanceForm progressionId={progression.id} />
+              <AddPerformanceForm
+                progressionId={progression.id}
+                setProgressions={setProgressions}
+              />
               <button onClick={closeDialog} id={progression.id}>
                 Close
               </button>

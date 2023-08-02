@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import useInterceptor from "../utils/useInterceptor";
 
-const AddPerformanceForm = ({ progressionId }) => {
+const AddPerformanceForm = ({ progressionId, setProgressions }) => {
   const [formData, setFormData] = useState({
     weight: "",
     date: "",
@@ -11,9 +11,12 @@ const AddPerformanceForm = ({ progressionId }) => {
 
   const axiosInterceptor = useInterceptor();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axiosInterceptor.post("/performances", formData);
+    await axiosInterceptor.post("/performances", formData);
+    await axiosInterceptor.get("/progressions").then((response) => {
+      setProgressions(response.data);
+    });
     setFormData({
       weight: "",
       date: "",
@@ -31,7 +34,7 @@ const AddPerformanceForm = ({ progressionId }) => {
         <input
           type="number"
           name="weight"
-          value={FormData.weight}
+          value={formData.weight}
           placeholder="Weight..."
           onChange={handleChange}
           min="1"
@@ -41,7 +44,7 @@ const AddPerformanceForm = ({ progressionId }) => {
         <input
           type="date"
           name="date"
-          value={FormData.date}
+          value={formData.date}
           placeholder="Date..."
           onChange={handleChange}
           required
