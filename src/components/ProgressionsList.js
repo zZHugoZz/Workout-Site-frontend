@@ -1,6 +1,7 @@
 import React from "react";
 import useInterceptor from "../utils/useInterceptor";
 import PerformancesList from "./PerformancesList";
+import AddPerformanceForm from "./AddPerformanceForm";
 
 const ProgressionsList = ({ progressions, unit, setProgressions }) => {
   const axiosInterceptor = useInterceptor();
@@ -37,6 +38,7 @@ const ProgressionsList = ({ progressions, unit, setProgressions }) => {
             <dialog className={`dialog-${progression.id}`}>
               <h2>{progression.name}</h2>
               <PerformancesList progression={progression} unit={unit} />
+              <AddPerformanceForm progressionId={progression.id} />
               <button onClick={closeDialog} id={progression.id}>
                 Close
               </button>
