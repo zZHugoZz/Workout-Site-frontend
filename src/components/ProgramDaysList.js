@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import useInterceptor from "../utils/useInterceptor";
 import { StyledProgramContainer } from "../styles/ContainerStyles";
 import { HoverButton } from "../styles/ButtonStyles";
@@ -7,6 +7,7 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { StyledProgramDayContainer } from "../styles/ContainerStyles";
 import ProgramExerciseList from "./ProgramExerciseList";
 import { DarkLine } from "../styles/LineStyles";
+import AddDay from "./AddDay";
 
 const ProgramDaysList = ({ days, programId, setDays }) => {
   const axiosInterceptor = useInterceptor();
@@ -18,12 +19,25 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
     });
   };
 
+  // const handleAddDay = async () => {
+  //   await axiosInterceptor.post("/program_days", {
+  //     program_id: programId,
+  //   });
+  //   axiosInterceptor.get(`/programs/${programId}`).then((response) => {
+  //     setDays(response.data.days);
+  //   });
+  // };
+
   const handleDeleteExercise = async (exerciseId) => {
     await axiosInterceptor.delete(`/program_exercises/${exerciseId}`);
     axiosInterceptor.get(`/programs/${programId}`).then((response) => {
       setDays(response.data.days);
     });
   };
+
+  useEffect(() => {
+    document.getElementById("add-day-button").scrollIntoView();
+  }, [days]);
 
   return (
     <>
@@ -48,6 +62,9 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
             />
           </article>
         ))}
+        <article id="add-day-button">
+          <AddDay id={programId} setDays={setDays} />
+        </article>
       </StyledProgramContainer>
     </>
   );

@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useInterceptor from "../utils/useInterceptor";
 import ProgramDaysList from "../components/ProgramDaysList";
-import AddDay from "../components/AddDay";
 import { ProgramsPageWrapper } from "../styles/WrapperStyles";
 import { BrightLine } from "../styles/LineStyles";
 
@@ -30,7 +29,6 @@ const ProgramsPage = () => {
           <h1>Programs</h1>
           <BrightLine style={{ marginBottom: "50px" }} />
           <ProgramDaysList days={days} programId={id} setDays={setDays} />
-          <AddDay id={id} setDays={setDays} />
         </div>
       </ProgramsPageWrapper>
     </>
