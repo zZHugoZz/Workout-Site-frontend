@@ -72,7 +72,7 @@ const Progression = () => {
         setProgressions={setProgressions}
       />
       <ProgressionChart data={chartData} unit={unit} />
-      <AddProgression />
+      <AddProgression setProgressions={setProgressions} />
     </>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
+import AddProgressionForm from "./AddProgressionForm";
 
-const AddProgression = () => {
+const AddProgression = ({ setProgressions }) => {
   const openDialog = () => {
     const dialog = document.querySelector(".add-progression-dialog");
     dialog.showModal();
@@ -15,6 +16,7 @@ const AddProgression = () => {
     <>
       <button onClick={openDialog}>Add Progression</button>
       <dialog className="add-progression-dialog">
+        <AddProgressionForm setProgressions={setProgressions} />
         <button onClick={closeDialog}>Close</button>
       </dialog>
     </>
