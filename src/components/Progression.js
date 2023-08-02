@@ -74,7 +74,17 @@ const Progression = () => {
 
   return (
     <>
-      <h2>Progression</h2>
+      <div
+        style={{
+          display: "flex",
+          gap: "15px",
+          alignItems: "center",
+          paddingBottom: "20px",
+        }}
+      >
+        <h2>Progression</h2>
+        <AddProgression setProgressions={setProgressions} />
+      </div>
       <DarkLine style={{ marginBottom: "20px" }} />
       <SelectProgressionUnit handleUnitChange={handleUnitChange} unit={unit} />
       <ProgressionsList
@@ -83,7 +93,6 @@ const Progression = () => {
         setProgressions={setProgressions}
       />
       <ProgressionChart data={chartData} unit={unit} />
-      <AddProgression setProgressions={setProgressions} />
     </>
   );
 };

@@ -41,10 +41,6 @@ const ManagePageWrapper = styled.div`
   h1 {
     padding-bottom: 30px;
   }
-
-  h2 {
-    padding-bottom: 10px;
-  }
 `;
 
 const WorkoutsPagewrapper = styled.div`

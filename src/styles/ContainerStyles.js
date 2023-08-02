@@ -23,7 +23,7 @@ const StyledManagePageMainContainer = styled.main`
     background-color: #02080d;
     outline: 1px solid #1b1e26;
     border-radius: 5px;
-    padding: 10px;
+    padding: 15px;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
   }
 
@@ -57,10 +57,15 @@ const StyledProgramContainer = styled.main`
 
   section {
     display: flex;
+    outline: 1px solid #0e1e10;
+    border-radius: 5px;
     justify-content: center;
     align-items: center;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
     min-height: 200px;
+
+    button {
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 1);
+    }
   }
 `;
 
