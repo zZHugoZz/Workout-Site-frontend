@@ -13,7 +13,7 @@ const StyledExploreMainContainer = styled.div`
   max-width: 850px;
 `;
 
-const StyledManagePageMainContainer = styled.main`
+const StyledManagePageMainContainer = styled.div`
   display: grid;
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
@@ -28,7 +28,7 @@ const StyledManagePageMainContainer = styled.main`
   }
 
   article:nth-of-type(1) {
-    height: 250px;
+    min-height: 250px;
   }
 
   article:nth-of-type(3) {

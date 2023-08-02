@@ -11,7 +11,7 @@ const ManagePage = () => {
   return (
     <>
       <ManagePageWrapper>
-        <div>
+        <main>
           <h1>Overview</h1>
           <BrightLine style={{ marginBottom: "50px" }} />
           <StyledManagePageMainContainer>
@@ -28,7 +28,7 @@ const ManagePage = () => {
               <OneRmCalculator />
             </article>
           </StyledManagePageMainContainer>
-        </div>
+        </main>
       </ManagePageWrapper>
     </>
   );

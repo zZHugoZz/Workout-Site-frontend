@@ -3,7 +3,7 @@ import { createGlobalStyle } from "styled-components";
 const GlobalStyle = createGlobalStyle`
 
   :root {
-    color-scheme: dark;
+    color-scheme: ligth;
   }
 
   body {
