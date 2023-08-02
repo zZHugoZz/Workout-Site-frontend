@@ -56,6 +56,7 @@ const AddWorkoutExerciseForm = ({
           <StyledDialogInput
             type="number"
             min="1"
+            step="0.5"
             name="weight"
             placeholder="Weight..."
             value={formData.weight}
