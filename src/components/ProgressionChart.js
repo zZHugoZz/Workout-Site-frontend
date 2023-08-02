@@ -5,7 +5,7 @@ import { Chart } from "chart.js/auto";
 Chart.defaults.color = "#AFC0CF";
 Chart.defaults.borderColor = "#131821";
 
-const ProgressionChart = () => {
+const ProgressionChart = ({ data, unit }) => {
   const options = {
     responsive: true,
     animation: false,
