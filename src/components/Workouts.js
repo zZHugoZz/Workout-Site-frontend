@@ -6,9 +6,18 @@ import { DarkLine } from "../styles/LineStyles";
 const Workouts = () => {
   return (
     <>
-      <h2>Workouts</h2>
+      <div
+        style={{
+          display: "flex",
+          gap: "15px",
+          alignItems: "center",
+          paddingBottom: "20px",
+        }}
+      >
+        <h2>Workouts</h2>
+        <AddWorkout />
+      </div>
       <DarkLine style={{ marginBottom: "20px" }} />
-      <AddWorkout />
       <WorkoutsList />
     </>
   );
