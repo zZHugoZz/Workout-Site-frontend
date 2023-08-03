@@ -4,6 +4,7 @@ import useInterceptor from "../utils/useInterceptor";
 
 const EditableGender = ({ profile }) => {
   const [gender, setGender] = useState("");
+  const [isEditing, setIsEditing] = useState(false);
 
   const axiosInterceptor = useInterceptor();
 
@@ -23,12 +24,21 @@ const EditableGender = ({ profile }) => {
   return (
     <>
       <div>
-        <h3>gender: </h3>
-        <select value={gender} onChange={handleGenderChange}>
-          <option value="other">other</option>
-          <option value="male">male</option>
-          <option value="female">female</option>
-        </select>
+        {isEditing ? (
+          <div>
+            <select value={gender} onChange={handleGenderChange}>
+              <option value="other">other</option>
+              <option value="male">male</option>
+              <option value="female">female</option>
+            </select>
+            <button onClick={() => setIsEditing(false)}>done</button>
+          </div>
+        ) : (
+          <div>
+            <h3>gender: {gender}</h3>
+            <button onClick={() => setIsEditing(true)}>modify</button>
+          </div>
+        )}
       </div>
     </>
   );
