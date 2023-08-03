@@ -21,7 +21,8 @@ const ProfilePage = () => {
       <h3>profile picture: {profile.profile_picture}</h3>
       <h3>Hello {profile.username}</h3>
       <h3>email: {profile.email}</h3>
-      <EditableGender profile={profile} />
+      <EditableAge />
+      <EditableGender />
     </>
   );
 };
