@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import useInterceptor from "../utils/useInterceptor";
 import EditableAge from "../components/EditableAge";
 import EditableGender from "../components/EditableGender";
+import EditableProfileInfo from "../components/EditableProfileInfo";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState({});
@@ -21,7 +22,6 @@ const ProfilePage = () => {
       <h3>profile picture: {profile.profile_picture}</h3>
       <h3>Hello {profile.username}</h3>
       <h3>email: {profile.email}</h3>
-      <EditableAge profile={profile} />
       <EditableGender profile={profile} />
     </>
   );
