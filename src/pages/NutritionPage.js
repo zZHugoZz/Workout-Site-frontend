@@ -1,7 +1,12 @@
 import React from "react";
+import WeightChange from "../components/WeightChange";
 
 const NutritionPage = () => {
-  return <div>NutritionPage</div>;
+  return (
+    <>
+      <WeightChange />
+    </>
+  );
 };
 
 export default NutritionPage;
