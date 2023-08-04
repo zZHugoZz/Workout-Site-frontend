@@ -19,16 +19,17 @@ const Progression = () => {
   });
 
   const axiosInterceptor = useInterceptor();
+  console.log("data: ", chartData);
 
   const handleUnitChange = (e) => {
     setUnit(e.target.value);
-    axiosInterceptor.put("/units/1/", {
+    axiosInterceptor.put("/units", {
       unit: e.target.value,
     });
   };
 
   useEffect(() => {
-    axiosInterceptor.get("/units/1/").then((response) => {
+    axiosInterceptor.get("/units").then((response) => {
       setUnit(response.data.unit);
     });
   }, []);
