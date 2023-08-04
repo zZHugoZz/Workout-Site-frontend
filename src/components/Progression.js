@@ -19,7 +19,6 @@ const Progression = () => {
   });
 
   const axiosInterceptor = useInterceptor();
-  console.log("data: ", chartData);
 
   const handleUnitChange = (e) => {
     setUnit(e.target.value);
