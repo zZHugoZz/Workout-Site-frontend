@@ -28,7 +28,7 @@ const SiteHeaderNav = () => {
             <MenuIcon />
           </IconButton>
           <Drawer open={isOpen} onClose={() => setIsOpen(false)} anchor="right">
-            <Stack spacing={6}>
+            <Stack spacing={6} alignItems="center">
               <Button
                 variant="text"
                 color="inherit"
