@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 import LogoutIcon from "@mui/icons-material/Logout";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -17,6 +18,7 @@ const SiteHeaderNav = () => {
 
   const matches = useMediaQuery("(max-width: 930px)");
   const { handleLogout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -27,19 +29,39 @@ const SiteHeaderNav = () => {
           </IconButton>
           <Drawer open={isOpen} onClose={() => setIsOpen(false)} anchor="right">
             <Stack spacing={6}>
-              <Button variant="text" color="inherit">
+              <Button
+                variant="text"
+                color="inherit"
+                onClick={() => navigate("/profile")}
+              >
                 Profile
               </Button>
-              <Button variant="text" color="inherit">
+              <Button
+                variant="text"
+                color="inherit"
+                onClick={() => navigate("/manage")}
+              >
                 Manage
               </Button>
-              <Button variant="text" color="inherit">
+              <Button
+                variant="text"
+                color="inherit"
+                onClick={() => navigate("/nutrition")}
+              >
                 Nutrition
               </Button>
-              <Button variant="text" color="inherit">
+              <Button
+                variant="text"
+                color="inherit"
+                onClick={() => navigate("/explore")}
+              >
                 Explore
               </Button>
-              <Button variant="text" color="inherit">
+              <Button
+                variant="text"
+                color="inherit"
+                onClick={() => navigate("/community")}
+              >
                 Community
               </Button>
               <Button variant="text" color="inherit" onClick={handleLogout}>
@@ -50,19 +72,40 @@ const SiteHeaderNav = () => {
         </Box>
       ) : (
         <Stack spacing={6} direction="row">
-          <Button variant="text" color="inherit">
+          <Button
+            variant="text"
+            color="inherit"
+            onClick={() => navigate("/profile")}
+          >
             Profile
           </Button>
-          <Button variant="text" color="inherit">
+
+          <Button
+            variant="text"
+            color="inherit"
+            onClick={() => navigate("/manage")}
+          >
             Manage
           </Button>
-          <Button variant="text" color="inherit">
+          <Button
+            variant="text"
+            color="inherit"
+            onClick={() => navigate("/nutrition")}
+          >
             Nutrition
           </Button>
-          <Button variant="text" color="inherit">
+          <Button
+            variant="text"
+            color="inherit"
+            onClick={() => navigate("/explore")}
+          >
             Explore
           </Button>
-          <Button variant="text" color="inherit">
+          <Button
+            variant="text"
+            color="inherit"
+            onClick={() => navigate("/community")}
+          >
             Community
           </Button>
           <IconButton color="inherit" onClick={handleLogout}>
