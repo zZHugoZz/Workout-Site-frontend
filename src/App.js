@@ -1,8 +1,5 @@
-import "./App.css";
-import "./assets/fonts/fonts.css";
 import { Routes, Route } from "react-router-dom";
 import Headers from "./components/Headers";
-import GlobalStyle from "./styles/GlobalStyles";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
@@ -19,7 +16,6 @@ import PrivateRoutes from "./components/PrivateRoutes";
 function App() {
   return (
     <>
-      <GlobalStyle />
       <AuthProvider>
         <Routes>
           <Route element={<PrivateRoutes />}>
