@@ -1,14 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import useInterceptor from "../utils/useInterceptor";
-import { StyledDialogInput } from "../styles/InputStyles";
-import { StyledDialogHeaderContainer } from "../styles/ContainerStyles";
-import { HoverButton } from "../styles/ButtonStyles";
-import { StyledIconContainer } from "../styles/IconStyles";
+
 import CloseIcon from "@mui/icons-material/Close";
-import { DialogLine } from "../styles/LineStyles";
-import { GreenButton } from "../styles/ButtonStyles";
-import { VerticalForm } from "../styles/FormStyles";
+
+import useInterceptor from "../utils/useInterceptor";
 
 const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
   const [formData, setFormData] = useState({
@@ -44,17 +39,12 @@ const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
 
   return (
     <>
-      <StyledDialogHeaderContainer>
-        <h2>Add exercise</h2>
-        <HoverButton onClick={closeDialog}>
-          <StyledIconContainer>
-            <CloseIcon style={{ color: "#AFC0CF" }} />
-          </StyledIconContainer>
-        </HoverButton>
-      </StyledDialogHeaderContainer>
-      <DialogLine style={{ marginBottom: "30px" }} />
-      <VerticalForm onSubmit={handleSubmit}>
-        <StyledDialogInput
+      <h2>Add exercise</h2>
+      <button onClick={closeDialog}>
+        <CloseIcon style={{ color: "#AFC0CF" }} />
+      </button>
+      <form onSubmit={handleSubmit}>
+        <input
           type="text"
           name="name"
           value={formData.name}
@@ -62,7 +52,7 @@ const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
           required
           placeholder="Exercise..."
         />
-        <StyledDialogInput
+        <input
           type="number"
           min={1}
           name="min_sets"
@@ -71,7 +61,7 @@ const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
           required
           placeholder="Min sets..."
         />
-        <StyledDialogInput
+        <input
           type="number"
           min={1}
           name="max_sets"
@@ -80,7 +70,7 @@ const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
           required
           placeholder="Max sets..."
         />
-        <StyledDialogInput
+        <input
           type="number"
           min={1}
           name="min_reps"
@@ -89,7 +79,7 @@ const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
           required
           placeholder="Min reps..."
         />
-        <StyledDialogInput
+        <input
           type="number"
           min={1}
           name="max_reps"
@@ -98,8 +88,8 @@ const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
           required
           placeholder="Max reps..."
         />
-        <GreenButton>Add exercise</GreenButton>
-      </VerticalForm>
+        <button>Add exercise</button>
+      </form>
     </>
   );
 };

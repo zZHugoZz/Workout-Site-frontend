@@ -1,7 +1,6 @@
 import React from "react";
 import AddProgram from "./AddProgram";
 import ProgramsList from "./ProgramsList";
-import { DarkLine } from "../styles/LineStyles";
 
 const Programs = () => {
   return (
@@ -17,7 +16,6 @@ const Programs = () => {
         <h2>Programs</h2>
         <AddProgram />
       </div>
-      <DarkLine style={{ marginBottom: "20px" }} />
       <ProgramsList />
     </>
   );

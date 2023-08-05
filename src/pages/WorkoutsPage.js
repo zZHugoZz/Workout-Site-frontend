@@ -3,10 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import AddWorkoutExerciseForm from "../components/AddWorkoutExerciseForm";
 import WorkoutExerciseList from "../components/WorkoutExerciseList";
-import { StyledDialog } from "../styles/DialogStyles";
 import useInterceptor from "../utils/useInterceptor";
-import { WorkoutsPagewrapper } from "../styles/WrapperStyles";
-import { BrightLine } from "../styles/LineStyles";
 
 const WorkoutsPage = () => {
   const { id } = useParams();
@@ -63,22 +60,19 @@ const WorkoutsPage = () => {
 
   return (
     <>
-      <WorkoutsPagewrapper>
-        <div>
-          <h1>Workouts</h1>
-          <BrightLine style={{ marginBottom: "50px" }} />
-          <h3>{workoutDate}</h3>
-          <WorkoutExerciseList exercises={exercises} openDialog={openDialog} />
-          <StyledDialog className="workout-dialog">
-            <AddWorkoutExerciseForm
-              formData={formData}
-              handleSubmit={handleSubmit}
-              handleChange={handleChange}
-              closeDialog={closeDialog}
-            />
-          </StyledDialog>
-        </div>
-      </WorkoutsPagewrapper>
+      <div>
+        <h1>Workouts</h1>
+        <h3>{workoutDate}</h3>
+        <WorkoutExerciseList exercises={exercises} openDialog={openDialog} />
+        <dialog className="workout-dialog">
+          <AddWorkoutExerciseForm
+            formData={formData}
+            handleSubmit={handleSubmit}
+            handleChange={handleChange}
+            closeDialog={closeDialog}
+          />
+        </dialog>
+      </div>
     </>
   );
 };

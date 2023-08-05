@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import useInterceptor from "../utils/useInterceptor";
-import { SmallGreenButton } from "../styles/ButtonStyles";
-import { StyledIconContainer } from "../styles/IconStyles";
+
 import AddIcon from "@mui/icons-material/Add";
+
+import useInterceptor from "../utils/useInterceptor";
 
 const AddWorkout = () => {
   const navigate = useNavigate();
@@ -22,11 +22,9 @@ const AddWorkout = () => {
 
   return (
     <>
-      <SmallGreenButton onClick={handleAddWorkout} title="Add new workout">
-        <StyledIconContainer>
-          <AddIcon style={{ color: "white" }} />
-        </StyledIconContainer>
-      </SmallGreenButton>
+      <button onClick={handleAddWorkout} title="Add new workout">
+        <AddIcon style={{ color: "white" }} />
+      </button>
     </>
   );
 };

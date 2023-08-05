@@ -1,7 +1,6 @@
 import React from "react";
 import AddWorkout from "./AddWorkout";
 import WorkoutsList from "./WorkoutsList";
-import { DarkLine } from "../styles/LineStyles";
 import WorkoutsCalendar from "./WorkoutsCalendar";
 
 const Workouts = () => {
@@ -18,7 +17,6 @@ const Workouts = () => {
         <h2>Workouts</h2>
         <AddWorkout />
       </div>
-      <DarkLine style={{ marginBottom: "20px" }} />
       <WorkoutsList />
     </>
   );

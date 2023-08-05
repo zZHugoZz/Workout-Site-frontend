@@ -1,7 +1,6 @@
 import React from "react";
 import { useState } from "react";
 import ExploreResults from "./ExploreResults";
-import { StyledSearchBar } from "../styles/InputStyles";
 import useInterceptor from "../utils/useInterceptor";
 
 const ExploreSearchBar = () => {
@@ -18,7 +17,7 @@ const ExploreSearchBar = () => {
 
   return (
     <>
-      <StyledSearchBar
+      <input
         type="text"
         placeholder="Search exercises..."
         onChange={handleChange}

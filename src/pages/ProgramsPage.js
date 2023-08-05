@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useInterceptor from "../utils/useInterceptor";
 import ProgramDaysList from "../components/ProgramDaysList";
-import { ProgramsPageWrapper } from "../styles/WrapperStyles";
-import { BrightLine } from "../styles/LineStyles";
 
 const ProgramsPage = () => {
   const [days, setDays] = useState([]);
@@ -24,13 +22,10 @@ const ProgramsPage = () => {
 
   return (
     <>
-      <ProgramsPageWrapper>
-        <div>
-          <h1>Programs</h1>
-          <BrightLine style={{ marginBottom: "50px" }} />
-          <ProgramDaysList days={days} programId={id} setDays={setDays} />
-        </div>
-      </ProgramsPageWrapper>
+      <div>
+        <h1>Programs</h1>
+        <ProgramDaysList days={days} programId={id} setDays={setDays} />
+      </div>
     </>
   );
 };

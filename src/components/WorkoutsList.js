@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import useInterceptor from "../utils/useInterceptor";
 import { useNavigate } from "react-router-dom";
-import { HoverButton } from "../styles/ButtonStyles";
-import { StyledIconContainer } from "../styles/IconStyles";
+
 import RemoveIcon from "@mui/icons-material/Remove";
+
+import useInterceptor from "../utils/useInterceptor";
 
 const WorkoutsList = () => {
   const [workouts, setWorkouts] = useState([]);
@@ -33,14 +33,12 @@ const WorkoutsList = () => {
       <ul>
         {workouts.map((workout) => (
           <li key={workout.id}>
-            <HoverButton onClick={() => handleAccess(workout.id)}>
+            <button onClick={() => handleAccess(workout.id)}>
               {workout.date}
-            </HoverButton>
-            <HoverButton onClick={() => handleDelete(workout.id)}>
-              <StyledIconContainer>
-                <RemoveIcon style={{ color: "#E84444" }} />
-              </StyledIconContainer>
-            </HoverButton>
+            </button>
+            <button onClick={() => handleDelete(workout.id)}>
+              <RemoveIcon style={{ color: "#E84444" }} />
+            </button>
           </li>
         ))}
       </ul>

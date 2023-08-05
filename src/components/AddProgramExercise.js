@@ -1,9 +1,8 @@
 import React from "react";
-import { StyledDialog } from "../styles/DialogStyles";
-import AddProgramExerciseForm from "./AddProgramExerciseForm";
+
 import AddIcon from "@mui/icons-material/Add";
-import { HoverButton } from "../styles/ButtonStyles";
-import { StyledIconContainer } from "../styles/IconStyles";
+
+import AddProgramExerciseForm from "./AddProgramExerciseForm";
 
 const AddProgramExercise = ({ dayId, setDays, programId }) => {
   const openDialog = () => {
@@ -18,22 +17,20 @@ const AddProgramExercise = ({ dayId, setDays, programId }) => {
 
   return (
     <>
-      <HoverButton
+      <button
         onClick={openDialog}
         style={{ width: "100%", height: "35px", cursor: "pointer" }}
       >
-        <StyledIconContainer>
-          <AddIcon style={{ color: "#3DFF54" }} />
-        </StyledIconContainer>
-      </HoverButton>
-      <StyledDialog className={`dialog-${dayId}`}>
+        <AddIcon style={{ color: "#3DFF54" }} />
+      </button>
+      <button className={`dialog-${dayId}`}>
         <AddProgramExerciseForm
           dayId={dayId}
           setDays={setDays}
           programId={programId}
           closeDialog={closeDialog}
         />
-      </StyledDialog>
+      </button>
     </>
   );
 };

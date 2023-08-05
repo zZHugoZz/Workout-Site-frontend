@@ -5,7 +5,6 @@ import ProgressionChart from "./ProgressionChart";
 import ProgressionsList from "./ProgressionsList";
 import AddProgression from "./AddProgression";
 import SelectProgressionUnit from "./SelectProgressionUnit";
-import { DarkLine } from "../styles/LineStyles";
 
 const Progression = () => {
   const [progressions, setProgressions] = useState([]);
@@ -89,7 +88,6 @@ const Progression = () => {
           unit={unit}
         />
       </div>
-      <DarkLine style={{ marginBottom: "20px" }} />
       <ProgressionsList
         progressions={progressions}
         unit={unit}

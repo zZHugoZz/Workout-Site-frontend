@@ -1,12 +1,5 @@
 import React from "react";
-import { StyledDialogInput } from "../styles/InputStyles";
-import { DialogLine } from "../styles/LineStyles";
-import { HoverButton } from "../styles/ButtonStyles";
-import { StyledIconContainer } from "../styles/IconStyles";
 import CloseIcon from "@mui/icons-material/Close";
-import { StyledDialogHeaderContainer } from "../styles/ContainerStyles";
-import { GreenButton } from "../styles/ButtonStyles";
-import { VerticalForm } from "../styles/FormStyles";
 
 const AddWorkoutExerciseForm = ({
   formData,
@@ -16,17 +9,12 @@ const AddWorkoutExerciseForm = ({
 }) => {
   return (
     <>
-      <StyledDialogHeaderContainer>
-        <h2>Add exercise</h2>
-        <HoverButton onClick={closeDialog}>
-          <StyledIconContainer>
-            <CloseIcon style={{ color: "#AFC0CF" }} />
-          </StyledIconContainer>
-        </HoverButton>
-      </StyledDialogHeaderContainer>
-      <DialogLine style={{ marginBottom: "30px" }} />
-      <VerticalForm onSubmit={handleSubmit}>
-        <StyledDialogInput
+      <h2>Add exercise</h2>
+      <button onClick={closeDialog}>
+        <CloseIcon style={{ color: "#AFC0CF" }} />
+      </button>
+      <form onSubmit={handleSubmit}>
+        <input
           type="text"
           name="name"
           placeholder="Exercise..."
@@ -34,7 +22,7 @@ const AddWorkoutExerciseForm = ({
           onChange={handleChange}
           required
         />
-        <StyledDialogInput
+        <input
           type="number"
           min="1"
           name="sets"
@@ -43,7 +31,7 @@ const AddWorkoutExerciseForm = ({
           onChange={handleChange}
           required
         />
-        <StyledDialogInput
+        <input
           type="number"
           min="1"
           name="reps"
@@ -53,7 +41,7 @@ const AddWorkoutExerciseForm = ({
           required
         />
         <div>
-          <StyledDialogInput
+          <input
             type="number"
             min="1"
             step="0.5"
@@ -68,8 +56,8 @@ const AddWorkoutExerciseForm = ({
             <option value="lbs">Lbs</option>
           </select>
         </div>
-        <GreenButton>Add exercise</GreenButton>
-      </VerticalForm>
+        <button>Add exercise</button>
+      </form>
     </>
   );
 };

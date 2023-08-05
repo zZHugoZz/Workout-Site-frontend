@@ -1,8 +1,8 @@
 import React from "react";
-import useInterceptor from "../utils/useInterceptor";
-import { GreenButton } from "../styles/ButtonStyles";
-import { StyledIconContainer } from "../styles/IconStyles";
+
 import AddIcon from "@mui/icons-material/Add";
+
+import useInterceptor from "../utils/useInterceptor";
 
 const AddDay = ({ id, setDays }) => {
   const axiosInterceptor = useInterceptor();
@@ -24,11 +24,9 @@ const AddDay = ({ id, setDays }) => {
 
   return (
     <>
-      <GreenButton onClick={handleAddDay}>
-        <StyledIconContainer>
-          <AddIcon />
-        </StyledIconContainer>
-      </GreenButton>
+      <button onClick={handleAddDay}>
+        <AddIcon />
+      </button>
     </>
   );
 };

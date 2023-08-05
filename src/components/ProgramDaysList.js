@@ -1,12 +1,9 @@
-import React, { useEffect } from "react";
-import useInterceptor from "../utils/useInterceptor";
-import { StyledProgramContainer } from "../styles/ContainerStyles";
-import { HoverButton } from "../styles/ButtonStyles";
-import { StyledIconContainer } from "../styles/IconStyles";
+import React from "react";
+
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import { StyledProgramDayContainer } from "../styles/ContainerStyles";
+
+import useInterceptor from "../utils/useInterceptor";
 import ProgramExerciseList from "./ProgramExerciseList";
-import { DarkLine } from "../styles/LineStyles";
 import AddDay from "./AddDay";
 
 const ProgramDaysList = ({ days, programId, setDays }) => {
@@ -28,31 +25,24 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
 
   return (
     <>
-      <StyledProgramContainer>
-        {days.map((day, i) => (
-          <article key={day.id} style={{ position: "relative" }}>
-            <StyledProgramDayContainer>
-              <h2>Day {i + 1}</h2>
+      {days.map((day, i) => (
+        <article key={day.id} style={{ position: "relative" }}>
+          <h2>Day {i + 1}</h2>
 
-              <HoverButton onClick={() => handleDeleteDay(day.id)}>
-                <StyledIconContainer>
-                  <DeleteForeverIcon style={{ color: "#E84444" }} />
-                </StyledIconContainer>
-              </HoverButton>
-            </StyledProgramDayContainer>
-            <DarkLine style={{ marginBottom: "20px" }} />
-            <ProgramExerciseList
-              day={day}
-              handleDeleteExercise={handleDeleteExercise}
-              setDays={setDays}
-              programId={programId}
-            />
-          </article>
-        ))}
-        <section>
-          <AddDay id={programId} setDays={setDays} />
-        </section>
-      </StyledProgramContainer>
+          <button onClick={() => handleDeleteDay(day.id)}>
+            <DeleteForeverIcon style={{ color: "#E84444" }} />
+          </button>
+          <ProgramExerciseList
+            day={day}
+            handleDeleteExercise={handleDeleteExercise}
+            setDays={setDays}
+            programId={programId}
+          />
+        </article>
+      ))}
+      <section>
+        <AddDay id={programId} setDays={setDays} />
+      </section>
     </>
   );
 };

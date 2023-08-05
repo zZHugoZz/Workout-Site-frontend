@@ -1,8 +1,8 @@
 import React from "react";
-import AddProgressionForm from "./AddProgressionForm";
-import { SmallGreenButton } from "../styles/ButtonStyles";
-import { StyledIconContainer } from "../styles/IconStyles";
+
 import AddIcon from "@mui/icons-material/Add";
+
+import AddProgressionForm from "./AddProgressionForm";
 
 const AddProgression = ({ setProgressions }) => {
   const openDialog = () => {
@@ -17,11 +17,9 @@ const AddProgression = ({ setProgressions }) => {
 
   return (
     <>
-      <SmallGreenButton onClick={openDialog} title="Add a new progression">
-        <StyledIconContainer>
-          <AddIcon style={{ color: "white" }} />
-        </StyledIconContainer>
-      </SmallGreenButton>
+      <button onClick={openDialog} title="Add a new progression">
+        <AddIcon style={{ color: "white" }} />
+      </button>
       <dialog className="add-progression-dialog">
         <AddProgressionForm setProgressions={setProgressions} />
         <button onClick={closeDialog}>Close</button>
