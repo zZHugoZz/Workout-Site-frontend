@@ -4,7 +4,9 @@ import Typography from "@mui/material/Typography";
 const SiteName = () => {
   return (
     <>
-      <Typography variant="h4">Title</Typography>
+      <Typography variant="h4" sx={{ flexGrow: 1 }}>
+        Title
+      </Typography>
     </>
   );
 };

@@ -1,55 +1,75 @@
 import React from "react";
-import { useContext } from "react";
-import { StyledSiteHeaderNav } from "../styles/NavStyles";
-import { StyledNavLink } from "../styles/LinkStyles";
+import { useState, useContext } from "react";
+
 import LogoutIcon from "@mui/icons-material/Logout";
-import { AuthContext } from "../context/AuthContext";
 import MenuIcon from "@mui/icons-material/Menu";
-import { InvisibleButton } from "../styles/ButtonStyles";
-import { StyledIconContainer } from "../styles/IconStyles";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import Drawer from "@mui/material/Drawer";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import Box from "@mui/material/Box";
+
+import { AuthContext } from "../context/AuthContext";
 
 const SiteHeaderNav = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const matches = useMediaQuery("(max-width: 930px)");
   const { handleLogout } = useContext(AuthContext);
 
   return (
     <>
-      <StyledSiteHeaderNav>
-        <span>
-          <StyledNavLink to={"/profile/"} className="nav-icon">
-            Profile
-          </StyledNavLink>
-        </span>
-        <span>
-          <StyledNavLink to={"/manage/"} className="nav-icon">
-            Manage
-          </StyledNavLink>
-        </span>
-        <span>
-          <StyledNavLink to={"/nutrition/"} className="nav-icon">
-            Nutrition
-          </StyledNavLink>
-        </span>
-        <span>
-          <StyledNavLink to={"/explore/"} className="nav-icon">
-            Explore
-          </StyledNavLink>
-        </span>
-        <span>
-          <StyledNavLink to={"/community/"} className="nav-icon">
-            Community
-          </StyledNavLink>
-        </span>
-        <InvisibleButton onClick={handleLogout} className="nav-icon">
-          <StyledIconContainer>
-            <LogoutIcon fontSize="small" />
-          </StyledIconContainer>
-        </InvisibleButton>
-        <InvisibleButton className="menu-icon">
-          <StyledIconContainer>
+      {matches ? (
+        <Box>
+          <IconButton color="inherit" onClick={() => setIsOpen(true)}>
             <MenuIcon />
-          </StyledIconContainer>
-        </InvisibleButton>
-      </StyledSiteHeaderNav>
+          </IconButton>
+          <Drawer open={isOpen} onClose={() => setIsOpen(false)} anchor="right">
+            <Stack spacing={6}>
+              <Button variant="text" color="inherit">
+                Profile
+              </Button>
+              <Button variant="text" color="inherit">
+                Manage
+              </Button>
+              <Button variant="text" color="inherit">
+                Nutrition
+              </Button>
+              <Button variant="text" color="inherit">
+                Explore
+              </Button>
+              <Button variant="text" color="inherit">
+                Community
+              </Button>
+              <Button variant="text" color="inherit" onClick={handleLogout}>
+                Logout
+              </Button>
+            </Stack>
+          </Drawer>
+        </Box>
+      ) : (
+        <Stack spacing={6} direction="row">
+          <Button variant="text" color="inherit">
+            Profile
+          </Button>
+          <Button variant="text" color="inherit">
+            Manage
+          </Button>
+          <Button variant="text" color="inherit">
+            Nutrition
+          </Button>
+          <Button variant="text" color="inherit">
+            Explore
+          </Button>
+          <Button variant="text" color="inherit">
+            Community
+          </Button>
+          <IconButton color="inherit" onClick={handleLogout}>
+            <LogoutIcon />
+          </IconButton>
+        </Stack>
+      )}
     </>
   );
 };

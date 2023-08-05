@@ -2,13 +2,15 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import SiteName from "./SiteName";
+import SiteHeaderNav from "./SiteHeaderNav";
 
 const SiteHeader = () => {
   return (
     <>
-      <AppBar style={{ position: "sticky" }}>
-        <Toolbar style={{ margin: "0 30px" }}>
+      <AppBar sx={{ position: "sticky" }}>
+        <Toolbar sx={{ margin: "0 30px" }}>
           <SiteName />
+          <SiteHeaderNav />
         </Toolbar>
       </AppBar>
     </>
