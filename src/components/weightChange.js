@@ -39,7 +39,6 @@ const WeightChange = () => {
     <>
       <h2>Weight change</h2>
       <WeightChart />
-      <h2></h2>
     </>
   );
 };
