@@ -1,21 +1,16 @@
 import React from "react";
-import SiteHeaderNav from "./SiteHeaderNav";
-import { StyledSiteHeader } from "../styles/HeaderStyles";
-import { StyledSiteName } from "../styles/StyledSiteName";
 import AppBar from "@mui/material/AppBar";
+import Toolbar from "@mui/material/Toolbar";
+import SiteName from "./SiteName";
 
 const SiteHeader = () => {
   return (
     <>
-      {/* <StyledSiteHeader>
-        <StyledSiteName>
-          <h1>Name</h1>
-        </StyledSiteName>
-        <div>
-          <SiteHeaderNav />
-        </div>
-      </StyledSiteHeader> */}
-      <AppBar></AppBar>
+      <AppBar style={{ position: "sticky" }}>
+        <Toolbar style={{ margin: "0 30px" }}>
+          <SiteName />
+        </Toolbar>
+      </AppBar>
     </>
   );
 };
