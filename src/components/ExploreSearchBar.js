@@ -1,5 +1,8 @@
 import React from "react";
 import { useState } from "react";
+
+import TextField from "@mui/material/TextField";
+
 import ExploreResults from "./ExploreResults";
 import useInterceptor from "../utils/useInterceptor";
 
@@ -17,10 +20,13 @@ const ExploreSearchBar = () => {
 
   return (
     <>
-      <input
-        type="text"
-        placeholder="Search exercises..."
+      <TextField
+        label="Search exercises..."
+        type="search"
+        variant="outlined"
         onChange={handleChange}
+        size="small"
+        color="success"
       />
       <ExploreResults results={results} />
     </>
