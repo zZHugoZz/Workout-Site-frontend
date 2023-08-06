@@ -8,6 +8,7 @@ import AddIcon from "@mui/icons-material/Add";
 
 import AddWorkout from "./AddWorkout";
 import WorkoutsList from "./WorkoutsList";
+import WorkoutsCalendar from "./WorkoutsCalendar";
 
 const Workouts = () => {
   return (
@@ -20,6 +21,7 @@ const Workouts = () => {
           </IconButton>
         </Stack>
       </Divider>
+      <WorkoutsCalendar />
       <AddWorkout />
       <WorkoutsList />
     </>
