@@ -1,7 +1,7 @@
 import React from "react";
 
 import Badge from "@mui/material/Badge";
-import PickersDay from "@mui/x-date-pickers/PickersDay";
+import { PickersDay } from "@mui/x-date-pickers/PickersDay";
 
 const WorkoutDay = (props) => {
   const { highlightedDays = [], day, outsideCurrentMonth, ...other } = props;
