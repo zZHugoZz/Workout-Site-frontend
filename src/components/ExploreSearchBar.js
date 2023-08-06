@@ -18,6 +18,7 @@ const ExploreSearchBar = () => {
   return (
     <>
       <input
+        style={{ position: "fixed" }}
         type="text"
         placeholder="Search exercises..."
         onChange={handleChange}
