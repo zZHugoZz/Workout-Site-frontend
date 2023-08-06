@@ -7,7 +7,7 @@ import SiteHeaderNav from "./SiteHeaderNav";
 const SiteHeader = () => {
   return (
     <>
-      <AppBar sx={{ position: "sticky", backgroundColor: "#609966" }}>
+      <AppBar sx={{ position: "sticky", backgroundColor: "#285430" }}>
         <Toolbar sx={{ margin: "0 30px" }}>
           <SiteName />
           <SiteHeaderNav />

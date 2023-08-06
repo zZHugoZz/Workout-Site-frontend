@@ -38,7 +38,7 @@ const PageHeader = () => {
   }, [location]);
   return (
     <>
-      <Box sx={{ padding: "20px 50px", backgroundColor: "#9DC08B" }}>
+      <Box sx={{ padding: "20px 50px", backgroundColor: "#dff1c2" }}>
         <Stack spacing={2} alignItems="center" direction="row">
           <Typography variant="h5">{pageName}</Typography>
           {icon}

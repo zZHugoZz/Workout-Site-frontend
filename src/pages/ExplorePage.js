@@ -1,17 +1,19 @@
 import React from "react";
 import ExploreSearchBar from "../components/ExploreSearchBar";
 
+import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
+import Typography from "@mui/material/Typography";
+
 const ExplorePage = () => {
   return (
     <>
-      <div>
-        <div>
-          <h1>Overview</h1>
-        </div>
-        <div>
+      <Container maxWidth="sm">
+        <Stack direction="row" justifyContent="center">
+          <Typography variant="h4">Overview</Typography>
           <ExploreSearchBar />
-        </div>
-      </div>
+        </Stack>
+      </Container>
     </>
   );
 };
