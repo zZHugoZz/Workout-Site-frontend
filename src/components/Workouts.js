@@ -1,22 +1,26 @@
 import React from "react";
+
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
+import IconButton from "@mui/material/IconButton";
+import AddIcon from "@mui/icons-material/Add";
+
 import AddWorkout from "./AddWorkout";
 import WorkoutsList from "./WorkoutsList";
-import WorkoutsCalendar from "./WorkoutsCalendar";
 
 const Workouts = () => {
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          gap: "15px",
-          alignItems: "center",
-          paddingBottom: "20px",
-        }}
-      >
-        <h2>Workouts</h2>
-        <AddWorkout />
-      </div>
+      <Divider textAlign="left">
+        <Stack direction="row" alignItems="center">
+          <Typography variant="h5">Workouts</Typography>
+          <IconButton>
+            <AddIcon sx={{ color: "green" }} />
+          </IconButton>
+        </Stack>
+      </Divider>
+      <AddWorkout />
       <WorkoutsList />
     </>
   );
