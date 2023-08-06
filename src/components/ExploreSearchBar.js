@@ -4,9 +4,7 @@ import { Link } from "react-router-dom";
 
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import CheckBox from "@mui/icons-material/CheckBox";
 
-import ExploreResults from "./ExploreResults";
 import useInterceptor from "../utils/useInterceptor";
 
 const ExploreSearchBar = () => {
