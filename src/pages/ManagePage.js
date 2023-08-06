@@ -20,12 +20,12 @@ const ManagePage = () => {
         </Divider>
         <Grid container spacing={4}>
           <Grid xs={6}>
-            <Card sx={{ backgroundColor: "#f5eeda" }}>
+            <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
               <Workouts />
             </Card>
           </Grid>
           <Grid xs={6}>
-            <Card sx={{ backgroundColor: "#f5eeda" }}>
+            <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
               <Programs />
             </Card>
           </Grid>
