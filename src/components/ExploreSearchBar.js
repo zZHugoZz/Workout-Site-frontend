@@ -22,7 +22,6 @@ const ExploreSearchBar = () => {
     <>
       <TextField
         label="Search exercises..."
-        type="search"
         variant="outlined"
         onChange={handleChange}
         size="small"

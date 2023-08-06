@@ -41,9 +41,16 @@ const PageHeader = () => {
   return (
     <>
       <Box sx={{ padding: "20px 50px", backgroundColor: "#dff1c2" }}>
-        <Stack spacing={2} alignItems="center" direction="row">
-          <Typography variant="h5">{pageName}</Typography>
-          {icon}
+        <Stack spacing={4} alignItems="center" direction="row">
+          <Stack
+            spacing={1}
+            alignItems="center"
+            direction="row"
+            color="#285430"
+          >
+            <Typography variant="h5">{pageName}</Typography>
+            {icon}
+          </Stack>
           {pageName === "Explore" ? <ExploreSearchBar /> : <p></p>}
         </Stack>
       </Box>
