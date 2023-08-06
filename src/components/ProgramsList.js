@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from "react";
-import useInterceptor from "../utils/useInterceptor";
 import { useNavigate } from "react-router-dom";
+
+import Paper from "@mui/material/Paper";
+import Stack from "@mui/material/Stack";
+
+import useInterceptor from "../utils/useInterceptor";
 
 const ProgramsList = () => {
   const [programs, setPrograms] = useState([]);
@@ -27,15 +31,15 @@ const ProgramsList = () => {
 
   return (
     <>
-      <ul>
+      <Stack direction="row">
         {programs.map((program) => (
-          <li key={program.id}>
+          <Paper key={program.id} sx={{ minHeight: "200px" }} elevation={2}>
             {program.name}
             <button onClick={() => handleDelete(program.id)}>Delete</button>
             <button onClick={() => handleAccess(program.id)}>Access</button>
-          </li>
+          </Paper>
         ))}
-      </ul>
+      </Stack>
     </>
   );
 };
