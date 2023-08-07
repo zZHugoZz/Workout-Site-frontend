@@ -13,10 +13,12 @@ const Programs = () => {
         textAlign="left"
         sx={{ marginTop: "10px", marginBottom: "15px" }}
       >
-        <Typography variant="h5">Programs</Typography>
+        <Stack direction="row" alignItems="center">
+          <Typography variant="h5">Programs</Typography>
+          <AddProgram />
+        </Stack>
       </Divider>
       <ProgramsList />
-      <AddProgram />
     </>
   );
 };

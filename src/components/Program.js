@@ -18,7 +18,7 @@ const Program = ({ program, handleAccess, handleDelete }) => {
             padding: "5px",
             backgroundColor: "#f9ffdf",
           }}
-          elevation={2}
+          elevation={1}
         >
           <Divider>
             <Typography variant="h6">{program.name}</Typography>

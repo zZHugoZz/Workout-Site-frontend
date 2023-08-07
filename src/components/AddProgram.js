@@ -23,7 +23,7 @@ const AddProgram = () => {
 
   return (
     <>
-      <IconButton onClick={handleAddProgram} sx title="Create new program">
+      <IconButton onClick={handleAddProgram} title="Create new program">
         <AddIcon sx={{ color: "green" }} />
       </IconButton>
     </>
