@@ -86,13 +86,13 @@ const AddProgramForm = () => {
           onChange={handleChange}
           required
         />
-        <FormControl>
+        <FormControl variant="outlined" color="success">
           <InputLabel>Number of days</InputLabel>
           <Select
             name="n_days"
             value={formData.n_days}
             onChange={handleChange}
-            variant="filled"
+            label="Number of days"
             required
           >
             {menuItems.map((item, i) => (

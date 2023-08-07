@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
@@ -9,10 +10,12 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import Grid from "@mui/material/Unstable_Grid2";
 import Stack from "@mui/material/Stack";
-
-import useInterceptor from "../utils/useInterceptor";
+import { Zoom } from "@mui/material";
+import Tooltip from "@mui/material/Tooltip";
 
 const Program = ({ program, handleAccess, handleDelete }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <Grid xs={6}>
@@ -36,9 +39,17 @@ const Program = ({ program, handleAccess, handleDelete }) => {
               <IconButton onClick={() => handleAccess(program.id)}>
                 <OpenInFullIcon fontSize="small" />
               </IconButton>
-              <IconButton>
-                <HelpOutlineIcon fontSize="small" />
-              </IconButton>
+              <Tooltip
+                title={program.description}
+                arrow
+                open={isOpen}
+                onClose={() => setIsOpen(false)}
+                TransitionComponent={Zoom}
+              >
+                <IconButton onClick={() => setIsOpen(true)}>
+                  <HelpOutlineIcon fontSize="small" />
+                </IconButton>
+              </Tooltip>
             </Stack>
             <IconButton onClick={() => handleDelete(program.id)}>
               <DeleteForeverIcon fontSize="small" />
