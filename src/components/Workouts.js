@@ -17,7 +17,7 @@ const Workouts = () => {
       >
         <Typography variant="h5">Workouts</Typography>
       </Divider>
-      <Stack direction="row" spacing={2}>
+      <Stack direction="row" justifyContent="space-evenly">
         <WorkoutsCalendar />
         <Workout />
       </Stack>

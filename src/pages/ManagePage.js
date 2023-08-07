@@ -19,12 +19,12 @@ const ManagePage = () => {
           <Typography variant="h4">Overview</Typography>
         </Divider>
         <Grid container spacing={4}>
-          <Grid xs={6}>
+          <Grid xs={7}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
               <Workouts />
             </Card>
           </Grid>
-          <Grid xs={6}>
+          <Grid xs={5}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
               <Programs />
             </Card>
