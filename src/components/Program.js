@@ -5,8 +5,12 @@ import Paper from "@mui/material/Paper";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import OpenInFullIcon from "@mui/icons-material/OpenInFull";
-import RemoveIcon from "@mui/icons-material/Remove";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import Grid from "@mui/material/Unstable_Grid2";
+import Stack from "@mui/material/Stack";
+
+import useInterceptor from "../utils/useInterceptor";
 
 const Program = ({ program, handleAccess, handleDelete }) => {
   return (
@@ -23,12 +27,23 @@ const Program = ({ program, handleAccess, handleDelete }) => {
           <Divider>
             <Typography variant="h6">{program.name}</Typography>
           </Divider>
-          <IconButton onClick={() => handleAccess(program.id)}>
-            <OpenInFullIcon />
-          </IconButton>
-          <IconButton onClick={() => handleDelete(program.id)}>
-            <RemoveIcon />
-          </IconButton>
+          <Stack
+            direction="row"
+            alignItems="center"
+            justifyContent="space-between"
+          >
+            <Stack direction="row" alignItems="center">
+              <IconButton onClick={() => handleAccess(program.id)}>
+                <OpenInFullIcon fontSize="small" />
+              </IconButton>
+              <IconButton>
+                <HelpOutlineIcon fontSize="small" />
+              </IconButton>
+            </Stack>
+            <IconButton onClick={() => handleDelete(program.id)}>
+              <DeleteForeverIcon fontSize="small" />
+            </IconButton>
+          </Stack>
         </Paper>
       </Grid>
     </>

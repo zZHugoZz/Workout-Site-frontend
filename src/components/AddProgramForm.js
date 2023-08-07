@@ -100,7 +100,12 @@ const AddProgramForm = () => {
             ))}
           </Select>
         </FormControl>
-        <Button variant="outlined" type="submit">
+        <Button
+          variant="outlined"
+          type="submit"
+          color="success"
+          sx={{ width: "max-content" }}
+        >
           Create
         </Button>
       </Stack>
