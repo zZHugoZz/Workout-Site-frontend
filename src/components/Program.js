@@ -52,7 +52,7 @@ const Program = ({ program, handleAccess, handleDelete }) => {
               </Tooltip>
             </Stack>
             <IconButton onClick={() => handleDelete(program.id)}>
-              <DeleteForeverIcon fontSize="small" />
+              <DeleteForeverIcon fontSize="small" color="error" />
             </IconButton>
           </Stack>
         </Paper>

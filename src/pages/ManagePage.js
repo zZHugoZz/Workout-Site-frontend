@@ -14,7 +14,7 @@ import OneRmCalculator from "../components/OneRmCalculator";
 const ManagePage = () => {
   return (
     <>
-      <Container maxWidth="lg" sx={{ marginTop: "50px" }}>
+      <Container maxWidth="xl" sx={{ marginTop: "50px" }}>
         <Divider sx={{ marginBottom: "50px" }}>
           <Typography variant="h4">Overview</Typography>
         </Divider>
@@ -29,14 +29,14 @@ const ManagePage = () => {
               <Programs />
             </Card>
           </Grid>
-          <Grid xs={12}>
-            <Card sx={{ backgroundColor: "#f5eeda" }}>
-              <Progression />
+          <Grid xs={3}>
+            <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
+              <OneRmCalculator />
             </Card>
           </Grid>
-          <Grid xs={6}>
-            <Card sx={{ backgroundColor: "#f5eeda" }}>
-              <OneRmCalculator />
+          <Grid xs={9}>
+            <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
+              <Progression />
             </Card>
           </Grid>
         </Grid>

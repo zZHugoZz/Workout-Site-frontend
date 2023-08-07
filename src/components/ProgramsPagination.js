@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import Grid from "@mui/material/Unstable_Grid2";
 import Container from "@mui/material/Container";
+import Divider from "@mui/material/Divider";
 
 import Pagination from "@mui/material/Pagination";
 import usePagination from "../utils/pagination";
@@ -47,6 +48,7 @@ const ProgramsPagination = ({ programs, handleAccess, handleDelete }) => {
           />
         ))}
       </Grid>
+      <Divider sx={{ paddingTop: "20px" }} />
       <Container>
         <Pagination
           count={count}
