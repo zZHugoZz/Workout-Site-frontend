@@ -54,7 +54,7 @@ const ProgramsPagination = ({ programs, handleAccess, handleDelete }) => {
           variant="outlined"
           shape="rounded"
           onChange={handleChange}
-          sx={{ paddingTop: "10px" }}
+          sx={{ paddingTop: "20px" }}
         />
       </Container>
     </>
