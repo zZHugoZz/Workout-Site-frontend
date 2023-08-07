@@ -3,6 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
+import Grid from "@mui/material/Unstable_Grid2";
+import IconButton from "@mui/material/IconButton";
+import RemoveIcon from "@mui/icons-material/Remove";
+import OpenInFullIcon from "@mui/icons-material/OpenInFull";
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
 
 import useInterceptor from "../utils/useInterceptor";
 
@@ -31,15 +37,34 @@ const ProgramsList = () => {
 
   return (
     <>
-      <Stack direction="row">
+      <Grid
+        container
+        spacing={2}
+        sx={{ marginLeft: "10px", marginRight: "10px" }}
+      >
         {programs.map((program) => (
-          <Paper key={program.id} sx={{ minHeight: "200px" }} elevation={2}>
-            {program.name}
-            <button onClick={() => handleDelete(program.id)}>Delete</button>
-            <button onClick={() => handleAccess(program.id)}>Access</button>
-          </Paper>
+          <Grid xs={6}>
+            <Paper
+              key={program.id}
+              sx={{
+                padding: "5px",
+                backgroundColor: "#f9ffdf",
+              }}
+              elevation={2}
+            >
+              <Divider>
+                <Typography variant="h6">{program.name}</Typography>
+              </Divider>
+              <IconButton onClick={() => handleAccess(program.id)}>
+                <OpenInFullIcon />
+              </IconButton>
+              <IconButton onClick={() => handleDelete(program.id)}>
+                <RemoveIcon />
+              </IconButton>
+            </Paper>
+          </Grid>
         ))}
-      </Stack>
+      </Grid>
     </>
   );
 };

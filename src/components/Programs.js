@@ -11,12 +11,12 @@ const Programs = () => {
     <>
       <Divider
         textAlign="left"
-        sx={{ marginTop: "10px", marginBottom: "10px" }}
+        sx={{ marginTop: "10px", marginBottom: "15px" }}
       >
         <Typography variant="h5">Programs</Typography>
       </Divider>
-      <AddProgram />
       <ProgramsList />
+      <AddProgram />
     </>
   );
 };

@@ -13,7 +13,7 @@ const Workouts = () => {
     <>
       <Divider
         textAlign="left"
-        sx={{ marginTop: "10px", marginBottom: "10px" }}
+        sx={{ marginTop: "10px", marginBottom: "15px" }}
       >
         <Typography variant="h5">Workouts</Typography>
       </Divider>

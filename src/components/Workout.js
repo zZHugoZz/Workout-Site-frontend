@@ -17,6 +17,7 @@ const Workout = () => {
           marginRight: "10px",
           backgroundColor: "#f9ffdf",
         }}
+        elevation={2}
       >
         <Stack alignItems="center">
           <Divider textAlign="center" sx={{ width: "100%" }}>

@@ -2,6 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import AddIcon from "@mui/icons-material/Add";
+import IconButton from "@mui/material/IconButton";
 
 import useInterceptor from "../utils/useInterceptor";
 
@@ -22,9 +23,9 @@ const AddProgram = () => {
 
   return (
     <>
-      <button onClick={handleAddProgram} title="Create new program">
-        <AddIcon style={{ color: "white" }} />
-      </button>
+      <IconButton onClick={handleAddProgram} sx title="Create new program">
+        <AddIcon sx={{ color: "green" }} />
+      </IconButton>
     </>
   );
 };
