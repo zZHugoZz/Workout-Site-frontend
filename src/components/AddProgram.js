@@ -14,7 +14,7 @@ const AddProgram = () => {
       <IconButton onClick={() => setIsOpen(true)} title="Create new program">
         <AddIcon sx={{ color: "green" }} />
       </IconButton>
-      <AddProgramDialog open={isOpen} />
+      <AddProgramDialog open={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 };
