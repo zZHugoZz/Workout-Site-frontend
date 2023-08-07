@@ -36,7 +36,10 @@ const Program = ({ program, handleAccess, handleDelete }) => {
             justifyContent="space-between"
           >
             <Stack direction="row" alignItems="center">
-              <IconButton onClick={() => handleAccess(program.id)}>
+              <IconButton
+                onClick={() => handleAccess(program.id)}
+                title="Access program"
+              >
                 <OpenInFullIcon fontSize="small" />
               </IconButton>
               <Tooltip
@@ -51,7 +54,10 @@ const Program = ({ program, handleAccess, handleDelete }) => {
                 </IconButton>
               </Tooltip>
             </Stack>
-            <IconButton onClick={() => handleDelete(program.id)}>
+            <IconButton
+              onClick={() => handleDelete(program.id)}
+              title="Delete program"
+            >
               <DeleteForeverIcon fontSize="small" color="error" />
             </IconButton>
           </Stack>

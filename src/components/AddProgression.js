@@ -18,7 +18,7 @@ const AddProgression = ({ setProgressions }) => {
 
   return (
     <>
-      <IconButton onClick={openDialog} title="Add a new progression">
+      <IconButton onClick={openDialog} title="Add new progression">
         <AddIcon color="success" />
       </IconButton>
       <dialog className="add-progression-dialog">
