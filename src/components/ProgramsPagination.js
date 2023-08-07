@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 import Grid from "@mui/material/Unstable_Grid2";
+import Container from "@mui/material/Container";
 
 import Pagination from "@mui/material/Pagination";
 import usePagination from "../utils/pagination";
@@ -33,17 +34,10 @@ const ProgramsPagination = ({ programs, handleAccess, handleDelete }) => {
 
   return (
     <>
-      <Pagination
-        count={count}
-        page={page}
-        variant="outlined"
-        shape="rounded"
-        onChange={handleChange}
-      />
       <Grid
         container
         spacing={2}
-        sx={{ marginLeft: "10px", marginRight: "10px" }}
+        sx={{ marginLeft: "10px", marginRight: "10px", height: "200px" }}
       >
         {displayedData.currentData().map((program) => (
           <Program
@@ -53,6 +47,16 @@ const ProgramsPagination = ({ programs, handleAccess, handleDelete }) => {
           />
         ))}
       </Grid>
+      <Container>
+        <Pagination
+          count={count}
+          page={page}
+          variant="outlined"
+          shape="rounded"
+          onChange={handleChange}
+          sx={{ paddingTop: "10px" }}
+        />
+      </Container>
     </>
   );
 };
