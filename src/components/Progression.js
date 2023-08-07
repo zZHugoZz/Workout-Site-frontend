@@ -1,5 +1,10 @@
 import React from "react";
 import { useState, useEffect } from "react";
+
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
+
 import useInterceptor from "../utils/useInterceptor";
 import ProgressionChart from "./ProgressionChart";
 import ProgressionsList from "./ProgressionsList";
@@ -73,21 +78,17 @@ const Progression = () => {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          gap: "15px",
-          alignItems: "center",
-          paddingBottom: "20px",
-        }}
+      <Divider
+        textAlign="left"
+        sx={{ marginTop: "10px", marginBottom: "15px" }}
       >
-        <h2>Progression</h2>
-        <AddProgression setProgressions={setProgressions} />
-        <SelectProgressionUnit
-          handleUnitChange={handleUnitChange}
-          unit={unit}
-        />
-      </div>
+        <Stack direction="row" alignItems="center">
+          <Typography variant="h5">Progressions</Typography>
+          <AddProgression setProgressions={setProgressions} />
+        </Stack>
+      </Divider>
+      <SelectProgressionUnit handleUnitChange={handleUnitChange} unit={unit} />
+
       <ProgressionsList
         progressions={progressions}
         unit={unit}

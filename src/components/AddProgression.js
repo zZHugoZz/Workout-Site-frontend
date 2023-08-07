@@ -1,5 +1,6 @@
 import React from "react";
 
+import IconButton from "@mui/material/IconButton";
 import AddIcon from "@mui/icons-material/Add";
 
 import AddProgressionForm from "./AddProgressionForm";
@@ -17,9 +18,9 @@ const AddProgression = ({ setProgressions }) => {
 
   return (
     <>
-      <button onClick={openDialog} title="Add a new progression">
-        <AddIcon style={{ color: "white" }} />
-      </button>
+      <IconButton onClick={openDialog} title="Add a new progression">
+        <AddIcon color="success" />
+      </IconButton>
       <dialog className="add-progression-dialog">
         <AddProgressionForm setProgressions={setProgressions} />
         <button onClick={closeDialog}>Close</button>
