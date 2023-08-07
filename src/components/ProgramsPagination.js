@@ -1,10 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
+import Grid from "@mui/material/Unstable_Grid2";
+
 import Pagination from "@mui/material/Pagination";
 import usePagination from "../utils/pagination";
+import Program from "./Program";
 
-const ProgramsPagination = ({ programs }) => {
+const ProgramsPagination = ({ programs, handleAccess, handleDelete }) => {
   const [count, setCount] = useState(10);
   const [page, setPage] = useState(1);
   const perPage = 4;
@@ -20,6 +23,14 @@ const ProgramsPagination = ({ programs }) => {
     setCount(Math.ceil(programs.length / perPage));
   }, [programs]);
 
+  useEffect(() => {
+    console.log("current data: ", displayedData.currentData());
+  }, [displayedData]);
+
+  useEffect(() => {
+    console.table(programs);
+  }, [programs]);
+
   return (
     <>
       <Pagination
@@ -29,6 +40,19 @@ const ProgramsPagination = ({ programs }) => {
         shape="rounded"
         onChange={handleChange}
       />
+      <Grid
+        container
+        spacing={2}
+        sx={{ marginLeft: "10px", marginRight: "10px" }}
+      >
+        {displayedData.currentData().map((program) => (
+          <Program
+            program={program}
+            handleAccess={handleAccess}
+            handleDelete={handleDelete}
+          />
+        ))}
+      </Grid>
     </>
   );
 };
