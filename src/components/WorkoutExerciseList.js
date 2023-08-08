@@ -1,30 +1,40 @@
 import React from "react";
 
-import AddIcon from "@mui/icons-material/Add";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import TableFooter from "@mui/material/TableFooter";
 import Paper from "@mui/material/Paper";
 
 import AddWorkoutExercise from "./AddWorkoutExercise";
 
-const WorkoutExerciseList = ({ exercises, openDialog, id }) => {
+const WorkoutExerciseList = ({ exercises, id }) => {
   return (
     <>
-      <TableContainer component={Paper}>
+      <TableContainer component={Paper} sx={{ backgroundColor: "#f5eeda" }}>
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Exercise</TableCell>
+              <TableCell
+                sx={{ borderBottom: "1px solid #a3ab84" }}
+                align="center"
+              >
+                Exercise
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {exercises.map((exercise) => (
-              <TableRow>
+              <TableRow
+                key={exercise.id}
+                sx={{
+                  "&:not(:last-child) > .css-1ex1afd-MuiTableCell-root": {
+                    borderBottom: "1px solid #a3ab84",
+                  },
+                }}
+              >
                 <TableCell>{exercise.name}</TableCell>
               </TableRow>
             ))}

@@ -15,9 +15,14 @@ const AddWorkoutExerciseForm = ({ id }) => {
 
   const axiosInterceptor = useInterceptor();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axiosInterceptor.post("/workout_exercises", formData);
+    await axiosInterceptor.post("/workout_exercises", formData);
+    setFormData({
+      name: "",
+      n_sets: 1,
+      workout_id: id,
+    });
   };
 
   const handleChange = (e) => {
