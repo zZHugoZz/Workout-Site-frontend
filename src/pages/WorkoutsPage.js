@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 
 import WorkoutExerciseList from "../components/WorkoutExerciseList";
 import useInterceptor from "../utils/useInterceptor";
-import WorkoutsContext from "../context/WorkoutsContext";
+import { WorkoutsContext } from "../context/WorkoutsContext";
 
 const WorkoutsPage = () => {
   const { id } = useParams();

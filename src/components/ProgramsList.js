@@ -10,8 +10,8 @@ const ProgramsList = () => {
   const navigate = useNavigate();
   const axiosInterceptor = useInterceptor();
 
-  const handleDelete = (id) => {
-    axiosInterceptor.delete(`/programs/${id}`);
+  const handleDelete = async (id) => {
+    await axiosInterceptor.delete(`/programs/${id}`);
     axiosInterceptor.get("/programs").then((response) => {
       setPrograms(response.data);
     });

@@ -11,19 +11,17 @@ import Workout from "./Workout";
 const Workouts = () => {
   return (
     <>
-      <WorkoutsProvider>
-        <Divider
-          textAlign="left"
-          sx={{ marginTop: "10px", marginBottom: "15px" }}
-        >
-          <Typography variant="h5">Workouts</Typography>
-        </Divider>
-        <Stack direction="row" justifyContent="space-evenly">
-          <WorkoutsCalendar />
-          <Workout />
-        </Stack>
-        <WorkoutsList />
-      </WorkoutsProvider>
+      <Divider
+        textAlign="left"
+        sx={{ marginTop: "10px", marginBottom: "15px" }}
+      >
+        <Typography variant="h5">Workouts</Typography>
+      </Divider>
+      <Stack direction="row" justifyContent="space-evenly">
+        <WorkoutsCalendar />
+        <Workout />
+      </Stack>
+      <WorkoutsList />
     </>
   );
 };

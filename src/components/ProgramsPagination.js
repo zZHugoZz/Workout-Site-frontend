@@ -42,6 +42,7 @@ const ProgramsPagination = ({ programs, handleAccess, handleDelete }) => {
       >
         {displayedData.currentData().map((program) => (
           <Program
+            key={program.id}
             program={program}
             handleAccess={handleAccess}
             handleDelete={handleDelete}

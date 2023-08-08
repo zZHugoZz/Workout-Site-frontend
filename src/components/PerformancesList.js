@@ -5,7 +5,7 @@ const PerformancesList = ({ progression, unit }) => {
     <>
       <ul>
         {progression.performances.map((performance, i) => (
-          <li>
+          <li key={performance.id}>
             {`session ${i + 1}:`}
             {performance.weight}
             {unit} {`added on: ${performance.date}`}

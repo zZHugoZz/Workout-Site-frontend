@@ -25,25 +25,25 @@ function App() {
   return (
     <>
       <AuthProvider>
-        <Routes>
-          <Route element={<PrivateRoutes />}>
-            <Route element={<Headers />}>
-              <Route path="/profile/" element={<ProfilePage />} />
-              <WorkoutsProvider>
+        <WorkoutsProvider>
+          <Routes>
+            <Route element={<PrivateRoutes />}>
+              <Route element={<Headers />}>
+                <Route path="/profile/" element={<ProfilePage />} />
                 <Route path="/manage/" element={<ManagePage />} />
                 <Route path="/manage/workouts/:id" element={<WorkoutsPage />} />
-              </WorkoutsProvider>
-              <Route path="/manage/programs/:id" element={<ProgramsPage />} />
-              <Route path="/nutrition/" element={<NutritionPage />} />
-              <Route path="/explore/" element={<ExplorePage />} />
-              <Route path="/explore/back/" element={<BackPage />} />
-              <Route path="/community/" element={<CommunityPage />} />
+                <Route path="/manage/programs/:id" element={<ProgramsPage />} />
+                <Route path="/nutrition/" element={<NutritionPage />} />
+                <Route path="/explore/" element={<ExplorePage />} />
+                <Route path="/explore/back/" element={<BackPage />} />
+                <Route path="/community/" element={<CommunityPage />} />
+              </Route>
             </Route>
-          </Route>
-          <Route exact path="/" element={<HomePage />} />
-          <Route path="/login/" element={<LoginPage />} />
-          <Route path="/signup/" element={<SignupPage />} />
-        </Routes>
+            <Route exact path="/" element={<HomePage />} />
+            <Route path="/login/" element={<LoginPage />} />
+            <Route path="/signup/" element={<SignupPage />} />
+          </Routes>
+        </WorkoutsProvider>
       </AuthProvider>
     </>
   );
