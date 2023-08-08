@@ -1,14 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import dayjs from "dayjs";
 
-import Badge from "@mui/material/Badge";
 import RemoveIcon from "@mui/icons-material/Remove";
-import LocalizationProvider from "@mui/x-date-pickers/LocalizationProvider";
-import PickersDay from "@mui/x-date-pickers/PickersDay";
-import DateCalendar from "@mui/x-date-pickers/DateCalendar";
 
 import useInterceptor from "../utils/useInterceptor";
+import { WorkoutsContext } from "../context/WorkoutsContext";
 
 const WorkoutsList = () => {
   const [workouts, setWorkouts] = useState([]);

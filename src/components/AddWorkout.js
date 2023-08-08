@@ -1,25 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
 
-import useInterceptor from "../utils/useInterceptor";
+import { WorkoutsContext } from "../context/WorkoutsContext";
 
 const AddWorkout = () => {
-  const navigate = useNavigate();
-  const axiosInterceptor = useInterceptor();
-
-  const handleAddWorkout = () => {
-    axiosInterceptor
-      .post("/workouts/")
-      .then((response) => {
-        navigate(`workouts/${response.data.id}`);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  };
+  const { handleAddWorkout } = useContext(WorkoutsContext);
 
   return (
     <>
