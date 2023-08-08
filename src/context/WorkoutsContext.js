@@ -8,27 +8,50 @@ export const WorkoutsContext = createContext();
 
 export default function WorkoutsProvider({ children }) {
   const [currentWorkout, setCurrentWorkout] = useState({});
+  const [workouts, setWorkouts] = useState([]);
   const [workoutId, setWorkoutId] = useState(1);
 
   const axiosInterceptor = useInterceptor();
   const navigate = useNavigate();
 
-  const handleAddWorkout = () => {
-    axiosInterceptor.post("/workouts/").then((response) => {
-      navigate(`/manage/workouts/${response.data.id}`);
-    });
+  const getWorkouts = async () => {
+    try {
+      const response = await axiosInterceptor.get("/workouts");
+      return response.data;
+    } catch (error) {
+      console.log("error: ", error);
+    }
   };
 
-  useEffect(() => {
-    console.log("id: ", workoutId);
-  }, [workoutId]);
+  const handleAddWorkout = async () => {
+    try {
+      const response = await axiosInterceptor.post("/workouts/");
+      navigate(`/manage/workouts/${response.data.id}`);
+    } catch (error) {
+      console.log("error: ", error);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    try {
+      await axiosInterceptor.delete(`/workouts/${id}`);
+      const response = await axiosInterceptor.get("/workouts");
+      setWorkouts(response.data);
+    } catch (error) {
+      console.log("error: ", error);
+    }
+  };
 
   const contextData = {
     currentWorkout: currentWorkout,
     setCurrentWorkout: setCurrentWorkout,
+    workouts: workouts,
+    setWorkouts: setWorkouts,
     workoutId: workoutId,
     setWorkoutId: setWorkoutId,
     handleAddWorkout: handleAddWorkout,
+    handleDelete: handleDelete,
+    getWorkouts: getWorkouts,
   };
 
   return (

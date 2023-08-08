@@ -7,17 +7,9 @@ import useInterceptor from "../utils/useInterceptor";
 import { WorkoutsContext } from "../context/WorkoutsContext";
 
 const WorkoutsList = () => {
-  const [workouts, setWorkouts] = useState([]);
-
   const navigate = useNavigate();
+  const { handleDelete, workouts, setWorkouts } = useContext(WorkoutsContext);
   const axiosInterceptor = useInterceptor();
-
-  const handleDelete = (id) => {
-    axiosInterceptor.delete(`/workouts/${id}`);
-    axiosInterceptor.get("/workouts").then((response) => {
-      setWorkouts(response.data);
-    });
-  };
 
   const handleAccess = (id) => {
     navigate(`workouts/${id}`);
