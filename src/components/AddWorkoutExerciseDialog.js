@@ -8,6 +8,8 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 
+import AddWorkoutExerciseForm from "./AddWorkoutExerciseForm";
+
 const AddWorkoutExerciseDialog = ({ open, setIsOpen }) => {
   return (
     <>
@@ -24,7 +26,9 @@ const AddWorkoutExerciseDialog = ({ open, setIsOpen }) => {
             </IconButton>
           </Stack>
         </DialogTitle>
-        <DialogContent></DialogContent>
+        <DialogContent>
+          <AddWorkoutExerciseForm />
+        </DialogContent>
       </Dialog>
     </>
   );

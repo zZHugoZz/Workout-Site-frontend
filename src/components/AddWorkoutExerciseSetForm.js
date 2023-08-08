@@ -2,15 +2,16 @@ import React, { useState } from "react";
 
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-import Button from "@mui/material/Button";
 
-const AddWorkoutExerciseForm = () => {
+const AddWorkoutExerciseSetForm = ({ id }) => {
   const [formData, setFormData] = useState({
-    name: "",
+    reps: "",
+    weight: "",
+    workout_exercise_id: id,
   });
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault;
   };
 
   const handleChange = (e) => {
@@ -20,32 +21,30 @@ const AddWorkoutExerciseForm = () => {
   return (
     <>
       <Stack
-        width="300px"
+        direction="row"
         component="form"
         onSubmit={handleSubmit}
-        paddingTop="10px"
-        spacing={3}
+        spacing={1}
       >
         <TextField
           variant="outlined"
-          label="Name"
+          label="Reps"
           size="small"
           color="success"
-          name="name"
-          value={formData.name}
+          value={formData.reps}
           onChange={handleChange}
         />
-        <Button
+        <TextField
           variant="outlined"
-          type="submit"
+          label="Weight"
+          size="small"
           color="success"
-          sx={{ width: "max-content" }}
-        >
-          Add
-        </Button>
+          value={formData.weight}
+          onChange={handleChange}
+        />
       </Stack>
     </>
   );
 };
 
-export default AddWorkoutExerciseForm;
+export default AddWorkoutExerciseSetForm;
