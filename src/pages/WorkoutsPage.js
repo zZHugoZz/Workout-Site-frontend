@@ -1,20 +1,21 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 
-import AddWorkoutExerciseForm from "../components/AddWorkoutExerciseForm";
 import WorkoutExerciseList from "../components/WorkoutExerciseList";
 import useInterceptor from "../utils/useInterceptor";
+import WorkoutsContext from "../context/WorkoutsContext";
 
 const WorkoutsPage = () => {
   const { id } = useParams();
   const [exercises, setExercises] = useState([]);
   const [workoutDate, setWorkoutDate] = useState("");
 
+  const { setWorkoutId } = useContext(WorkoutsContext);
   const axiosInterceptor = useInterceptor();
 
   useEffect(() => {
@@ -23,6 +24,10 @@ const WorkoutsPage = () => {
       setWorkoutDate(response.data.date);
     });
   }, []);
+
+  useEffect(() => {
+    setWorkoutId(id);
+  }, [id]);
 
   const openDialog = () => {
     const dialog = document.querySelector(".workout-dialog");

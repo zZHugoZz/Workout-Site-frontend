@@ -5,8 +5,9 @@ import useInterceptor from "../utils/useInterceptor";
 
 export const WorkoutsContext = createContext();
 
-export default WorkoutsProvider = ({ children }) => {
+export default function WorkoutsProvider({ children }) {
   const [currentWorkout, setCurrentWorkout] = useState({});
+  const [workoutId, setWorkoutId] = useState(null);
 
   const axiosInterceptor = useInterceptor();
 
@@ -20,4 +21,4 @@ export default WorkoutsProvider = ({ children }) => {
       {children}
     </WorkoutsContext.Provider>
   );
-};
+}
