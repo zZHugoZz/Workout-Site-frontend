@@ -11,7 +11,7 @@ const AddWorkoutExerciseSetForm = ({ id }) => {
   });
 
   const handleSubmit = (e) => {
-    e.preventDefault;
+    e.preventDefault();
   };
 
   const handleChange = (e) => {

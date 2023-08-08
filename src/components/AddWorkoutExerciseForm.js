@@ -4,13 +4,20 @@ import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-const AddWorkoutExerciseForm = () => {
+import useInterceptor from "../utils/useInterceptor";
+
+const AddWorkoutExerciseForm = ({ id }) => {
   const [formData, setFormData] = useState({
     name: "",
+    n_sets: 1,
+    workout_id: id,
   });
+
+  const axiosInterceptor = useInterceptor();
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    axiosInterceptor.post("/workout_exercises", formData);
   };
 
   const handleChange = (e) => {

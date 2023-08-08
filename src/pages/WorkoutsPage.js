@@ -69,17 +69,12 @@ const WorkoutsPage = () => {
         <Divider sx={{ marginBottom: "50px" }}>
           <Typography variant="h4">Workouts</Typography>
         </Divider>
-        <WorkoutExerciseList exercises={exercises} openDialog={openDialog} />
-      </Container>
-
-      <dialog className="workout-dialog">
-        <AddWorkoutExerciseForm
-          formData={formData}
-          handleSubmit={handleSubmit}
-          handleChange={handleChange}
-          closeDialog={closeDialog}
+        <WorkoutExerciseList
+          exercises={exercises}
+          openDialog={openDialog}
+          id={id}
         />
-      </dialog>
+      </Container>
     </>
   );
 };
