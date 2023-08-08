@@ -26,7 +26,7 @@ const WorkoutExerciseList = ({ exercises, id }) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {exercises.map((exercise) => (
+            {exercises?.map((exercise) => (
               <TableRow
                 key={exercise.id}
                 sx={{

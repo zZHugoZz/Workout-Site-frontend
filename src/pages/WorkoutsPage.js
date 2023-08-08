@@ -11,16 +11,16 @@ import useInterceptor from "../utils/useInterceptor";
 import { WorkoutsContext } from "../context/WorkoutsContext";
 
 const WorkoutsPage = () => {
+  const { setWorkoutId, currentWorkout, setCurrentWorkout } =
+    useContext(WorkoutsContext);
+  const axiosInterceptor = useInterceptor();
   const { id } = useParams();
   const [exercises, setExercises] = useState([]);
   const [workoutDate, setWorkoutDate] = useState("");
 
-  const { setWorkoutId } = useContext(WorkoutsContext);
-  const axiosInterceptor = useInterceptor();
-
   useEffect(() => {
     axiosInterceptor.get(`/workouts/${id}`).then((response) => {
-      setExercises(response.data.exercises);
+      setCurrentWorkout(response.data);
       setWorkoutDate(response.data.date);
     });
   }, []);
@@ -28,6 +28,10 @@ const WorkoutsPage = () => {
   useEffect(() => {
     setWorkoutId(id);
   }, [id]);
+
+  useEffect(() => {
+    setExercises(currentWorkout.exercises);
+  }, [currentWorkout]);
 
   const openDialog = () => {
     const dialog = document.querySelector(".workout-dialog");
