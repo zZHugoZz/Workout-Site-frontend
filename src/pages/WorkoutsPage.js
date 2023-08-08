@@ -1,6 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+
+import Container from "@mui/material/Container";
+import Divider from "@mui/material/Divider";
+import Typography from "@mui/material/Typography";
+
 import AddWorkoutExerciseForm from "../components/AddWorkoutExerciseForm";
 import WorkoutExerciseList from "../components/WorkoutExerciseList";
 import useInterceptor from "../utils/useInterceptor";
@@ -60,19 +65,21 @@ const WorkoutsPage = () => {
 
   return (
     <>
-      <div>
-        <h1>Workouts</h1>
-        <h3>{workoutDate}</h3>
+      <Container maxWidth="md" sx={{ marginTop: "50px" }}>
+        <Divider sx={{ marginBottom: "50px" }}>
+          <Typography variant="h4">Workouts</Typography>
+        </Divider>
         <WorkoutExerciseList exercises={exercises} openDialog={openDialog} />
-        <dialog className="workout-dialog">
-          <AddWorkoutExerciseForm
-            formData={formData}
-            handleSubmit={handleSubmit}
-            handleChange={handleChange}
-            closeDialog={closeDialog}
-          />
-        </dialog>
-      </div>
+      </Container>
+
+      <dialog className="workout-dialog">
+        <AddWorkoutExerciseForm
+          formData={formData}
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          closeDialog={closeDialog}
+        />
+      </dialog>
     </>
   );
 };
