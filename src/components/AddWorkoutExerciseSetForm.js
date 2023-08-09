@@ -62,6 +62,7 @@ const AddWorkoutExerciseSetForm = () => {
           color="success"
           value={formData.reps}
           onChange={handleChange}
+          required
         />
         <TextField
           variant="outlined"
@@ -71,6 +72,7 @@ const AddWorkoutExerciseSetForm = () => {
           color="success"
           value={formData.weight}
           onChange={handleChange}
+          required
         />
         <Button
           variant="outlined"

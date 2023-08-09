@@ -59,6 +59,7 @@ const AddWorkoutExerciseForm = () => {
           name="name"
           value={formData.name}
           onChange={handleChange}
+          required
         />
         <Button
           variant="outlined"
