@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -12,12 +12,13 @@ import AddWorkoutExercise from "./AddWorkoutExercise";
 import CollapsibleRow from "./CollapsibleRow";
 import useInterceptor from "../utils/useInterceptor";
 import AddWorkoutExerciseSetDialog from "./AddWorkoutExerciseSetDialog";
+import { WorkoutContext } from "../context/WorkoutContext";
 
-const WorkoutExerciseList = ({ exercises }) => {
+const WorkoutExerciseList = () => {
+  const { exercises, setExerciseId } = useContext(WorkoutContext);
   const axiosInterceptor = useInterceptor();
 
   const [isOpen, setIsOpen] = useState(false);
-  const [exerciseId, setExerciseId] = useState(null);
 
   const handleAddWorkoutExercise = (id) => {
     setIsOpen(true);
@@ -55,11 +56,7 @@ const WorkoutExerciseList = ({ exercises }) => {
           </TableBody>
         </Table>
       </TableContainer>
-      <AddWorkoutExerciseSetDialog
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        id={exerciseId}
-      />
+      <AddWorkoutExerciseSetDialog isOpen={isOpen} setIsOpen={setIsOpen} />
       <AddWorkoutExercise />
     </>
   );

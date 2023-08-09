@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 
 import AddWorkoutExerciseSetForm from "./AddWorkoutExerciseSetForm";
 
-const AddWorkoutExerciseSetDialog = ({ isOpen, setIsOpen, id }) => {
+const AddWorkoutExerciseSetDialog = ({ isOpen, setIsOpen }) => {
   return (
     <>
       <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
@@ -27,7 +27,7 @@ const AddWorkoutExerciseSetDialog = ({ isOpen, setIsOpen, id }) => {
           </Stack>
         </DialogTitle>
         <DialogContent>
-          <AddWorkoutExerciseSetForm id={id} />
+          <AddWorkoutExerciseSetForm />
         </DialogContent>
       </Dialog>
     </>

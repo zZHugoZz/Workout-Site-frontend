@@ -48,15 +48,15 @@ const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
               <Table size="small">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Set</TableCell>
+                    <TableCell>Sets</TableCell>
                     <TableCell>Reps</TableCell>
                     <TableCell>Weight</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {row.sets.map((set) => (
+                  {row.sets.map((set, i) => (
                     <TableRow key={set.id}>
-                      <TableCell>Set {set.id + 1}</TableCell>
+                      <TableCell>Set {i + 1}</TableCell>
                       <TableCell>{set.reps}</TableCell>
                       <TableCell>{set.weight}</TableCell>
                     </TableRow>

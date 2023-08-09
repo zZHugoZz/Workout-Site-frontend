@@ -8,15 +8,13 @@ import Typography from "@mui/material/Typography";
 
 import WorkoutExerciseList from "../components/WorkoutExerciseList";
 import useInterceptor from "../utils/useInterceptor";
-// import { WorkoutsContext } from "../context/WorkoutsContext";
 import { WorkoutContext } from "../context/WorkoutContext";
 
 const WorkoutsPage = () => {
-  const { setWorkoutId, currentWorkout, setCurrentWorkout } =
+  const { setWorkoutId, currentWorkout, setCurrentWorkout, setExercises } =
     useContext(WorkoutContext);
   const axiosInterceptor = useInterceptor();
   const { id } = useParams();
-  const [exercises, setExercises] = useState([]);
   const [workoutDate, setWorkoutDate] = useState("");
 
   useEffect(() => {
@@ -40,7 +38,7 @@ const WorkoutsPage = () => {
         <Divider sx={{ marginBottom: "50px" }}>
           <Typography variant="h4">Workouts</Typography>
         </Divider>
-        <WorkoutExerciseList exercises={exercises} />
+        <WorkoutExerciseList />
       </Container>
     </>
   );

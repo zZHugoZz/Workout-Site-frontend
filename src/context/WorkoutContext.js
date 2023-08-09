@@ -12,6 +12,9 @@ export default function WorkoutProvider({ children }) {
 
   const [currentWorkout, setCurrentWorkout] = useState({});
   const [workoutId, setWorkoutId] = useState(0);
+  const [exercises, setExercises] = useState([]);
+  const [exerciseId, setExerciseId] = useState(null);
+  const [currentExercise, setCurrentExercise] = useState({});
 
   const handleAddWorkout = async () => {
     try {
@@ -28,6 +31,12 @@ export default function WorkoutProvider({ children }) {
     workoutId: workoutId,
     setWorkoutId: setWorkoutId,
     handleAddWorkout: handleAddWorkout,
+    exercises: exercises,
+    setExercises: setExercises,
+    exerciseId: exerciseId,
+    setExerciseId: setExerciseId,
+    currentExercise: currentExercise,
+    setCurrentExercise: setCurrentExercise,
   };
 
   return (
