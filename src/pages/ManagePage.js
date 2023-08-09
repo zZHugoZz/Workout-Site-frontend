@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 
 import Grid from "@mui/material/Unstable_Grid2";
 import Divider from "@mui/material/Divider";
@@ -11,10 +11,11 @@ import Programs from "../components/Programs";
 import Progression from "../components/Progression";
 import OneRmCalculator from "../components/OneRmCalculator";
 import useInterceptor from "../utils/useInterceptor";
+import { WorkoutsContext } from "../context/WorkoutsContext";
 
 const ManagePage = () => {
+  const { setWorkouts } = useContext(WorkoutsContext);
   const axiosInterceptor = useInterceptor();
-  const [workouts, setWorkouts] = useState([]);
   const [programs, setPrograms] = useState([]);
   const [progressions, setProgressions] = useState([]);
 
@@ -36,7 +37,7 @@ const ManagePage = () => {
         <Grid container spacing={4}>
           <Grid xs={7}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
-              {/* <Workouts /> */}
+              <Workouts />
             </Card>
           </Grid>
           <Grid xs={5}>
