@@ -8,9 +8,9 @@ import Autocomplete from "@mui/material/Autocomplete";
 import useInterceptor from "../utils/useInterceptor";
 
 const ExploreSearchBar = () => {
-  const [exercises, setExercises] = useState([]);
-
   const axiosInterceptor = useInterceptor();
+
+  const [exercises, setExercises] = useState([]);
 
   useEffect(() => {
     axiosInterceptor.get("/exercises").then((response) => {

@@ -10,7 +10,7 @@ import WorkoutDay from "./WorkoutDay";
 
 const WorkoutsCalendar = () => {
   const [highlightedDays, setHighlightedDays] = useState([4, 5, 14]);
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState(dayjs());
 
   useEffect(() => {
     console.log("value: ", dayjs(value.$d).format("YYYY-MM-DD"));
@@ -20,6 +20,7 @@ const WorkoutsCalendar = () => {
     <>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateCalendar
+          value={value}
           sx={{ margin: "0" }}
           onChange={(value) => setValue(value)}
           defaultValue={dayjs()}
