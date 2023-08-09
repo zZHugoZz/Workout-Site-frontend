@@ -15,7 +15,7 @@ import Stack from "@mui/material/Stack";
 import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
 
-const CollapsibleRow = ({ row }) => {
+const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -37,7 +37,10 @@ const CollapsibleRow = ({ row }) => {
               <Divider textAlign="left">
                 <Stack direction="row" alignItems="center">
                   <Typography variant="h6">Sets</Typography>
-                  <IconButton title="Add set">
+                  <IconButton
+                    title="Add set"
+                    onClick={() => handleAddWorkoutExercise(row.id)}
+                  >
                     <AddIcon color="success" />
                   </IconButton>
                 </Stack>
