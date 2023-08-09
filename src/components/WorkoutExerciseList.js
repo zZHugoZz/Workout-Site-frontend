@@ -18,7 +18,9 @@ const WorkoutExerciseList = ({ exercises }) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleAddWorkoutExercise = (id) => {};
+  const handleAddWorkoutExercise = () => {
+    setIsOpen(true);
+  };
 
   return (
     <>

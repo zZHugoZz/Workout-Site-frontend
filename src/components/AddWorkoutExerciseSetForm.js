@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
 
 const AddWorkoutExerciseSetForm = ({ id }) => {
   const [formData, setFormData] = useState({
@@ -21,10 +22,10 @@ const AddWorkoutExerciseSetForm = ({ id }) => {
   return (
     <>
       <Stack
-        direction="row"
         component="form"
         onSubmit={handleSubmit}
-        spacing={1}
+        paddingTop="10px"
+        spacing={3}
       >
         <TextField
           variant="outlined"
@@ -42,6 +43,14 @@ const AddWorkoutExerciseSetForm = ({ id }) => {
           value={formData.weight}
           onChange={handleChange}
         />
+        <Button
+          variant="outlined"
+          type="submit"
+          color="success"
+          sx={{ width: "max-content" }}
+        >
+          Add
+        </Button>
       </Stack>
     </>
   );
