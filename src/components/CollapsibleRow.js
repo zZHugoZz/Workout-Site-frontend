@@ -5,7 +5,6 @@ import TableRow from "@mui/material/TableRow";
 import TableHead from "@mui/material/TableHead";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
-import IconButton from "@mui/material/IconButton";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import Box from "@mui/material/Box";
@@ -13,6 +12,8 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Table from "@mui/material/Table";
 import Stack from "@mui/material/Stack";
+import AddIcon from "@mui/icons-material/Add";
+import IconButton from "@mui/material/IconButton";
 
 const CollapsibleRow = ({ row }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,7 +35,12 @@ const CollapsibleRow = ({ row }) => {
           <Collapse in={isOpen} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Divider textAlign="left">
-                <Typography variant="h6">Sets</Typography>
+                <Stack direction="row" alignItems="center">
+                  <Typography variant="h6">Sets</Typography>
+                  <IconButton title="Add set">
+                    <AddIcon color="success" />
+                  </IconButton>
+                </Stack>
               </Divider>
               <Table size="small">
                 <TableHead>

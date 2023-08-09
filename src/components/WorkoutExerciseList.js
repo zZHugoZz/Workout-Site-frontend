@@ -12,6 +12,8 @@ import AddWorkoutExercise from "./AddWorkoutExercise";
 import CollapsibleRow from "./CollapsibleRow";
 
 const WorkoutExerciseList = ({ exercises }) => {
+  const handleAddWorkoutExercise = (id) => {};
+
   return (
     <>
       <TableContainer
