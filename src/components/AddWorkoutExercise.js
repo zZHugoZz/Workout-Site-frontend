@@ -5,7 +5,7 @@ import AddIcon from "@mui/icons-material/Add";
 
 import AddWorkoutExerciseDialog from "./AddWorkoutExerciseDialog";
 
-const AddWorkoutExercise = ({ id }) => {
+const AddWorkoutExercise = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -18,7 +18,7 @@ const AddWorkoutExercise = ({ id }) => {
       >
         Add exercise
       </Button>
-      <AddWorkoutExerciseDialog open={isOpen} setIsOpen={setIsOpen} id={id} />
+      <AddWorkoutExerciseDialog open={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 };

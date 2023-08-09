@@ -34,22 +34,13 @@ const WorkoutsPage = () => {
     setExercises(currentWorkout.exercises);
   }, [currentWorkout]);
 
-  const openDialog = () => {
-    const dialog = document.querySelector(".workout-dialog");
-    dialog.showModal();
-  };
-
   return (
     <>
       <Container maxWidth="md" sx={{ marginTop: "50px" }}>
         <Divider sx={{ marginBottom: "50px" }}>
           <Typography variant="h4">Workouts</Typography>
         </Divider>
-        <WorkoutExerciseList
-          exercises={exercises}
-          openDialog={openDialog}
-          id={id}
-        />
+        <WorkoutExerciseList exercises={exercises} />
       </Container>
     </>
   );

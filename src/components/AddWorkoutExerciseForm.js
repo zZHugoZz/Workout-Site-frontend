@@ -10,8 +10,7 @@ import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 
 const AddWorkoutExerciseForm = () => {
-  const { workoutId, setCurrentWorkout, currentWorkout } =
-    useContext(WorkoutContext);
+  const { workoutId, setCurrentWorkout } = useContext(WorkoutContext);
   const { authTokens } = useContext(AuthContext);
   const axiosInterceptor = useInterceptor();
 

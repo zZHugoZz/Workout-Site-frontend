@@ -10,7 +10,7 @@ import Paper from "@mui/material/Paper";
 
 import AddWorkoutExercise from "./AddWorkoutExercise";
 
-const WorkoutExerciseList = ({ exercises, id }) => {
+const WorkoutExerciseList = ({ exercises }) => {
   return (
     <>
       <TableContainer component={Paper} sx={{ backgroundColor: "#f5eeda" }}>
@@ -41,7 +41,7 @@ const WorkoutExerciseList = ({ exercises, id }) => {
           </TableBody>
         </Table>
       </TableContainer>
-      <AddWorkoutExercise id={id} />
+      <AddWorkoutExercise />
     </>
   );
 };
