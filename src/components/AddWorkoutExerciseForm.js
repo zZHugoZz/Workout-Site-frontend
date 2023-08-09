@@ -5,10 +5,14 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
 import useInterceptor from "../utils/useInterceptor";
-import { WorkoutsContext } from "../context/WorkoutsContext";
+import { WorkoutContext } from "../context/WorkoutContext";
+import { AuthContext } from "../context/AuthContext";
+import axios from "axios";
 
 const AddWorkoutExerciseForm = () => {
-  const { workoutId, setCurrentWorkout } = useContext(WorkoutsContext);
+  const { workoutId, setCurrentWorkout, currentWorkout } =
+    useContext(WorkoutContext);
+  const { authTokens } = useContext(AuthContext);
   const axiosInterceptor = useInterceptor();
 
   const [formData, setFormData] = useState({
@@ -21,13 +25,15 @@ const AddWorkoutExerciseForm = () => {
     e.preventDefault();
     try {
       await axiosInterceptor.post("/workout_exercises", formData);
-      const response = await axiosInterceptor.get(`/workouts/${workoutId}`);
-      setCurrentWorkout(response.data);
-      setFormData({
-        name: "",
-        n_sets: 1,
-        workout_id: workoutId,
+      const response = await axios.get(`/workouts/${workoutId}`, {
+        headers: {
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("authTokens")).access_token
+          }`,
+          "Content-Type": "application/json",
+        },
       });
+      setCurrentWorkout(response.data);
     } catch (error) {
       console.log("error: ", error);
     }

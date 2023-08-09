@@ -8,11 +8,12 @@ import Typography from "@mui/material/Typography";
 
 import WorkoutExerciseList from "../components/WorkoutExerciseList";
 import useInterceptor from "../utils/useInterceptor";
-import { WorkoutsContext } from "../context/WorkoutsContext";
+// import { WorkoutsContext } from "../context/WorkoutsContext";
+import { WorkoutContext } from "../context/WorkoutContext";
 
 const WorkoutsPage = () => {
   const { setWorkoutId, currentWorkout, setCurrentWorkout } =
-    useContext(WorkoutsContext);
+    useContext(WorkoutContext);
   const axiosInterceptor = useInterceptor();
   const { id } = useParams();
   const [exercises, setExercises] = useState([]);

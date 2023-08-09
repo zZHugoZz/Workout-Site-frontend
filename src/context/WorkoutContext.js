@@ -1,12 +1,12 @@
 import React from "react";
-import { createContext, useState, useEffect } from "react";
+import { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import useInterceptor from "../utils/useInterceptor";
 
 export const WorkoutContext = createContext();
 
-export default WorkoutProvider = ({ children }) => {
+export default function WorkoutProvider({ children }) {
   const axiosInterceptor = useInterceptor();
   const navigate = useNavigate();
 
@@ -17,18 +17,16 @@ export default WorkoutProvider = ({ children }) => {
     try {
       const response = await axiosInterceptor.post("/workouts/");
       navigate(`/manage/workouts/${response.data.id}`);
-    } catch (error) {
-      console.log("error: ", error);
+    } catch (err) {
+      console.log("error: ", err);
     }
   };
 
   const contextData = {
-    currentWorkout,
-    currentWorkout,
-    setCurrentWorkout,
-    setCurrentWorkout,
-    workoutId,
-    setWorkoutId,
+    currentWorkout: currentWorkout,
+    setCurrentWorkout: setCurrentWorkout,
+    workoutId: workoutId,
+    setWorkoutId: setWorkoutId,
     handleAddWorkout: handleAddWorkout,
   };
 
@@ -37,4 +35,4 @@ export default WorkoutProvider = ({ children }) => {
       {children}
     </WorkoutContext.Provider>
   );
-};
+}
