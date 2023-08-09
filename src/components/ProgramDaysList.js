@@ -10,17 +10,25 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
   const axiosInterceptor = useInterceptor();
 
   const handleDeleteDay = async (dayId) => {
-    await axiosInterceptor.delete(`/program_days/${dayId}`);
-    axiosInterceptor.get(`/programs/${programId}`).then((response) => {
-      setDays(response.data.days);
-    });
+    try {
+      await axiosInterceptor.delete(`/program_days/${dayId}`);
+      axiosInterceptor.get(`/programs/${programId}`).then((response) => {
+        setDays(response.data.days);
+      });
+    } catch (err) {
+      console.log("error: ", err);
+    }
   };
 
   const handleDeleteExercise = async (exerciseId) => {
-    await axiosInterceptor.delete(`/program_exercises/${exerciseId}`);
-    axiosInterceptor.get(`/programs/${programId}`).then((response) => {
-      setDays(response.data.days);
-    });
+    try {
+      await axiosInterceptor.delete(`/program_exercises/${exerciseId}`);
+      axiosInterceptor.get(`/programs/${programId}`).then((response) => {
+        setDays(response.data.days);
+      });
+    } catch (err) {
+      console.log("error: ", err);
+    }
   };
 
   return (
