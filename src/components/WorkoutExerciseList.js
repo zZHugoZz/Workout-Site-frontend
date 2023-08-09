@@ -7,37 +7,34 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import Collapse from "@mui/material/Collapse";
 
 import AddWorkoutExercise from "./AddWorkoutExercise";
+import CollapsibleRow from "./CollapsibleRow";
 
 const WorkoutExerciseList = ({ exercises }) => {
   return (
     <>
-      <TableContainer component={Paper} sx={{ backgroundColor: "#f5eeda" }}>
+      <TableContainer
+        component={Paper}
+        sx={{
+          backgroundColor: "#f5eeda",
+        }}
+      >
         <Table>
           <TableHead>
             <TableRow>
               <TableCell
                 sx={{ borderBottom: "1px solid #a3ab84" }}
                 align="center"
+                colSpan={12}
               >
-                Exercise
+                Exercises
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {exercises?.map((exercise) => (
-              <TableRow
-                key={exercise.id}
-                sx={{
-                  "&:not(:last-child) > .css-1ex1afd-MuiTableCell-root": {
-                    borderBottom: "1px solid #a3ab84",
-                  },
-                }}
-              >
-                <TableCell>{exercise.name}</TableCell>
-              </TableRow>
+              <CollapsibleRow key={exercise.id} row={exercise} />
             ))}
           </TableBody>
         </Table>

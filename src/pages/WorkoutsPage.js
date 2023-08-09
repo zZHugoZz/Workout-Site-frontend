@@ -36,7 +36,7 @@ const WorkoutsPage = () => {
 
   return (
     <>
-      <Container maxWidth="md" sx={{ marginTop: "50px" }}>
+      <Container maxWidth="xs" sx={{ marginTop: "50px" }}>
         <Divider sx={{ marginBottom: "50px" }}>
           <Typography variant="h4">Workouts</Typography>
         </Divider>

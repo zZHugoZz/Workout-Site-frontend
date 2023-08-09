@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import Collapse from "@mui/material/Collapse";
 import TableRow from "@mui/material/TableRow";
+import TableHead from "@mui/material/TableHead";
+import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import IconButton from "@mui/material/IconButton";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
@@ -10,6 +12,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Table from "@mui/material/Table";
+import Stack from "@mui/material/Stack";
 
 const CollapsibleRow = ({ row }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,17 +20,19 @@ const CollapsibleRow = ({ row }) => {
   return (
     <>
       <TableRow>
-        <TableCell>
-          <IconButton onClick={setIsOpen(!open)}>
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-          </IconButton>
+        <TableCell align="left" colSpan={3}>
+          <Stack direction="row" alignItems="center">
+            <IconButton onClick={() => setIsOpen(!isOpen)}>
+              {isOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
+            </IconButton>
+            <Typography>{row.name}</Typography>
+          </Stack>
         </TableCell>
-        <TableCell>{row.name}</TableCell>
       </TableRow>
       <TableRow>
-        <TableCell>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+          <Collapse in={isOpen} timeout="auto" unmountOnExit>
+            <Box sx={{ margin: 1 }}>
               <Divider textAlign="left">
                 <Typography variant="h6">Sets</Typography>
               </Divider>
