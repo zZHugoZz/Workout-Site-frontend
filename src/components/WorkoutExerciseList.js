@@ -10,13 +10,11 @@ import Paper from "@mui/material/Paper";
 
 import AddWorkoutExercise from "./AddWorkoutExercise";
 import CollapsibleRow from "./CollapsibleRow";
-import useInterceptor from "../utils/useInterceptor";
 import AddWorkoutExerciseSetDialog from "./AddWorkoutExerciseSetDialog";
 import { WorkoutContext } from "../context/WorkoutContext";
 
 const WorkoutExerciseList = () => {
   const { exercises, setExerciseId } = useContext(WorkoutContext);
-  const axiosInterceptor = useInterceptor();
 
   const [isOpen, setIsOpen] = useState(false);
 

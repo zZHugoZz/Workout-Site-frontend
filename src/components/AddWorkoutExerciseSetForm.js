@@ -9,8 +9,7 @@ import useInterceptor from "../utils/useInterceptor";
 import { WorkoutContext } from "../context/WorkoutContext";
 
 const AddWorkoutExerciseSetForm = () => {
-  const { setExercises, exerciseId, workoutId, setCurrentWorkout } =
-    useContext(WorkoutContext);
+  const { setExercises, exerciseId, workoutId } = useContext(WorkoutContext);
   const axiosInterceptor = useInterceptor();
 
   const [formData, setFormData] = useState({
