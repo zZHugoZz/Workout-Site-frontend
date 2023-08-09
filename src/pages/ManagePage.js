@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import Grid from "@mui/material/Unstable_Grid2";
 import Divider from "@mui/material/Divider";
@@ -10,8 +10,23 @@ import Workouts from "../components/Workouts";
 import Programs from "../components/Programs";
 import Progression from "../components/Progression";
 import OneRmCalculator from "../components/OneRmCalculator";
+import useInterceptor from "../utils/useInterceptor";
 
 const ManagePage = () => {
+  const axiosInterceptor = useInterceptor();
+  const [workouts, setWorkouts] = useState([]);
+  const [programs, setPrograms] = useState([]);
+  const [progressions, setProgressions] = useState([]);
+
+  useEffect(() => {
+    axiosInterceptor.get("/manage").then((response) => {
+      console.table(response.data);
+      setWorkouts(response.data.workouts);
+      setPrograms(response.data.programs);
+      setProgressions(response.data.progressions);
+    });
+  }, []);
+
   return (
     <>
       <Container maxWidth="xl" sx={{ marginTop: "50px" }}>
@@ -21,22 +36,22 @@ const ManagePage = () => {
         <Grid container spacing={4}>
           <Grid xs={7}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
-              <Workouts />
+              {/* <Workouts /> */}
             </Card>
           </Grid>
           <Grid xs={5}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
-              <Programs />
+              {/* <Programs /> */}
             </Card>
           </Grid>
           <Grid xs={3}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
-              <OneRmCalculator />
+              {/* <OneRmCalculator /> */}
             </Card>
           </Grid>
           <Grid xs={9}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
-              <Progression />
+              {/* <Progression /> */}
             </Card>
           </Grid>
         </Grid>
