@@ -42,6 +42,10 @@ export default function WorkoutsProvider({ children }) {
     }
   };
 
+  useEffect(() => {
+    console.log("workouts: ", workouts);
+  }, [workouts]);
+
   const contextData = {
     currentWorkout: currentWorkout,
     setCurrentWorkout: setCurrentWorkout,

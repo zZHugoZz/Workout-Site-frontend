@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
@@ -7,8 +7,15 @@ import Stack from "@mui/material/Stack";
 import WorkoutsList from "./WorkoutsList";
 import WorkoutsCalendar from "./WorkoutsCalendar";
 import Workout from "./Workout";
+import { WorkoutsContext } from "../context/WorkoutsContext";
 
-const Workouts = () => {
+const Workouts = ({ workoutsList }) => {
+  const { setWorkouts } = useContext(WorkoutsContext);
+
+  useEffect(() => {
+    setWorkouts(workoutsList);
+  }, [workoutsList]);
+
   return (
     <>
       <Divider
