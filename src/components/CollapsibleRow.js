@@ -39,7 +39,7 @@ const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
                   <Typography variant="h6">Sets</Typography>
                   <IconButton
                     title="Add set"
-                    onClick={handleAddWorkoutExercise}
+                    onClick={() => handleAddWorkoutExercise(row.id)}
                   >
                     <AddIcon color="success" />
                   </IconButton>

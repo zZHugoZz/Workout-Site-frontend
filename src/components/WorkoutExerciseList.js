@@ -17,9 +17,11 @@ const WorkoutExerciseList = ({ exercises }) => {
   const axiosInterceptor = useInterceptor();
 
   const [isOpen, setIsOpen] = useState(false);
+  const [exerciseId, setExerciseId] = useState(null);
 
-  const handleAddWorkoutExercise = () => {
+  const handleAddWorkoutExercise = (id) => {
     setIsOpen(true);
+    setExerciseId(id);
   };
 
   return (
@@ -53,7 +55,11 @@ const WorkoutExerciseList = ({ exercises }) => {
           </TableBody>
         </Table>
       </TableContainer>
-      <AddWorkoutExerciseSetDialog isOpen={isOpen} setIsOpen={setIsOpen} />
+      <AddWorkoutExerciseSetDialog
+        isOpen={isOpen}
+        setIsOpen={setIsOpen}
+        id={exerciseId}
+      />
       <AddWorkoutExercise />
     </>
   );
