@@ -12,19 +12,20 @@ import Progression from "../../components/manage/progressions/Progression";
 import OneRmCalculator from "../../components/manage/oneRMcalculator/OneRmCalculator";
 import useInterceptor from "../../utils/useInterceptor";
 import WorkoutsProvider from "../../context/WorkoutsContext";
+import ProgramsProvider from "../../context/ProgramsContext";
 
 const ManagePage = () => {
   const axiosInterceptor = useInterceptor();
 
   const [workoutsList, setWorkoutsList] = useState([]);
-  const [programs, setPrograms] = useState([]);
+  const [programsList, setProgramsList] = useState([]);
   const [progressions, setProgressions] = useState([]);
 
   useEffect(() => {
     axiosInterceptor.get("/manage").then((response) => {
       console.table(response.data);
       setWorkoutsList(response.data.workouts);
-      setPrograms(response.data.programs);
+      setProgramsList(response.data.programs);
       setProgressions(response.data.progressions);
     });
   }, []);
@@ -45,7 +46,9 @@ const ManagePage = () => {
           </Grid>
           <Grid xs={5}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
-              {/* <Programs /> */}
+              <ProgramsProvider>
+                <Programs programsList={programsList} />
+              </ProgramsProvider>
             </Card>
           </Grid>
           <Grid xs={3}>

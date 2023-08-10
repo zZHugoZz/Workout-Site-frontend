@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
 import AddProgram from "./AddProgram";
 import ProgramsList from "./ProgramsList";
 
@@ -6,7 +6,15 @@ import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 
-const Programs = () => {
+import { ProgramsContext } from "../../../context/ProgramsContext";
+
+const Programs = ({ programsList }) => {
+  const { setPrograms } = useContext(ProgramsContext);
+
+  useEffect(() => {
+    setPrograms(programsList);
+  }, [programsList]);
+
   return (
     <>
       <Divider
