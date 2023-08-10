@@ -1,6 +1,7 @@
 import React from "react";
 import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import useInterceptor from "../utils/useInterceptor";
 
@@ -14,15 +15,6 @@ export default function WorkoutsProvider({ children }) {
   const axiosInterceptor = useInterceptor();
   const navigate = useNavigate();
 
-  const getWorkouts = async () => {
-    try {
-      const response = await axiosInterceptor.get("/workouts");
-      return response.data;
-    } catch (error) {
-      console.log("error: ", error);
-    }
-  };
-
   const handleAddWorkout = async () => {
     try {
       const response = await axiosInterceptor.post("/workouts/");
@@ -35,7 +27,14 @@ export default function WorkoutsProvider({ children }) {
   const handleDelete = async (id) => {
     try {
       await axiosInterceptor.delete(`/workouts/${id}`);
-      const response = await axiosInterceptor.get("/workouts");
+      const response = await axios.get("/workouts", {
+        headers: {
+          Authorization: `Bearer ${
+            JSON.parse(localStorage.getItem("authTokens")).access_token
+          }`,
+          "Content-Type": "application/json",
+        },
+      });
       setWorkouts(response.data);
     } catch (error) {
       console.log("error: ", error);
@@ -55,7 +54,6 @@ export default function WorkoutsProvider({ children }) {
     setWorkoutId: setWorkoutId,
     handleAddWorkout: handleAddWorkout,
     handleDelete: handleDelete,
-    getWorkouts: getWorkouts,
   };
 
   return (

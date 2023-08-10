@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import useInterceptor from "../../../utils/useInterceptor";
 import ProgramsPagination from "./ProgramsPagination";
+import { ProgramsContext } from "../../../context/ProgramsContext";
 
 const ProgramsList = () => {
-  const [programs, setPrograms] = useState([]);
+  const { programs } = useContext(ProgramsContext);
 
   const navigate = useNavigate();
   const axiosInterceptor = useInterceptor();
@@ -20,12 +21,6 @@ const ProgramsList = () => {
   const handleAccess = (id) => {
     navigate(`programs/${id}`);
   };
-
-  useEffect(() => {
-    axiosInterceptor.get("/programs").then((response) => {
-      setPrograms(response.data);
-    });
-  }, []);
 
   return (
     <>
