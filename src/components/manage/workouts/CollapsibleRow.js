@@ -15,7 +15,13 @@ import Stack from "@mui/material/Stack";
 import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
 
-const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
+import DeleteWorkoutExerciseButton from "./DeleteWorkoutExerciseButton";
+
+const CollapsibleRow = ({
+  row,
+  handleAddWorkoutExercise,
+  handleDeleteWorkoutExercise,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -26,7 +32,15 @@ const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
             <IconButton onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
             </IconButton>
-            <Typography>{row.name}</Typography>
+            <Stack
+              direction="row"
+              alignItems="center"
+              justifyContent="space-between"
+              sx={{ width: "100%" }}
+            >
+              <Typography>{row.name}</Typography>
+              <DeleteWorkoutExerciseButton exerciseId={row.id} />
+            </Stack>
           </Stack>
         </TableCell>
       </TableRow>
