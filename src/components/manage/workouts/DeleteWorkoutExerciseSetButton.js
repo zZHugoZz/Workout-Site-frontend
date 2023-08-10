@@ -40,6 +40,7 @@ const DeleteWorkoutExerciseSetButton = ({ setId }) => {
         loading={isLoading}
         startIcon={<DeleteForeverIcon />}
         loadingPosition="start"
+        color="error"
         onClick={() => handleDeleteWorkoutExerciseSet(setId)}
       >
         delete
