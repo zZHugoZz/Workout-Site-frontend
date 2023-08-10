@@ -15,7 +15,7 @@ import Stack from "@mui/material/Stack";
 import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
 
-import DeleteWorkoutExerciseButton from "./DeleteWorkoutExerciseButton";
+import WorkoutExerciseTooltip from "./WorkoutExerciseTooltip";
 import DeleteWorkoutExerciseSetButton from "./DeleteWorkoutExerciseSetButton";
 
 const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
@@ -36,7 +36,7 @@ const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
               sx={{ width: "100%" }}
             >
               <Typography>{row.name}</Typography>
-              <DeleteWorkoutExerciseButton exerciseId={row.id} />
+              <WorkoutExerciseTooltip exerciseId={row.id} />
             </Stack>
           </Stack>
         </TableCell>
