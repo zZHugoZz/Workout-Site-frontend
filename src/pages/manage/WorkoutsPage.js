@@ -5,10 +5,12 @@ import { useParams } from "react-router-dom";
 import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
 
 import WorkoutExerciseList from "../../components/manage/workouts/WorkoutExerciseList";
 import useInterceptor from "../../utils/useInterceptor";
 import { WorkoutContext } from "../../context/WorkoutContext";
+import AddWorkoutExercise from "../../components/manage/workouts/AddWorkoutExercise";
 
 const WorkoutsPage = () => {
   const { setWorkoutId, currentWorkout, setCurrentWorkout, setExercises } =
@@ -38,7 +40,11 @@ const WorkoutsPage = () => {
         <Divider sx={{ marginBottom: "50px" }}>
           <Typography variant="h4">Workouts</Typography>
         </Divider>
-        <WorkoutExerciseList />
+        <Stack alignItems="center" spacing={3}>
+          <WorkoutExerciseList />
+          <Divider sx={{ width: "100%" }}></Divider>
+          <AddWorkoutExercise />
+        </Stack>
       </Container>
     </>
   );

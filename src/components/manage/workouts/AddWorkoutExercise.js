@@ -15,6 +15,7 @@ const AddWorkoutExercise = () => {
         startIcon={<AddIcon />}
         color="success"
         onClick={() => setIsOpen(true)}
+        sx={{ width: "max-content" }}
       >
         Add exercise
       </Button>

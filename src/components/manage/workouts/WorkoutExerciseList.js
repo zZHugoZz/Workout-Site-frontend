@@ -55,7 +55,6 @@ const WorkoutExerciseList = () => {
         </Table>
       </TableContainer>
       <AddWorkoutExerciseSetDialog isOpen={isOpen} setIsOpen={setIsOpen} />
-      <AddWorkoutExercise />
     </>
   );
 };
