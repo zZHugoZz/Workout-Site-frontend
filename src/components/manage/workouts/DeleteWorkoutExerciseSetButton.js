@@ -7,16 +7,16 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import useInterceptor from "../../../utils/useInterceptor";
 import { WorkoutContext } from "../../../context/WorkoutContext";
 
-const DeleteWorkoutExerciseButton = ({ exerciseId }) => {
+const DeleteWorkoutExerciseSetButton = ({ setId }) => {
   const { workoutId, setExercises } = useContext(WorkoutContext);
   const axiosInterceptor = useInterceptor();
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleDeleteWorkoutExercise = async (id) => {
+  const handleDeleteWorkoutExerciseSet = async (id) => {
     try {
       setIsLoading(true);
-      await axiosInterceptor.delete(`/workout_exercises/${id}`);
+      await axiosInterceptor.delete(`/workout_exercise_sets/${id}`);
       const response = await axios.get(`/workouts/${workoutId}`, {
         headers: {
           Authorization: `Bearer ${
@@ -36,16 +36,16 @@ const DeleteWorkoutExerciseButton = ({ exerciseId }) => {
     <>
       <LoadingButton
         variant="outlined"
-        color="error"
-        startIcon={<DeleteForeverIcon />}
+        size="small"
         loading={isLoading}
+        startIcon={<DeleteForeverIcon />}
         loadingPosition="start"
-        onClick={() => handleDeleteWorkoutExercise(exerciseId)}
+        onClick={() => handleDeleteWorkoutExerciseSet(setId)}
       >
-        <span>Delete</span>
+        delete
       </LoadingButton>
     </>
   );
 };
 
-export default DeleteWorkoutExerciseButton;
+export default DeleteWorkoutExerciseSetButton;

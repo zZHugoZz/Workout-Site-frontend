@@ -73,7 +73,7 @@ const AddWorkoutExerciseForm = () => {
           sx={{ width: "max-content" }}
           color="success"
         >
-          Add
+          <span>Add</span>
         </LoadingButton>
       </Stack>
     </>

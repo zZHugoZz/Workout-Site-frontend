@@ -16,12 +16,9 @@ import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
 
 import DeleteWorkoutExerciseButton from "./DeleteWorkoutExerciseButton";
+import DeleteWorkoutExerciseSetButton from "./DeleteWorkoutExerciseSetButton";
 
-const CollapsibleRow = ({
-  row,
-  handleAddWorkoutExercise,
-  handleDeleteWorkoutExercise,
-}) => {
+const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -73,6 +70,9 @@ const CollapsibleRow = ({
                       <TableCell>Set {i + 1}</TableCell>
                       <TableCell>{set.reps}</TableCell>
                       <TableCell>{set.weight}</TableCell>
+                      <TableCell>
+                        <DeleteWorkoutExerciseSetButton setId={set.id} />
+                      </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
