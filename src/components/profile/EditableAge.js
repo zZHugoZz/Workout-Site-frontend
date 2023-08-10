@@ -1,25 +1,23 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useInterceptor from "../../utils/useInterceptor";
 
-const EditableAge = () => {
-  const [age, setAge] = useState("");
+const EditableAge = ({ age, setAge, gender }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const axiosInterceptor = useInterceptor();
 
-  const handleAgeChange = (e) => {
-    setAge(e.target.value);
-    axiosInterceptor.put("/profiles", {
-      age: e.target.value,
+  const handleSubmitNewAge = async () => {
+    await axiosInterceptor.put("/profiles", {
+      age: age,
+      gender: gender,
     });
+    setIsEditing(false);
   };
 
-  useEffect(() => {
-    axiosInterceptor.get("/profiles").then((response) => {
-      setAge(response.data.age);
-    });
-  }, []);
+  const handleAgeChange = (e) => {
+    setAge(e.target.value);
+  };
 
   return (
     <>
@@ -34,7 +32,7 @@ const EditableAge = () => {
             max={100}
             autoFocus
           />
-          <button onClick={() => setIsEditing(false)}>done</button>
+          <button onClick={handleSubmitNewAge}>done</button>
         </div>
       ) : (
         <div>

@@ -2,24 +2,22 @@ import React from "react";
 import { useState, useEffect } from "react";
 import useInterceptor from "../../utils/useInterceptor";
 
-const EditableGender = () => {
-  const [gender, setGender] = useState("");
+const EditableGender = ({ gender, setGender, age }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const axiosInterceptor = useInterceptor();
 
-  const handleGenderChange = (e) => {
-    setGender(e.target.value);
-    axiosInterceptor.put("/profiles", {
-      gender: e.target.value,
+  const handleSubmitNewGender = async () => {
+    await axiosInterceptor.put("/profiles", {
+      age: age,
+      gender: gender,
     });
+    setIsEditing(false);
   };
 
-  useEffect(() => {
-    axiosInterceptor.get("/profiles").then((response) => {
-      setGender(response.data.gender);
-    });
-  }, []);
+  const handleGenderChange = (e) => {
+    setGender(e.target.value);
+  };
 
   return (
     <>
@@ -30,7 +28,7 @@ const EditableGender = () => {
             <option value="male">male</option>
             <option value="female">female</option>
           </select>
-          <button onClick={() => setIsEditing(false)}>done</button>
+          <button onClick={handleSubmitNewGender}>done</button>
         </div>
       ) : (
         <div>

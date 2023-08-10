@@ -9,6 +9,8 @@ const ProfilePage = () => {
   const [profile, setProfile] = useState({});
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
 
   const axiosInterceptor = useInterceptor();
 
@@ -17,6 +19,9 @@ const ProfilePage = () => {
       setProfile(response.data);
       setUsername(response.data.user.username);
       setEmail(response.data.user.email);
+      setAge(response.data.age);
+      setGender(response.data.gender);
+      console.log("response: ", response.data);
     });
   }, []);
 
@@ -26,8 +31,8 @@ const ProfilePage = () => {
       <h3>profile picture: {profile.profile_picture}</h3>
       <h3>Hello {username}</h3>
       <h3>email: {email}</h3>
-      <EditableAge />
-      <EditableGender />
+      <EditableAge age={age} setAge={setAge} gender={gender} />
+      <EditableGender gender={gender} setGender={setGender} age={age} />
     </>
   );
 };

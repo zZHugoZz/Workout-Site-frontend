@@ -1,5 +1,4 @@
-import React from "react";
-import { createContext, useState } from "react";
+import React, { createContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import useInterceptor from "../utils/useInterceptor";
