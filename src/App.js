@@ -1,26 +1,26 @@
 import { Routes, Route } from "react-router-dom";
-import Headers from "./components/Headers";
+import Headers from "./components/headers/Headers";
 
-import HomePage from "./pages/HomePage";
-import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage";
+import HomePage from "./pages/home/HomePage";
+import LoginPage from "./pages/authentication/LoginPage";
+import SignupPage from "./pages/authentication/SignupPage";
 import AuthProvider from "./context/AuthContext";
-import PrivateRoutes from "./components/PrivateRoutes";
+import PrivateRoutes from "./components/authentication/PrivateRoutes";
 
-import ProfilePage from "./pages/ProfilePage";
+import ProfilePage from "./pages/profile/ProfilePage";
 
-import ManagePage from "./pages/ManagePage";
-import WorkoutsPage from "./pages/WorkoutsPage";
+import ManagePage from "./pages/manage/ManagePage";
+import WorkoutsPage from "./pages/manage/WorkoutsPage";
 import WorkoutsProvider from "./context/WorkoutsContext";
 import WorkoutProvider from "./context/WorkoutContext";
-import ProgramsPage from "./pages/ProgramsPage";
+import ProgramsPage from "./pages/manage/ProgramsPage";
 
-import NutritionPage from "./pages/NutritionPage";
+import NutritionPage from "./pages/nutrition/NutritionPage";
 
-import ExplorePage from "./pages/ExplorePage";
-import BackPage from "./pages/BackPage";
+import ExplorePage from "./pages/explore/ExplorePage";
+import BackPage from "./pages/explore/BackPage";
 
-import CommunityPage from "./pages/CommunityPage";
+import CommunityPage from "./pages/community/CommunityPage";
 
 function App() {
   return (
