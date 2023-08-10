@@ -7,12 +7,10 @@ import AddIcon from "@mui/icons-material/Add";
 
 import useInterceptor from "../utils/useInterceptor";
 import { WorkoutContext } from "../context/WorkoutContext";
-import { AuthContext } from "../context/AuthContext";
 import axios from "axios";
 
 const AddWorkoutExerciseForm = () => {
   const { workoutId, setCurrentWorkout } = useContext(WorkoutContext);
-  const { authTokens } = useContext(AuthContext);
   const axiosInterceptor = useInterceptor();
 
   const [isLoading, setIsLoading] = useState(false);

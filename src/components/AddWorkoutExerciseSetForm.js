@@ -4,6 +4,8 @@ import axios from "axios";
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
+import LoadingButton from "@mui/lab/LoadingButton";
+import AddIcon from "@mui/icons-material/Add";
 
 import useInterceptor from "../utils/useInterceptor";
 import { WorkoutContext } from "../context/WorkoutContext";
@@ -12,6 +14,7 @@ const AddWorkoutExerciseSetForm = () => {
   const { setExercises, exerciseId, workoutId } = useContext(WorkoutContext);
   const axiosInterceptor = useInterceptor();
 
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     reps: "",
     weight: "",
@@ -21,6 +24,7 @@ const AddWorkoutExerciseSetForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      setIsLoading(true);
       await axiosInterceptor.post("/workout_exercise_sets", formData);
       const response = await axios.get(`/workouts/${workoutId}`, {
         headers: {
@@ -37,6 +41,7 @@ const AddWorkoutExerciseSetForm = () => {
         weight: "",
         workout_exercise_id: exerciseId,
       });
+      setIsLoading(false);
     } catch (err) {
       console.log("error: ", err);
     }
@@ -74,14 +79,17 @@ const AddWorkoutExerciseSetForm = () => {
           onChange={handleChange}
           required
         />
-        <Button
-          variant="outlined"
+        <LoadingButton
+          loading={isLoading}
           type="submit"
-          color="success"
+          loadingPosition="start"
+          startIcon={<AddIcon />}
+          variant="outlined"
           sx={{ width: "max-content" }}
+          color="success"
         >
           Add
-        </Button>
+        </LoadingButton>
       </Stack>
     </>
   );
