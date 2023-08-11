@@ -15,7 +15,7 @@ import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 
-import WorkoutExerciseTooltip from "./WorkoutExerciseTooltip";
+import WorkoutExerciseMenu from "./WorkoutExerciseMenu";
 import WorkoutExerciseSetMenu from "./WorkoutExerciseSetMenu";
 
 const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
@@ -36,7 +36,7 @@ const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
               sx={{ width: "100%" }}
             >
               <Typography>{row.name}</Typography>
-              <WorkoutExerciseTooltip exerciseId={row.id} />
+              <WorkoutExerciseMenu exerciseId={row.id} />
             </Stack>
           </Stack>
         </TableCell>

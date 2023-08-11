@@ -8,7 +8,7 @@ import Stack from "@mui/material/Stack";
 import DeleteWorkoutExerciseButton from "./DeleteWorkoutExerciseButton";
 import EditWorkoutExerciseButton from "./EditWorkoutExerciseButton";
 
-const WorkoutExerciseTooltip = ({ exerciseId }) => {
+const WorkoutExerciseMenu = ({ exerciseId }) => {
   const [anchor, setAnchor] = useState(null);
   const isOpen = Boolean(anchor);
 
@@ -29,4 +29,4 @@ const WorkoutExerciseTooltip = ({ exerciseId }) => {
   );
 };
 
-export default WorkoutExerciseTooltip;
+export default WorkoutExerciseMenu;
