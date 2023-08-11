@@ -6,7 +6,6 @@ import Paper from "@mui/material/Paper";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import OpenInFullIcon from "@mui/icons-material/OpenInFull";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import Grid from "@mui/material/Unstable_Grid2";
 import Stack from "@mui/material/Stack";
@@ -14,10 +13,7 @@ import { Zoom } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
-import { ProgramsContext } from "../../../context/ProgramsContext";
-
 const Program = ({ program }) => {
-  const { handleDeleteProgram } = useContext(ProgramsContext);
   const navigate = useNavigate();
 
   const [isOpen, setIsOpen] = useState(false);
