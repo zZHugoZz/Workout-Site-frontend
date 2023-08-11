@@ -31,6 +31,7 @@ const DeleteProgramButton = ({ programId }) => {
         variant="text"
         color="error"
         loading={isLoading}
+        loadingPosition="start"
         startIcon={<DeleteForeverIcon />}
         title="Delete program"
       >

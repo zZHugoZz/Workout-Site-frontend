@@ -17,7 +17,12 @@ const WorkoutExerciseSetMenu = ({ setId }) => {
       <IconButton onClick={(e) => setAnchor(e.currentTarget)} size="small">
         <MoreHorizOutlinedIcon />
       </IconButton>
-      <Menu open={isOpen} anchorEl={anchor} onClose={() => setAnchor(null)}>
+      <Menu
+        open={isOpen}
+        anchorEl={anchor}
+        onClose={() => setAnchor(null)}
+        disableScrollLock={true}
+      >
         <Stack alignItems="start" spacing={1} padding="0 10px">
           <DeleteWorkoutExerciseSetButton setId={setId} />
           <EditWorkoutExerciseSetButton />

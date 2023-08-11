@@ -14,17 +14,20 @@ const WorkoutExerciseMenu = ({ exerciseId }) => {
 
   return (
     <>
-      <div>
-        <IconButton onClick={(e) => setAnchor(e.currentTarget)}>
-          <MoreHorizIcon />
-        </IconButton>
-        <Menu open={isOpen} anchorEl={anchor} onClose={() => setAnchor(null)}>
-          <Stack alignItems="start" padding="0 10px" spacing={1}>
-            <DeleteWorkoutExerciseButton exerciseId={exerciseId} />
-            <EditWorkoutExerciseButton />
-          </Stack>
-        </Menu>
-      </div>
+      <IconButton onClick={(e) => setAnchor(e.currentTarget)}>
+        <MoreHorizIcon />
+      </IconButton>
+      <Menu
+        open={isOpen}
+        anchorEl={anchor}
+        onClose={() => setAnchor(null)}
+        disableScrollLock={true}
+      >
+        <Stack alignItems="start" padding="0 10px" spacing={1}>
+          <DeleteWorkoutExerciseButton exerciseId={exerciseId} />
+          <EditWorkoutExerciseButton />
+        </Stack>
+      </Menu>
     </>
   );
 };
