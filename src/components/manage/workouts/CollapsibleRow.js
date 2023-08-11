@@ -72,7 +72,13 @@ const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
               </Divider>
               <Table size="small">
                 <TableHead>
-                  <TableRow>
+                  <TableRow
+                    sx={{
+                      ".css-1howxi1-MuiTableCell-root": {
+                        borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+                      },
+                    }}
+                  >
                     <TableCell>Sets</TableCell>
                     <TableCell>Reps</TableCell>
                     <TableCell>Weight</TableCell>
@@ -80,7 +86,17 @@ const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
                 </TableHead>
                 <TableBody>
                   {row.sets.map((set, i) => (
-                    <TableRow key={set.id}>
+                    <TableRow
+                      key={set.id}
+                      sx={{
+                        ".css-dsuxgy-MuiTableCell-root": {
+                          borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+                        },
+                        ".css-dsuxgy-MuiTableCell-root:last-child": {
+                          borderBottom: "none",
+                        },
+                      }}
+                    >
                       <TableCell>Set {i + 1}</TableCell>
                       <TableCell>{set.reps}</TableCell>
                       <TableCell>{set.weight}</TableCell>
