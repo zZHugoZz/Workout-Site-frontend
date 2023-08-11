@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import LoadingButton from "@mui/lab/LoadingButton";
 import EditIcon from "@mui/icons-material/Edit";
 
-const EditWorkoutExercise = () => {
+const EditWorkoutExerciseButton = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   return (
@@ -21,4 +21,4 @@ const EditWorkoutExercise = () => {
   );
 };
 
-export default EditWorkoutExercise;
+export default EditWorkoutExerciseButton;
