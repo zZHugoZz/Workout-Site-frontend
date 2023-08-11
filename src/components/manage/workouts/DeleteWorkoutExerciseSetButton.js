@@ -35,7 +35,7 @@ const DeleteWorkoutExerciseSetButton = ({ setId }) => {
   return (
     <>
       <LoadingButton
-        variant="outlined"
+        variant="text"
         size="small"
         loading={isLoading}
         startIcon={<DeleteForeverIcon />}

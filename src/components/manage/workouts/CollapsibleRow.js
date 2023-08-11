@@ -12,11 +12,11 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Table from "@mui/material/Table";
 import Stack from "@mui/material/Stack";
-import AddIcon from "@mui/icons-material/Add";
 import IconButton from "@mui/material/IconButton";
+import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 
 import WorkoutExerciseTooltip from "./WorkoutExerciseTooltip";
-import DeleteWorkoutExerciseSetButton from "./DeleteWorkoutExerciseSetButton";
+import WorkoutExerciseSetMenu from "./WorkoutExerciseSetMenu";
 
 const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,7 +52,7 @@ const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
                     title="Add set"
                     onClick={() => handleAddWorkoutExercise(row.id)}
                   >
-                    <AddIcon color="success" />
+                    <AddCircleOutlinedIcon color="success" />
                   </IconButton>
                 </Stack>
               </Divider>
@@ -71,7 +71,7 @@ const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
                       <TableCell>{set.reps}</TableCell>
                       <TableCell>{set.weight}</TableCell>
                       <TableCell>
-                        <DeleteWorkoutExerciseSetButton setId={set.id} />
+                        <WorkoutExerciseSetMenu setId={set.id} />
                       </TableCell>
                     </TableRow>
                   ))}
