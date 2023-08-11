@@ -23,7 +23,14 @@ const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
 
   return (
     <>
-      <TableRow>
+      <TableRow
+        sx={{
+          ".css-1ex1afd-MuiTableCell-root": {
+            borderTop: "1px solid #a3ab84",
+            borderBottom: "none",
+          },
+        }}
+      >
         <TableCell align="left" colSpan={3}>
           <Stack direction="row" alignItems="center">
             <IconButton onClick={() => setIsOpen(!isOpen)}>
@@ -41,7 +48,14 @@ const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
           </Stack>
         </TableCell>
       </TableRow>
-      <TableRow>
+      <TableRow
+        sx={{
+          ".css-1ex1afd-MuiTableCell-root": {
+            borderBottom: "none",
+            backgroundColor: "#e9e3c4",
+          },
+        }}
+      >
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={isOpen} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>

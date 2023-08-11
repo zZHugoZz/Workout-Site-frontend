@@ -7,6 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import Typography from "@mui/material/Typography";
 
 import CollapsibleRow from "./CollapsibleRow";
 import AddWorkoutExerciseSetDialog from "./AddWorkoutExerciseSetDialog";
@@ -34,11 +35,14 @@ const WorkoutExerciseList = () => {
           <TableHead>
             <TableRow>
               <TableCell
-                sx={{ borderBottom: "1px solid #a3ab84" }}
+                sx={{
+                  borderBottom: "1px solid #a3ab84",
+                  backgroundColor: "#e2ebae",
+                }}
                 align="center"
                 colSpan={12}
               >
-                Exercises
+                <Typography variant="h5">Exercises</Typography>
               </TableCell>
             </TableRow>
           </TableHead>
