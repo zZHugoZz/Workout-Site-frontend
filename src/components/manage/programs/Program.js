@@ -38,12 +38,6 @@ const Program = ({ program }) => {
             justifyContent="space-between"
           >
             <Stack direction="row" alignItems="center">
-              <IconButton
-                onClick={() => navigate(`programs/${program.id}`)}
-                title="Access program"
-              >
-                <OpenInFullIcon fontSize="small" />
-              </IconButton>
               <Tooltip
                 title={program.description}
                 arrow
