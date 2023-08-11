@@ -11,9 +11,9 @@ import ProfilePage from "./pages/profile/ProfilePage";
 
 import ManagePage from "./pages/manage/ManagePage";
 import WorkoutsPage from "./pages/manage/WorkoutsPage";
-import WorkoutsProvider from "./context/WorkoutsContext";
 import WorkoutProvider from "./context/WorkoutContext";
 import ProgramsPage from "./pages/manage/ProgramsPage";
+import UnitProvider from "./context/UnitContext";
 
 import NutritionPage from "./pages/nutrition/NutritionPage";
 
@@ -31,7 +31,14 @@ function App() {
           <Route element={<PrivateRoutes />}>
             <Route element={<Headers />}>
               <Route path="/profile/" element={<ProfilePage />} />
-              <Route path="/manage/" element={<ManagePage />} />
+              <Route
+                path="/manage/"
+                element={
+                  <UnitProvider>
+                    <ManagePage />
+                  </UnitProvider>
+                }
+              />
               <Route
                 path="/manage/workouts/:id"
                 element={

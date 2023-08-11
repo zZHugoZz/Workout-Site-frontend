@@ -13,8 +13,10 @@ import OneRmCalculator from "../../components/manage/oneRMcalculator/OneRmCalcul
 import useInterceptor from "../../utils/useInterceptor";
 import WorkoutsProvider from "../../context/WorkoutsContext";
 import ProgramsProvider from "../../context/ProgramsContext";
+import { UnitContext } from "../../context/UnitContext";
 
 const ManagePage = () => {
+  const { setUnit } = useContext(UnitContext);
   const axiosInterceptor = useInterceptor();
 
   const [workoutsList, setWorkoutsList] = useState([]);
@@ -27,6 +29,7 @@ const ManagePage = () => {
       setWorkoutsList(response.data.workouts);
       setProgramsList(response.data.programs);
       setProgressions(response.data.progressions);
+      setUnit(response.data.unit);
     });
   }, []);
 

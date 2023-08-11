@@ -7,10 +7,9 @@ import AddIcon from "@mui/icons-material/Add";
 
 import useInterceptor from "../../../utils/useInterceptor";
 import { WorkoutContext } from "../../../context/WorkoutContext";
-import axios from "axios";
 
 const AddWorkoutExerciseForm = () => {
-  const { workoutId, setCurrentWorkout } = useContext(WorkoutContext);
+  const { workoutId, setExercises, exercises } = useContext(WorkoutContext);
   const axiosInterceptor = useInterceptor();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -25,16 +24,11 @@ const AddWorkoutExerciseForm = () => {
     e.preventDefault();
     try {
       setIsLoading(true);
-      await axiosInterceptor.post("/workout_exercises", formData);
-      const response = await axios.get(`/workouts/${workoutId}`, {
-        headers: {
-          Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("authTokens")).access_token
-          }`,
-          "Content-Type": "application/json",
-        },
-      });
-      setCurrentWorkout(response.data);
+      const response = await axiosInterceptor.post(
+        "/workout_exercises",
+        formData
+      );
+      setExercises([...exercises, response.data]);
       setIsLoading(false);
     } catch (error) {
       console.log("error: ", error);
