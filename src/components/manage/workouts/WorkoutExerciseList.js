@@ -8,9 +8,11 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
+import Stack from "@mui/material/Stack";
 
 import CollapsibleRow from "./CollapsibleRow";
 import AddWorkoutExerciseSetDialog from "./AddWorkoutExerciseSetDialog";
+import SelectWorkoutExerciseUnit from "./SelectWorkoutExerciseUnit";
 import { WorkoutContext } from "../../../context/WorkoutContext";
 
 const WorkoutExerciseList = () => {
@@ -42,7 +44,10 @@ const WorkoutExerciseList = () => {
                 align="center"
                 colSpan={12}
               >
-                <Typography variant="h5">Exercises</Typography>
+                <Stack direction="row" justifyContent="space-between">
+                  <Typography variant="h5">Exercises</Typography>
+                  <SelectWorkoutExerciseUnit />
+                </Stack>
               </TableCell>
             </TableRow>
           </TableHead>
