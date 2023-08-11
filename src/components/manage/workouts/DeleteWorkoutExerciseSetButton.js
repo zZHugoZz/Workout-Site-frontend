@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
 
 import LoadingButton from "@mui/lab/LoadingButton";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
@@ -8,7 +7,7 @@ import useInterceptor from "../../../utils/useInterceptor";
 import { WorkoutContext } from "../../../context/WorkoutContext";
 
 const DeleteWorkoutExerciseSetButton = ({ setId }) => {
-  const { workoutId, setExercises } = useContext(WorkoutContext);
+  const { setExercises, exercises } = useContext(WorkoutContext);
   const axiosInterceptor = useInterceptor();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -17,15 +16,11 @@ const DeleteWorkoutExerciseSetButton = ({ setId }) => {
     try {
       setIsLoading(true);
       await axiosInterceptor.delete(`/workout_exercise_sets/${id}`);
-      const response = await axios.get(`/workouts/${workoutId}`, {
-        headers: {
-          Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("authTokens")).access_token
-          }`,
-          "Content-Type": "application/json",
-        },
+      const updatedExercises = exercises.map((exercise) => {
+        const updatedSets = exercise.sets.filter((set) => set.id !== setId);
+        return { ...exercise, sets: updatedSets };
       });
-      setExercises(response.data.exercises);
+      setExercises(updatedExercises);
       setIsLoading(false);
     } catch (err) {
       console.log("error: ", err);

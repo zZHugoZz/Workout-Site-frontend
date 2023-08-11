@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import axios from "axios";
 
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
@@ -10,7 +9,7 @@ import useInterceptor from "../../../utils/useInterceptor";
 import { WorkoutContext } from "../../../context/WorkoutContext";
 
 const AddWorkoutExerciseSetForm = () => {
-  const { setExercises, exerciseId, workoutId } = useContext(WorkoutContext);
+  const { setExercises, exerciseId, exercises } = useContext(WorkoutContext);
   const axiosInterceptor = useInterceptor();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -24,17 +23,15 @@ const AddWorkoutExerciseSetForm = () => {
     e.preventDefault();
     try {
       setIsLoading(true);
-      await axiosInterceptor.post("/workout_exercise_sets", formData);
-      const response = await axios.get(`/workouts/${workoutId}`, {
-        headers: {
-          Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("authTokens")).access_token
-          }`,
-          "Content-Type": "application/json",
-        },
+      const response = await axiosInterceptor.post(
+        "/workout_exercise_sets",
+        formData
+      );
+      const updatedExercises = exercises.map((exercise) => {
+        const updatedSets = [...exercise.sets, response.data];
+        return { ...exercise, sets: updatedSets };
       });
-      console.log("data: ", response.data);
-      setExercises(response.data.exercises);
+      setExercises(updatedExercises);
       setFormData({
         reps: "",
         weight: "",

@@ -8,7 +8,7 @@ import useInterceptor from "../../../utils/useInterceptor";
 import { WorkoutContext } from "../../../context/WorkoutContext";
 
 const DeleteWorkoutExerciseButton = ({ exerciseId }) => {
-  const { workoutId, setExercises } = useContext(WorkoutContext);
+  const { setExercises, exercises } = useContext(WorkoutContext);
   const axiosInterceptor = useInterceptor();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -17,15 +17,10 @@ const DeleteWorkoutExerciseButton = ({ exerciseId }) => {
     try {
       setIsLoading(true);
       await axiosInterceptor.delete(`/workout_exercises/${id}`);
-      const response = await axios.get(`/workouts/${workoutId}`, {
-        headers: {
-          Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("authTokens")).access_token
-          }`,
-          "Content-Type": "application/json",
-        },
-      });
-      setExercises(response.data.exercises);
+      const updatedExercises = exercises.filter(
+        (exercise) => exercise.id !== id
+      );
+      setExercises(updatedExercises);
       setIsLoading(false);
     } catch (err) {
       console.log("error: ", err);

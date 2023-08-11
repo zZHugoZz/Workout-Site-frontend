@@ -9,16 +9,12 @@ const WorkoutsList = () => {
   const navigate = useNavigate();
   const { handleDelete, workouts } = useContext(WorkoutsContext);
 
-  const handleAccess = (id) => {
-    navigate(`workouts/${id}`);
-  };
-
   return (
     <>
       <ul>
         {workouts.map((workout) => (
           <li key={workout.id}>
-            <button onClick={() => handleAccess(workout.id)}>
+            <button onClick={() => navigate(`workouts/${workout.id}`)}>
               {workout.date}
             </button>
             <button onClick={() => handleDelete(workout.id)}>

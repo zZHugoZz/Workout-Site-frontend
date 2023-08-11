@@ -27,15 +27,8 @@ export default function WorkoutsProvider({ children }) {
   const handleDelete = async (id) => {
     try {
       await axiosInterceptor.delete(`/workouts/${id}`);
-      const response = await axios.get("/workouts", {
-        headers: {
-          Authorization: `Bearer ${
-            JSON.parse(localStorage.getItem("authTokens")).access_token
-          }`,
-          "Content-Type": "application/json",
-        },
-      });
-      setWorkouts(response.data);
+      const updatedWorkouts = workouts.filter((workout) => workout.id !== id);
+      setWorkouts(updatedWorkouts);
     } catch (error) {
       console.log("error: ", error);
     }
