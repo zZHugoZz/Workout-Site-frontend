@@ -12,6 +12,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Stack from "@mui/material/Stack";
 import { Zoom } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
 import { ProgramsContext } from "../../../context/ProgramsContext";
 
@@ -57,14 +58,13 @@ const Program = ({ program }) => {
                 <IconButton onClick={() => setIsOpen(true)}>
                   <HelpOutlineIcon fontSize="small" />
                 </IconButton>
+                <Stack>
+                  <IconButton>
+                    <MoreHorizIcon />
+                  </IconButton>
+                </Stack>
               </Tooltip>
             </Stack>
-            <IconButton
-              onClick={() => handleDeleteProgram(program.id)}
-              title="Delete program"
-            >
-              <DeleteForeverIcon fontSize="small" color="error" />
-            </IconButton>
           </Stack>
         </Paper>
       </Grid>
