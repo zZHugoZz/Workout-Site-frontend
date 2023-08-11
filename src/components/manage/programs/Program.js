@@ -1,21 +1,18 @@
-import React, { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import OpenInFullIcon from "@mui/icons-material/OpenInFull";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import Grid from "@mui/material/Unstable_Grid2";
 import Stack from "@mui/material/Stack";
 import { Zoom } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
-import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+
+import ProgramMenu from "./ProgramMenu";
 
 const Program = ({ program }) => {
-  const navigate = useNavigate();
-
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -37,24 +34,18 @@ const Program = ({ program }) => {
             alignItems="center"
             justifyContent="space-between"
           >
-            <Stack direction="row" alignItems="center">
-              <Tooltip
-                title={program.description}
-                arrow
-                open={isOpen}
-                onClose={() => setIsOpen(false)}
-                TransitionComponent={Zoom}
-              >
-                <IconButton onClick={() => setIsOpen(true)}>
-                  <HelpOutlineIcon fontSize="small" />
-                </IconButton>
-                <Stack>
-                  <IconButton>
-                    <MoreHorizIcon />
-                  </IconButton>
-                </Stack>
-              </Tooltip>
-            </Stack>
+            <Tooltip
+              title={program.description}
+              arrow
+              open={isOpen}
+              onClose={() => setIsOpen(false)}
+              TransitionComponent={Zoom}
+            >
+              <IconButton onClick={() => setIsOpen(true)}>
+                <HelpOutlineIcon fontSize="small" />
+              </IconButton>
+            </Tooltip>
+            <ProgramMenu programId={program.id} />
           </Stack>
         </Paper>
       </Grid>

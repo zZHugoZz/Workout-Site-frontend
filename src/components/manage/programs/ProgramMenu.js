@@ -5,14 +5,20 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Menu from "@mui/material/Menu";
 import Stack from "@mui/material/Stack";
 
-const ProgramMenu = () => {
+import AccessProgramButton from "./AccessProgramButton";
+import DeleteProgramButton from "./DeleteProgramButton";
+
+const ProgramMenu = ({ programId }) => {
   return (
     <>
       <IconButton>
         <MoreHorizIcon />
       </IconButton>
       <Menu>
-        <Stack></Stack>
+        <Stack>
+          <AccessProgramButton programId={programId} />
+          <DeleteProgramButton programId={programId} />
+        </Stack>
       </Menu>
     </>
   );
