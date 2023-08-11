@@ -1,16 +1,13 @@
 import React from "react";
 import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 import useInterceptor from "../utils/useInterceptor";
 
 export const WorkoutsContext = createContext();
 
 export default function WorkoutsProvider({ children }) {
-  const [currentWorkout, setCurrentWorkout] = useState({});
   const [workouts, setWorkouts] = useState([]);
-  const [workoutId, setWorkoutId] = useState(1);
 
   const axiosInterceptor = useInterceptor();
   const navigate = useNavigate();
@@ -39,12 +36,8 @@ export default function WorkoutsProvider({ children }) {
   }, [workouts]);
 
   const contextData = {
-    currentWorkout: currentWorkout,
-    setCurrentWorkout: setCurrentWorkout,
     workouts: workouts,
     setWorkouts: setWorkouts,
-    workoutId: workoutId,
-    setWorkoutId: setWorkoutId,
     handleAddWorkout: handleAddWorkout,
     handleDelete: handleDelete,
   };

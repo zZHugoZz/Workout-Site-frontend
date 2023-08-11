@@ -1,5 +1,5 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
@@ -13,7 +13,12 @@ import Stack from "@mui/material/Stack";
 import { Zoom } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
 
-const Program = ({ program, handleAccess, handleDelete }) => {
+import { ProgramsContext } from "../../../context/ProgramsContext";
+
+const Program = ({ program }) => {
+  const { handleDeleteProgram } = useContext(ProgramsContext);
+  const navigate = useNavigate();
+
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -37,7 +42,7 @@ const Program = ({ program, handleAccess, handleDelete }) => {
           >
             <Stack direction="row" alignItems="center">
               <IconButton
-                onClick={() => handleAccess(program.id)}
+                onClick={() => navigate(`programs/${program.id}`)}
                 title="Access program"
               >
                 <OpenInFullIcon fontSize="small" />
@@ -55,7 +60,7 @@ const Program = ({ program, handleAccess, handleDelete }) => {
               </Tooltip>
             </Stack>
             <IconButton
-              onClick={() => handleDelete(program.id)}
+              onClick={() => handleDeleteProgram(program.id)}
               title="Delete program"
             >
               <DeleteForeverIcon fontSize="small" color="error" />
