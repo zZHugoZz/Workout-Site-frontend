@@ -1,10 +1,11 @@
 import React from "react";
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 import useInterceptor from "../../utils/useInterceptor";
 import ProgramDaysList from "../../components/manage/programs/ProgramDaysList";
 import { ProgramContext } from "../../context/ProgramContext";
+import PageContainer from "../../utils/PageContainer";
 
 const ProgramsPage = () => {
   const { setProgramId, setDays } = useContext(ProgramContext);
@@ -24,10 +25,9 @@ const ProgramsPage = () => {
 
   return (
     <>
-      <div>
-        <h1>Programs</h1>
+      <PageContainer maxWidth="lg" pageName="Programs">
         <ProgramDaysList />
-      </div>
+      </PageContainer>
     </>
   );
 };

@@ -2,15 +2,14 @@ import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
-import Container from "@mui/material/Container";
 import Divider from "@mui/material/Divider";
-import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 
 import WorkoutExerciseList from "../../components/manage/workouts/WorkoutExerciseList";
 import useInterceptor from "../../utils/useInterceptor";
 import { WorkoutContext } from "../../context/WorkoutContext";
 import AddWorkoutExercise from "../../components/manage/workouts/AddWorkoutExercise";
+import PageContainer from "../../utils/PageContainer";
 
 const WorkoutsPage = () => {
   const { setWorkoutId, setExercises } = useContext(WorkoutContext);
@@ -31,16 +30,13 @@ const WorkoutsPage = () => {
 
   return (
     <>
-      <Container maxWidth="xs" sx={{ marginTop: "50px" }}>
-        <Divider sx={{ marginBottom: "50px" }}>
-          <Typography variant="h4">Workouts</Typography>
-        </Divider>
+      <PageContainer maxWidth="xs" pageName="Workouts">
         <Stack alignItems="center" spacing={3}>
           <WorkoutExerciseList />
           <Divider sx={{ width: "100%" }}></Divider>
           <AddWorkoutExercise />
         </Stack>
-      </Container>
+      </PageContainer>
     </>
   );
 };
