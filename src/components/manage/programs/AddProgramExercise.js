@@ -4,7 +4,7 @@ import AddIcon from "@mui/icons-material/Add";
 
 import AddProgramExerciseForm from "./AddProgramExerciseForm";
 
-const AddProgramExercise = ({ dayId, setDays, programId }) => {
+const AddProgramExercise = ({ dayId }) => {
   const openDialog = () => {
     const dialog = document.querySelector(`.dialog-${dayId}`);
     dialog.showModal();
@@ -24,12 +24,7 @@ const AddProgramExercise = ({ dayId, setDays, programId }) => {
         <AddIcon style={{ color: "#3DFF54" }} />
       </button>
       <button className={`dialog-${dayId}`}>
-        <AddProgramExerciseForm
-          dayId={dayId}
-          setDays={setDays}
-          programId={programId}
-          closeDialog={closeDialog}
-        />
+        <AddProgramExerciseForm dayId={dayId} closeDialog={closeDialog} />
       </button>
     </>
   );

@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
 import useInterceptor from "../../../utils/useInterceptor";
 import ProgramExerciseList from "./ProgramExerciseList";
 import AddDay from "./AddDay";
+import { ProgramContext } from "../../../context/ProgramContext";
 
-const ProgramDaysList = ({ days, programId, setDays }) => {
+const ProgramDaysList = () => {
+  const { days, setDays, programId } = useContext(ProgramContext);
   const axiosInterceptor = useInterceptor();
 
   const handleDeleteDay = async (dayId) => {
@@ -23,9 +25,13 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
   const handleDeleteExercise = async (exerciseId) => {
     try {
       await axiosInterceptor.delete(`/program_exercises/${exerciseId}`);
-      axiosInterceptor.get(`/programs/${programId}`).then((response) => {
-        setDays(response.data.days);
+      const updatedDays = days.map((day) => {
+        const updatedExercises = day.exercises.filter(
+          (exercise) => exercise.id !== exerciseId
+        );
+        return { ...day, exercises: updatedExercises };
       });
+      setDays(updatedDays);
     } catch (err) {
       console.log("error: ", err);
     }
@@ -43,13 +49,11 @@ const ProgramDaysList = ({ days, programId, setDays }) => {
           <ProgramExerciseList
             day={day}
             handleDeleteExercise={handleDeleteExercise}
-            setDays={setDays}
-            programId={programId}
           />
         </article>
       ))}
       <section>
-        <AddDay id={programId} setDays={setDays} />
+        <AddDay />
       </section>
     </>
   );

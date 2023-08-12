@@ -9,7 +9,6 @@ export default function WorkoutProvider({ children }) {
   const axiosInterceptor = useInterceptor();
   const navigate = useNavigate();
 
-  const [currentWorkout, setCurrentWorkout] = useState({});
   const [workoutId, setWorkoutId] = useState(0);
   const [exercises, setExercises] = useState([]);
   const [exerciseId, setExerciseId] = useState(null);
@@ -25,8 +24,6 @@ export default function WorkoutProvider({ children }) {
   };
 
   const contextData = {
-    currentWorkout: currentWorkout,
-    setCurrentWorkout: setCurrentWorkout,
     workoutId: workoutId,
     setWorkoutId: setWorkoutId,
     handleAddWorkout: handleAddWorkout,

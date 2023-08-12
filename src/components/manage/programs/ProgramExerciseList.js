@@ -1,15 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import RemoveIcon from "@mui/icons-material/Remove";
 
 import AddProgramExercise from "./AddProgramExercise";
 
-const ProgramExerciseList = ({
-  day,
-  handleDeleteExercise,
-  setDays,
-  programId,
-}) => {
+const ProgramExerciseList = ({ day, handleDeleteExercise }) => {
   return (
     <>
       <thead>
@@ -40,11 +35,7 @@ const ProgramExerciseList = ({
       <tfoot>
         <tr>
           <td colSpan={"3"}>
-            <AddProgramExercise
-              dayId={day.id}
-              setDays={setDays}
-              programId={programId}
-            />
+            <AddProgramExercise dayId={day.id} />
           </td>
         </tr>
       </tfoot>

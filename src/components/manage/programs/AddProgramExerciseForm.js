@@ -1,11 +1,13 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import CloseIcon from "@mui/icons-material/Close";
 
 import useInterceptor from "../../../utils/useInterceptor";
+import { ProgramContext } from "../../../context/ProgramContext";
 
-const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
+const AddProgramExerciseForm = ({ dayId, closeDialog }) => {
+  const { setDays, days } = useContext(ProgramContext);
+
   const [formData, setFormData] = useState({
     name: "",
     min_sets: "",
@@ -19,10 +21,11 @@ const AddProgramExerciseForm = ({ dayId, setDays, programId, closeDialog }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axiosInterceptor.post("/program_exercises", formData);
-    axiosInterceptor.get(`/programs/${programId}`).then((response) => {
-      setDays(response.data.days);
-    });
+    const response = await axiosInterceptor.post(
+      "/program_exercises",
+      formData
+    );
+    setDays([...days, response.data]);
     setFormData({
       name: "",
       min_sets: "",

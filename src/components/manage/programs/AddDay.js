@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 
 import AddIcon from "@mui/icons-material/Add";
 
 import useInterceptor from "../../../utils/useInterceptor";
+import { ProgramContext } from "../../../context/ProgramContext";
 
-const AddDay = ({ id, setDays }) => {
+const AddDay = () => {
+  const { setDays, days, programId } = useContext(ProgramContext);
   const axiosInterceptor = useInterceptor();
 
   const handleAddDay = async () => {
-    await axiosInterceptor.post("/program_days", {
-      program_id: id,
-    });
-    await axiosInterceptor.get(`/programs/${id}`).then((response) => {
-      setDays(response.data.days);
-    });
+    try {
+      const response = await axiosInterceptor.post("/program_days", {
+        program_id: programId,
+      });
+      setDays([...days, response.data]);
+    } catch (err) {
+      console.log("error: ", err);
+    }
   };
 
   return (

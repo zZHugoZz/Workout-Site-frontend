@@ -13,15 +13,14 @@ import { WorkoutContext } from "../../context/WorkoutContext";
 import AddWorkoutExercise from "../../components/manage/workouts/AddWorkoutExercise";
 
 const WorkoutsPage = () => {
-  const { setWorkoutId, currentWorkout, setCurrentWorkout, setExercises } =
-    useContext(WorkoutContext);
+  const { setWorkoutId, setExercises } = useContext(WorkoutContext);
   const axiosInterceptor = useInterceptor();
   const { id } = useParams();
   const [workoutDate, setWorkoutDate] = useState("");
 
   useEffect(() => {
     axiosInterceptor.get(`/workouts/${id}`).then((response) => {
-      setCurrentWorkout(response.data);
+      setExercises(response.data.exercises);
       setWorkoutDate(response.data.date);
     });
   }, []);
@@ -29,10 +28,6 @@ const WorkoutsPage = () => {
   useEffect(() => {
     setWorkoutId(id);
   }, [id]);
-
-  useEffect(() => {
-    setExercises(currentWorkout.exercises);
-  }, [currentWorkout]);
 
   return (
     <>

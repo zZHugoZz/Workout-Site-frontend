@@ -13,6 +13,7 @@ import ManagePage from "./pages/manage/ManagePage";
 import WorkoutsPage from "./pages/manage/WorkoutsPage";
 import WorkoutProvider from "./context/WorkoutContext";
 import ProgramsPage from "./pages/manage/ProgramsPage";
+import ProgramProvider from "./context/ProgramContext";
 import UnitProvider from "./context/UnitContext";
 
 import NutritionPage from "./pages/nutrition/NutritionPage";
@@ -26,7 +27,6 @@ function App() {
   return (
     <>
       <AuthProvider>
-        {/* <WorkoutsProvider> */}
         <Routes>
           <Route element={<PrivateRoutes />}>
             <Route element={<Headers />}>
@@ -47,7 +47,14 @@ function App() {
                   </WorkoutProvider>
                 }
               />
-              <Route path="/manage/programs/:id" element={<ProgramsPage />} />
+              <Route
+                path="/manage/programs/:id"
+                element={
+                  <ProgramProvider>
+                    <ProgramsPage />
+                  </ProgramProvider>
+                }
+              />
               <Route path="/nutrition/" element={<NutritionPage />} />
               <Route path="/explore/" element={<ExplorePage />} />
               <Route path="/explore/back/" element={<BackPage />} />
@@ -58,7 +65,6 @@ function App() {
           <Route path="/login/" element={<LoginPage />} />
           <Route path="/signup/" element={<SignupPage />} />
         </Routes>
-        {/* </WorkoutsProvider> */}
       </AuthProvider>
     </>
   );

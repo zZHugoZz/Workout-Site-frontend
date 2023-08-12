@@ -1,12 +1,13 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 
 import useInterceptor from "../../utils/useInterceptor";
 import ProgramDaysList from "../../components/manage/programs/ProgramDaysList";
+import { ProgramContext } from "../../context/ProgramContext";
 
 const ProgramsPage = () => {
-  const [days, setDays] = useState([]);
+  const { setProgramId, setDays } = useContext(ProgramContext);
 
   const { id } = useParams();
   const axiosInterceptor = useInterceptor();
@@ -18,14 +19,14 @@ const ProgramsPage = () => {
   }, []);
 
   useEffect(() => {
-    console.log("days: ", days);
-  }, [days]);
+    setProgramId(id);
+  }, [id]);
 
   return (
     <>
       <div>
         <h1>Programs</h1>
-        <ProgramDaysList days={days} programId={id} setDays={setDays} />
+        <ProgramDaysList />
       </div>
     </>
   );
