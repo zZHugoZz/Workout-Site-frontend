@@ -7,6 +7,7 @@ import AddIcon from "@mui/icons-material/Add";
 
 import useInterceptor from "../../../utils/useInterceptor";
 import { WorkoutContext } from "../../../context/WorkoutContext";
+import FormAddButton from "../../../utils/FormAddButton";
 
 const AddWorkoutExerciseSetForm = () => {
   const { setExercises, exerciseId, exercises } = useContext(WorkoutContext);
@@ -75,17 +76,7 @@ const AddWorkoutExerciseSetForm = () => {
           onChange={handleChange}
           required
         />
-        <LoadingButton
-          loading={isLoading}
-          type="submit"
-          loadingPosition="start"
-          startIcon={<AddIcon />}
-          variant="outlined"
-          sx={{ width: "max-content" }}
-          color="success"
-        >
-          <span>Add</span>
-        </LoadingButton>
+        <FormAddButton isLoading={isLoading}>Add</FormAddButton>
       </Stack>
     </>
   );

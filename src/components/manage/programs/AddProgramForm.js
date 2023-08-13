@@ -7,9 +7,9 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import Button from "@mui/material/Button";
 
 import useInterceptor from "../../../utils/useInterceptor";
+import FormAddButton from "../../../utils/FormAddButton";
 
 const menuItems = [
   "1 day",
@@ -25,30 +25,37 @@ const menuItems = [
 ];
 
 const AddProgramForm = () => {
+  const axiosInterceptor = useInterceptor();
+  const navigate = useNavigate();
+
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     description: "",
     n_days: "",
   });
 
-  const axiosInterceptor = useInterceptor();
-  const navigate = useNavigate();
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    axiosInterceptor.post("/programs", formData).then((response) => {
-      for (let i = 1; i <= formData.n_days; i++) {
-        axiosInterceptor.post("/program_days", {
-          program_id: response.data.id,
-        });
-      }
-      navigate(`programs/${response.data.id}`);
-    });
-    setFormData({
-      name: "",
-      description: "",
-      n_days: "",
-    });
+    try {
+      setIsLoading(true);
+      axiosInterceptor.post("/programs", formData).then((response) => {
+        for (let i = 1; i <= formData.n_days; i++) {
+          axiosInterceptor.post("/program_days", {
+            program_id: response.data.id,
+          });
+        }
+        navigate(`programs/${response.data.id}`);
+      });
+      setFormData({
+        name: "",
+        description: "",
+        n_days: "",
+      });
+      setIsLoading(false);
+    } catch (err) {
+      console.log("error: ", err);
+    }
   };
 
   const handleChange = (e) => {
@@ -100,14 +107,7 @@ const AddProgramForm = () => {
             ))}
           </Select>
         </FormControl>
-        <Button
-          variant="outlined"
-          type="submit"
-          color="success"
-          sx={{ width: "max-content" }}
-        >
-          Create
-        </Button>
+        <FormAddButton isLoading={isLoading}>Create</FormAddButton>
       </Stack>
     </>
   );

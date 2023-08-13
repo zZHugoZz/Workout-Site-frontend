@@ -2,11 +2,10 @@ import React, { useState, useContext } from "react";
 
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-import LoadingButton from "@mui/lab/LoadingButton";
-import AddIcon from "@mui/icons-material/Add";
 
 import useInterceptor from "../../../utils/useInterceptor";
 import { ProgramContext } from "../../../context/ProgramContext";
+import FormAddButton from "../../../utils/FormAddButton";
 
 const AddProgramExerciseForm = ({ dayId }) => {
   const { setDays, days } = useContext(ProgramContext);
@@ -137,17 +136,7 @@ const AddProgramExerciseForm = ({ dayId }) => {
           }}
           required
         />
-        <LoadingButton
-          loading={isLoading}
-          type="submit"
-          loadingPosition="start"
-          startIcon={<AddIcon />}
-          variant="outlined"
-          sx={{ width: "max-content" }}
-          color="success"
-        >
-          <span>Add</span>
-        </LoadingButton>
+        <FormAddButton isLoading={isLoading}>Add</FormAddButton>
       </Stack>
     </>
   );
