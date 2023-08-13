@@ -1,11 +1,11 @@
 import React, { useEffect, useContext } from "react";
-import AddProgram from "./AddProgram";
-import ProgramsList from "./ProgramsList";
 
 import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 
+import AddProgram from "./AddProgram";
+import ProgramsList from "./ProgramsList";
 import { ProgramsContext } from "../../../context/ProgramsContext";
 
 const Programs = ({ programsList }) => {
