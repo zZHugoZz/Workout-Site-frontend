@@ -9,6 +9,7 @@ import useInterceptor from "../../../utils/useInterceptor";
 import ProgramExerciseList from "./ProgramExerciseList";
 import AddDay from "./AddDay";
 import { ProgramContext } from "../../../context/ProgramContext";
+import CardTitle from "../../../utils/CardTitle";
 
 const ProgramDaysList = () => {
   const { days, setDays, programId } = useContext(ProgramContext);
@@ -46,8 +47,7 @@ const ProgramDaysList = () => {
         {days.map((day, i) => (
           <Grid xs={6}>
             <Card sx={{ backgroundColor: "#f5eeda" }}>
-              <Typography variant="h5">Day {i + 1}</Typography>
-
+              <CardTitle>Day {i + 1}</CardTitle>
               <button onClick={() => handleDeleteDay(day.id)}>
                 <DeleteForeverIcon style={{ color: "#E84444" }} />
               </button>

@@ -1,44 +1,45 @@
 import React, { useContext } from "react";
 
 import RemoveIcon from "@mui/icons-material/Remove";
+import Table from "@mui/material/Table";
+import TableHead from "@mui/material/TableHead";
+import TableBody from "@mui/material/TableBody";
+import TableRow from "@mui/material/TableRow";
+import TableCell from "@mui/material/TableCell";
 
 import AddProgramExercise from "./AddProgramExercise";
 
 const ProgramExerciseList = ({ day, handleDeleteExercise }) => {
   return (
     <>
-      <thead>
-        <tr>
-          <th>Exercise</th>
-          <th>Set range</th>
-          <th>Rep range</th>
-        </tr>
-      </thead>
-      <tbody>
-        {day.exercises.map((exercise) => (
-          <tr key={exercise.id}>
-            <td>
-              {exercise.name}
-              <button onClick={() => handleDeleteExercise(exercise.id)}>
-                <RemoveIcon style={{ color: "#E84444" }} />
-              </button>
-            </td>
-            <td>
-              {exercise.min_sets}-{exercise.max_sets}
-            </td>
-            <td>
-              {exercise.min_reps}-{exercise.max_reps}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colSpan={"3"}>
-            <AddProgramExercise dayId={day.id} />
-          </td>
-        </tr>
-      </tfoot>
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Exercise</TableCell>
+            <TableCell>Set range</TableCell>
+            <TableCell>Rep range</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {day.exercises.map((exercise) => (
+            <TableRow key={exercise.id}>
+              <TableCell>
+                {exercise.name}
+                <button onClick={() => handleDeleteExercise(exercise.id)}>
+                  <RemoveIcon style={{ color: "#E84444" }} />
+                </button>
+              </TableCell>
+              <TableCell>
+                {exercise.min_sets}-{exercise.max_sets}
+              </TableCell>
+              <TableCell>
+                {exercise.min_reps}-{exercise.max_reps}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+      <AddProgramExercise dayId={day.id} />
     </>
   );
 };
