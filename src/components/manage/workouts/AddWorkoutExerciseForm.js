@@ -13,7 +13,6 @@ const AddWorkoutExerciseForm = () => {
   const axiosInterceptor = useInterceptor();
 
   const [isLoading, setIsLoading] = useState(false);
-
   const [formData, setFormData] = useState({
     name: "",
     n_sets: 1,

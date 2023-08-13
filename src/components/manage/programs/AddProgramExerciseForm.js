@@ -1,13 +1,17 @@
 import React, { useState, useContext } from "react";
 
-import CloseIcon from "@mui/icons-material/Close";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
+import LoadingButton from "@mui/lab/LoadingButton";
+import AddIcon from "@mui/icons-material/Add";
 
 import useInterceptor from "../../../utils/useInterceptor";
 import { ProgramContext } from "../../../context/ProgramContext";
 
-const AddProgramExerciseForm = ({ dayId, closeDialog }) => {
+const AddProgramExerciseForm = ({ dayId }) => {
   const { setDays, days } = useContext(ProgramContext);
 
+  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     min_sets: "",
@@ -21,19 +25,29 @@ const AddProgramExerciseForm = ({ dayId, closeDialog }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axiosInterceptor.post(
-      "/program_exercises",
-      formData
-    );
-    setDays([...days, response.data]);
-    setFormData({
-      name: "",
-      min_sets: "",
-      max_sets: "",
-      min_reps: "",
-      max_reps: "",
-      day_id: dayId,
-    });
+    try {
+      setIsLoading(true);
+      const response = await axiosInterceptor.post(
+        "/program_exercises",
+        formData
+      );
+      const updatedDays = days.map((day) => {
+        const updatedExercises = [...day.exercises, response.data];
+        return { ...day, exercises: updatedExercises };
+      });
+      setDays(updatedDays);
+      setFormData({
+        name: "",
+        min_sets: "",
+        max_sets: "",
+        min_reps: "",
+        max_reps: "",
+        day_id: dayId,
+      });
+      setIsLoading(false);
+    } catch (err) {
+      console.log("error: ", err);
+    }
   };
 
   const handleChange = (e) => {
@@ -42,57 +56,99 @@ const AddProgramExerciseForm = ({ dayId, closeDialog }) => {
 
   return (
     <>
-      <h2>Add exercise</h2>
-      <button onClick={closeDialog}>
-        <CloseIcon style={{ color: "#AFC0CF" }} />
-      </button>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
+      <Stack
+        witdth="300px"
+        component="form"
+        onSubmit={handleSubmit}
+        paddingTop="10px"
+        spacing={3}
+      >
+        <TextField
+          variant="outlined"
+          label="Name"
           name="name"
+          size="small"
+          color="success"
           value={formData.name}
           onChange={handleChange}
           required
-          placeholder="Exercise..."
         />
-        <input
-          type="number"
-          min={1}
+        <TextField
+          variant="outlined"
+          label="Min sets"
           name="min_sets"
+          size="small"
+          color="success"
           value={formData.min_sets}
           onChange={handleChange}
-          required
-          placeholder="Min sets..."
-        />
-        <input
           type="number"
-          min={1}
+          InputProps={{
+            inputProps: {
+              min: 1,
+            },
+          }}
+          required
+        />
+        <TextField
+          variant="outlined"
+          label="Max sets"
           name="max_sets"
+          size="small"
+          color="success"
           value={formData.max_sets}
           onChange={handleChange}
-          required
-          placeholder="Max sets..."
-        />
-        <input
           type="number"
-          min={1}
+          InputProps={{
+            inputProps: {
+              min: 2,
+            },
+          }}
+          required
+        />
+        <TextField
+          variant="outlined"
+          label="Min reps"
           name="min_reps"
+          size="small"
+          color="success"
           value={formData.min_reps}
           onChange={handleChange}
-          required
-          placeholder="Min reps..."
-        />
-        <input
           type="number"
-          min={1}
+          InputProps={{
+            inputProps: {
+              min: 1,
+            },
+          }}
+          required
+        />
+        <TextField
+          variant="outlined"
+          label="Max reps"
           name="max_reps"
+          size="small"
+          color="success"
           value={formData.max_reps}
           onChange={handleChange}
+          type="number"
+          InputProps={{
+            inputProps: {
+              min: 2,
+            },
+          }}
           required
-          placeholder="Max reps..."
         />
-        <button>Add exercise</button>
-      </form>
+        <LoadingButton
+          loading={isLoading}
+          type="submit"
+          loadingPosition="start"
+          startIcon={<AddIcon />}
+          variant="outlined"
+          sx={{ width: "max-content" }}
+          color="success"
+        >
+          <span>Add</span>
+        </LoadingButton>
+      </Stack>
     </>
   );
 };
