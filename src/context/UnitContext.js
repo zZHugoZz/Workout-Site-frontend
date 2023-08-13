@@ -1,22 +1,13 @@
-import React, { useState, createContext, useEffect } from "react";
-
-import useInterceptor from "../utils/useInterceptor";
+import React, { useState, createContext } from "react";
 
 export const UnitContext = createContext();
 
 export default function UnitProvider({ children }) {
-  const axiosInterceptor = useInterceptor();
-
-  const [unit, setUnit] = useState("Kg");
-
-  const updateUnit = async () => {
-    await axiosInterceptor("/units");
-  };
+  const [unit, setUnit] = useState(null);
 
   const contextData = {
     unit: unit,
     setUnit: setUnit,
-    updateUnit: updateUnit,
   };
 
   return (
