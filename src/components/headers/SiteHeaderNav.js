@@ -16,7 +16,7 @@ import { AuthContext } from "../../context/AuthContext";
 const SiteHeaderNav = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const matches = useMediaQuery("(max-width: 930px)");
+  const matches = useMediaQuery("(max-width: 1010px)");
   const { handleLogout } = useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -32,35 +32,50 @@ const SiteHeaderNav = () => {
               <Button
                 variant="text"
                 color="inherit"
-                onClick={() => navigate("/profile")}
+                onClick={() => {
+                  navigate("/profile");
+                  setIsOpen(false);
+                }}
               >
                 Profile
               </Button>
               <Button
                 variant="text"
                 color="inherit"
-                onClick={() => navigate("/manage")}
+                onClick={() => {
+                  navigate("/manage");
+                  setIsOpen(false);
+                }}
               >
                 Manage
               </Button>
               <Button
                 variant="text"
                 color="inherit"
-                onClick={() => navigate("/nutrition")}
+                onClick={() => {
+                  navigate("/nutrition");
+                  setIsOpen(false);
+                }}
               >
                 Nutrition
               </Button>
               <Button
                 variant="text"
                 color="inherit"
-                onClick={() => navigate("/explore")}
+                onClick={() => {
+                  navigate("/explore");
+                  setIsOpen(false);
+                }}
               >
                 Explore
               </Button>
               <Button
                 variant="text"
                 color="inherit"
-                onClick={() => navigate("/community")}
+                onClick={() => {
+                  navigate("/community");
+                  setIsOpen(false);
+                }}
               >
                 Community
               </Button>
