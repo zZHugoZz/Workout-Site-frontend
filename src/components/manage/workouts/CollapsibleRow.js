@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import Collapse from "@mui/material/Collapse";
 import TableRow from "@mui/material/TableRow";
@@ -17,8 +17,11 @@ import IconButton from "@mui/material/IconButton";
 import WorkoutExerciseMenu from "./WorkoutExerciseMenu";
 import WorkoutExerciseSetMenu from "./WorkoutExerciseSetMenu";
 import AddWorkoutExerciseSet from "./AddWorkoutExerciseSet";
+import { UnitContext } from "../../../context/UnitContext";
 
 const CollapsibleRow = ({ row }) => {
+  const { unit } = useContext(UnitContext);
+
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -94,7 +97,10 @@ const CollapsibleRow = ({ row }) => {
                     >
                       <TableCell>Set {i + 1}</TableCell>
                       <TableCell>{set.reps}</TableCell>
-                      <TableCell>{set.weight}</TableCell>
+                      <TableCell>
+                        {set.weight}
+                        {unit}
+                      </TableCell>
                       <TableCell>
                         <WorkoutExerciseSetMenu setId={set.id} />
                       </TableCell>

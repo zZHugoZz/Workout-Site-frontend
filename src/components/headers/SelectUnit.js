@@ -15,10 +15,10 @@ const SelectUnit = () => {
   const axiosInterceptor = useInterceptor();
 
   const handleChangeUnit = async (e) => {
+    setUnit(e.target.value);
     await axiosInterceptor.put("/units", {
       unit: e.target.value,
     });
-    setUnit(e.target.value);
   };
 
   useEffect(() => {
