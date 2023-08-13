@@ -1,9 +1,6 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 
 import Grid from "@mui/material/Unstable_Grid2";
-import Divider from "@mui/material/Divider";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
 import Card from "@mui/material/Card";
 
 import Workouts from "../../components/manage/workouts/Workouts";
@@ -13,6 +10,7 @@ import OneRmCalculator from "../../components/manage/oneRMcalculator/OneRmCalcul
 import useInterceptor from "../../utils/useInterceptor";
 import WorkoutsProvider from "../../context/WorkoutsContext";
 import ProgramsProvider from "../../context/ProgramsContext";
+import PageContainer from "../../utils/PageContainer";
 
 const ManagePage = () => {
   const axiosInterceptor = useInterceptor();
@@ -32,10 +30,7 @@ const ManagePage = () => {
 
   return (
     <>
-      <Container maxWidth="xl" sx={{ marginTop: "50px" }}>
-        <Divider sx={{ marginBottom: "50px" }}>
-          <Typography variant="h4">Overview</Typography>
-        </Divider>
+      <PageContainer maxWidth="xl" pageName="Overview">
         <Grid container spacing={4}>
           <Grid xs={7}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
@@ -62,7 +57,7 @@ const ManagePage = () => {
             </Card>
           </Grid>
         </Grid>
-      </Container>
+      </PageContainer>
     </>
   );
 };

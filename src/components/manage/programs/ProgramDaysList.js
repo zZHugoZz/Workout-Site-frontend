@@ -1,6 +1,9 @@
 import React, { useContext } from "react";
 
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import Grid from "@mui/material/Grid";
+import Card from "@mui/material/Card";
+import Typography from "@mui/material/Typography";
 
 import useInterceptor from "../../../utils/useInterceptor";
 import ProgramExerciseList from "./ProgramExerciseList";
@@ -39,19 +42,24 @@ const ProgramDaysList = () => {
 
   return (
     <>
-      {days.map((day, i) => (
-        <article key={day.id} style={{ position: "relative" }}>
-          <h2>Day {i + 1}</h2>
+      <Grid container>
+        {days.map((day, i) => (
+          <Grid xs={6}>
+            <Card sx={{ backgroundColor: "#f5eeda" }}>
+              <Typography variant="h5">Day {i + 1}</Typography>
 
-          <button onClick={() => handleDeleteDay(day.id)}>
-            <DeleteForeverIcon style={{ color: "#E84444" }} />
-          </button>
-          <ProgramExerciseList
-            day={day}
-            handleDeleteExercise={handleDeleteExercise}
-          />
-        </article>
-      ))}
+              <button onClick={() => handleDeleteDay(day.id)}>
+                <DeleteForeverIcon style={{ color: "#E84444" }} />
+              </button>
+              <ProgramExerciseList
+                day={day}
+                handleDeleteExercise={handleDeleteExercise}
+              />
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+
       <section>
         <AddDay />
       </section>
