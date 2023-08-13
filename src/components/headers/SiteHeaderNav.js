@@ -80,6 +80,7 @@ const SiteHeaderNav = () => {
               >
                 Community
               </Button>
+              <Settings />
               <Button variant="text" color="inherit" onClick={handleLogout}>
                 Logout
               </Button>

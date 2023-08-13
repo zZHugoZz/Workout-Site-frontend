@@ -29,7 +29,7 @@ const SelectUnit = () => {
 
   return (
     <>
-      <Divider textAlign="left">
+      <Divider textAlign="left" sx={{ paddingBottom: "10px" }}>
         <Typography variant="body1">Unit</Typography>
       </Divider>
       <FormControl>
