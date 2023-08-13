@@ -12,6 +12,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import Box from "@mui/material/Box";
 
 import { AuthContext } from "../../context/AuthContext";
+import Settings from "./Settings";
 
 const SiteHeaderNav = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -123,6 +124,7 @@ const SiteHeaderNav = () => {
           >
             Community
           </Button>
+          <Settings />
           <IconButton color="inherit" onClick={handleLogout}>
             <LogoutIcon />
           </IconButton>
