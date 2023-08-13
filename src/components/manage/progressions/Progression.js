@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 
@@ -10,6 +9,7 @@ import ProgressionChart from "./ProgressionChart";
 import ProgressionsList from "./ProgressionsList";
 import AddProgression from "./AddProgression";
 import SelectProgressionUnit from "./SelectProgressionUnit";
+import CardTitle from "../../../utils/CardTitle";
 
 const Progression = () => {
   const [progressions, setProgressions] = useState([]);
@@ -78,17 +78,13 @@ const Progression = () => {
 
   return (
     <>
-      <Divider
-        textAlign="left"
-        sx={{ marginTop: "10px", marginBottom: "15px" }}
-      >
+      <CardTitle>
         <Stack direction="row" alignItems="center">
           <Typography variant="h5">Progressions</Typography>
           <AddProgression setProgressions={setProgressions} />
         </Stack>
-      </Divider>
+      </CardTitle>
       <SelectProgressionUnit handleUnitChange={handleUnitChange} unit={unit} />
-
       <ProgressionsList
         progressions={progressions}
         unit={unit}

@@ -11,7 +11,11 @@ import CloseIcon from "@mui/icons-material/Close";
 const CustomDialog = ({ children, title, isOpen, setIsOpen }) => {
   return (
     <>
-      <Dialog open={isOpen} onClose={() => setIsOpen(false)}>
+      <Dialog
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+        disableScrollLock={true}
+      >
         <DialogTitle>
           <Stack
             direction="row"

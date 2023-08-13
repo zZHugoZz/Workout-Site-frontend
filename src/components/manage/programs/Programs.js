@@ -1,12 +1,12 @@
 import React, { useEffect, useContext } from "react";
 
-import Divider from "@mui/material/Divider";
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 
 import AddProgram from "./AddProgram";
 import ProgramsList from "./ProgramsList";
 import { ProgramsContext } from "../../../context/ProgramsContext";
+import CardTitle from "../../../utils/CardTitle";
 
 const Programs = ({ programsList }) => {
   const { setPrograms } = useContext(ProgramsContext);
@@ -17,15 +17,12 @@ const Programs = ({ programsList }) => {
 
   return (
     <>
-      <Divider
-        textAlign="left"
-        sx={{ marginTop: "10px", marginBottom: "15px" }}
-      >
+      <CardTitle>
         <Stack direction="row" alignItems="center">
           <Typography variant="h5">Programs</Typography>
           <AddProgram />
         </Stack>
-      </Divider>
+      </CardTitle>
       <ProgramsList />
     </>
   );
