@@ -10,18 +10,12 @@ import Paper from "@mui/material/Paper";
 import Typography from "@mui/material/Typography";
 
 import CollapsibleRow from "./CollapsibleRow";
-import AddWorkoutExerciseSetDialog from "./AddWorkoutExerciseSetDialog";
 import { WorkoutContext } from "../../../context/WorkoutContext";
 
 const WorkoutExerciseList = () => {
-  const { exercises, setExerciseId } = useContext(WorkoutContext);
+  const { exercises } = useContext(WorkoutContext);
 
   const [isOpen, setIsOpen] = useState(false);
-
-  const handleAddWorkoutExercise = (id) => {
-    setIsOpen(true);
-    setExerciseId(id);
-  };
 
   return (
     <>
@@ -48,16 +42,11 @@ const WorkoutExerciseList = () => {
           </TableHead>
           <TableBody>
             {exercises?.map((exercise) => (
-              <CollapsibleRow
-                key={exercise.id}
-                row={exercise}
-                handleAddWorkoutExercise={handleAddWorkoutExercise}
-              />
+              <CollapsibleRow key={exercise.id} row={exercise} />
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-      <AddWorkoutExerciseSetDialog isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
   );
 };

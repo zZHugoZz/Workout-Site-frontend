@@ -13,12 +13,12 @@ import Divider from "@mui/material/Divider";
 import Table from "@mui/material/Table";
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
-import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 
 import WorkoutExerciseMenu from "./WorkoutExerciseMenu";
 import WorkoutExerciseSetMenu from "./WorkoutExerciseSetMenu";
+import AddWorkoutExerciseSet from "./AddWorkoutExerciseSet";
 
-const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
+const CollapsibleRow = ({ row }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -62,12 +62,7 @@ const CollapsibleRow = ({ row, handleAddWorkoutExercise }) => {
               <Divider textAlign="left">
                 <Stack direction="row" alignItems="center">
                   <Typography variant="h6">Sets</Typography>
-                  <IconButton
-                    title="Add set"
-                    onClick={() => handleAddWorkoutExercise(row.id)}
-                  >
-                    <AddCircleOutlinedIcon color="success" />
-                  </IconButton>
+                  <AddWorkoutExerciseSet exerciseId={row.id} />
                 </Stack>
               </Divider>
               <Table size="small">

@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 
-import AddWorkoutExerciseDialog from "./AddWorkoutExerciseDialog";
+import CustomDialog from "../../../utils/CustomDialog";
+import AddWorkoutExerciseForm from "./AddWorkoutExerciseForm";
 
 const AddWorkoutExercise = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,9 @@ const AddWorkoutExercise = () => {
       >
         Add exercise
       </Button>
-      <AddWorkoutExerciseDialog open={isOpen} setIsOpen={setIsOpen} />
+      <CustomDialog title="Add exercise" isOpen={isOpen} setIsOpen={setIsOpen}>
+        <AddWorkoutExerciseForm />
+      </CustomDialog>
     </>
   );
 };
