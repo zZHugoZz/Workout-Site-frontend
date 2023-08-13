@@ -1,31 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 
 import AddIcon from "@mui/icons-material/Add";
+import Button from "@mui/material/Button";
 
 import AddProgramExerciseForm from "./AddProgramExerciseForm";
+import CustomDialog from "../../../utils/CustomDialog";
 
 const AddProgramExercise = ({ dayId }) => {
-  const openDialog = () => {
-    const dialog = document.querySelector(`.dialog-${dayId}`);
-    dialog.showModal();
-  };
-
-  const closeDialog = () => {
-    const dialog = document.querySelector(`.dialog-${dayId}`);
-    dialog.close();
-  };
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <button
-        onClick={openDialog}
-        style={{ width: "100%", height: "35px", cursor: "pointer" }}
+      <Button
+        variant="contained"
+        size="small"
+        startIcon={<AddIcon />}
+        color="success"
+        onClick={() => setIsOpen(true)}
+        sx={{ width: "max-content" }}
       >
-        <AddIcon style={{ color: "#3DFF54" }} />
-      </button>
-      <button className={`dialog-${dayId}`}>
-        <AddProgramExerciseForm dayId={dayId} closeDialog={closeDialog} />
-      </button>
+        Add exercise
+      </Button>
+      <CustomDialog title="Add exercise" isOpen={isOpen} setIsOpen={setIsOpen}>
+        <AddProgramExerciseForm dayId={dayId} />
+      </CustomDialog>
     </>
   );
 };

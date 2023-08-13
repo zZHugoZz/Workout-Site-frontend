@@ -1,9 +1,8 @@
 import React, { useContext } from "react";
 
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-import Grid from "@mui/material/Grid";
+import Grid from "@mui/material/Unstable_Grid2";
 import Card from "@mui/material/Card";
-import Typography from "@mui/material/Typography";
 
 import useInterceptor from "../../../utils/useInterceptor";
 import ProgramExerciseList from "./ProgramExerciseList";
@@ -43,7 +42,7 @@ const ProgramDaysList = () => {
 
   return (
     <>
-      <Grid container>
+      <Grid container spacing={4}>
         {days.map((day, i) => (
           <Grid xs={6}>
             <Card sx={{ backgroundColor: "#f5eeda" }}>
