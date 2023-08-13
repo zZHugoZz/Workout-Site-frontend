@@ -28,17 +28,16 @@ function App() {
     <>
       <AuthProvider>
         <Routes>
-          <Route element={<PrivateRoutes />}>
+          <Route
+            element={
+              <UnitProvider>
+                <PrivateRoutes />
+              </UnitProvider>
+            }
+          >
             <Route element={<Headers />}>
               <Route path="/profile/" element={<ProfilePage />} />
-              <Route
-                path="/manage/"
-                element={
-                  <UnitProvider>
-                    <ManagePage />
-                  </UnitProvider>
-                }
-              />
+              <Route path="/manage/" element={<ManagePage />} />
               <Route
                 path="/manage/workouts/:id"
                 element={
