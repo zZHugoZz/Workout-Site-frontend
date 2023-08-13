@@ -2,8 +2,6 @@ import React, { useState, useContext } from "react";
 
 import Stack from "@mui/material/Stack";
 import TextField from "@mui/material/TextField";
-import LoadingButton from "@mui/lab/LoadingButton";
-import AddIcon from "@mui/icons-material/Add";
 
 import useInterceptor from "../../../utils/useInterceptor";
 import { WorkoutContext } from "../../../context/WorkoutContext";

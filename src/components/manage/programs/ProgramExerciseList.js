@@ -27,16 +27,16 @@ const ProgramExerciseList = ({ day, handleDeleteExercise }) => {
             <TableBody>
               {day.exercises?.map((exercise) => (
                 <TableRow key={exercise.id}>
-                  <TableCell>
+                  <TableCell align="center">
                     {exercise.name}
                     <button onClick={() => handleDeleteExercise(exercise.id)}>
                       <RemoveIcon style={{ color: "#E84444" }} />
                     </button>
                   </TableCell>
-                  <TableCell>
+                  <TableCell align="center">
                     {exercise.min_sets}-{exercise.max_sets}
                   </TableCell>
-                  <TableCell>
+                  <TableCell align="center">
                     {exercise.min_reps}-{exercise.max_reps}
                   </TableCell>
                 </TableRow>
