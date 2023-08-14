@@ -8,8 +8,8 @@ const WorkoutExerciseMenu = ({ exerciseId }) => {
   return (
     <>
       <CustomMenu>
-        <DeleteWorkoutExerciseButton exerciseId={exerciseId} />
         <EditWorkoutExerciseButton />
+        <DeleteWorkoutExerciseButton exerciseId={exerciseId} />
       </CustomMenu>
     </>
   );

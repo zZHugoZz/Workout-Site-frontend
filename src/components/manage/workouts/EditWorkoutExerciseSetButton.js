@@ -1,19 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 
-import Button from "@mui/material/Button";
-import EditIcon from "@mui/icons-material/Edit";
+import EditTextButton from "../../../utils/EditTextButton";
 
 const EditWorkoutExerciseSetButton = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   return (
     <>
-      <Button
-        variant="text"
-        startIcon={<EditIcon />}
-        color="inherit"
-        size="small"
-      >
-        Edit
-      </Button>
+      <EditTextButton isLoading={isLoading} size="small" />
     </>
   );
 };
