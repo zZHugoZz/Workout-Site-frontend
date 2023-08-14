@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 
-import RemoveIcon from "@mui/icons-material/Remove";
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
@@ -11,8 +10,9 @@ import Stack from "@mui/material/Stack";
 
 import AddProgramExercise from "./AddProgramExercise";
 import CustomMenu from "../../../utils/CustomMenu";
+import DeleteProgramExerciseButton from "./DeleteProgramExerciseButton";
 
-const ProgramExerciseList = ({ day, handleDeleteExercise }) => {
+const ProgramExerciseList = ({ day }) => {
   return (
     <>
       <Stack alignItems="center" spacing={2} padding={2}>
@@ -50,9 +50,7 @@ const ProgramExerciseList = ({ day, handleDeleteExercise }) => {
                   </TableCell>
                   <TableCell>
                     <CustomMenu>
-                      <button onClick={() => handleDeleteExercise(exercise.id)}>
-                        <RemoveIcon style={{ color: "#E84444" }} />
-                      </button>
+                      <DeleteProgramExerciseButton exerciseId={exercise.id} />
                     </CustomMenu>
                   </TableCell>
                 </TableRow>

@@ -25,21 +25,6 @@ const ProgramDaysList = () => {
     }
   };
 
-  const handleDeleteExercise = async (exerciseId) => {
-    try {
-      await axiosInterceptor.delete(`/program_exercises/${exerciseId}`);
-      const updatedDays = days.map((day) => {
-        const updatedExercises = day.exercises.filter(
-          (exercise) => exercise.id !== exerciseId
-        );
-        return { ...day, exercises: updatedExercises };
-      });
-      setDays(updatedDays);
-    } catch (err) {
-      console.log("error: ", err);
-    }
-  };
-
   return (
     <>
       <Grid container spacing={4}>
@@ -47,10 +32,7 @@ const ProgramDaysList = () => {
           <Grid xs={6} key={day.id}>
             <Card sx={{ backgroundColor: "#f5eeda" }}>
               <CardTitle>Day {i + 1}</CardTitle>
-              <ProgramExerciseList
-                day={day}
-                handleDeleteExercise={handleDeleteExercise}
-              />
+              <ProgramExerciseList day={day} />
               <button onClick={() => handleDeleteDay(day.id)}>
                 <DeleteForeverIcon style={{ color: "#E84444" }} />
               </button>
