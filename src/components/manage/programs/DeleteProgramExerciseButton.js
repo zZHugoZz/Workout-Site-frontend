@@ -13,6 +13,7 @@ const DeleteProgramExerciseButton = ({ exerciseId }) => {
 
   const handleDeleteExercise = async (exerciseId) => {
     try {
+      setIsLoading(true);
       await axiosInterceptor.delete(`/program_exercises/${exerciseId}`);
       const updatedDays = days.map((day) => {
         const updatedExercises = day.exercises.filter(
@@ -21,6 +22,7 @@ const DeleteProgramExerciseButton = ({ exerciseId }) => {
         return { ...day, exercises: updatedExercises };
       });
       setDays(updatedDays);
+      setIsLoading(false);
     } catch (err) {
       console.log("error: ", err);
     }

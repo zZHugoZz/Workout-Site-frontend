@@ -11,6 +11,7 @@ import Stack from "@mui/material/Stack";
 import AddProgramExercise from "./AddProgramExercise";
 import CustomMenu from "../../../utils/CustomMenu";
 import DeleteProgramExerciseButton from "./DeleteProgramExerciseButton";
+import EditProgramExerciseButton from "./EditProgramExerciseButton";
 
 const ProgramExerciseList = ({ day }) => {
   return (
@@ -39,6 +40,9 @@ const ProgramExerciseList = ({ day }) => {
                     ".css-1yhpg23-MuiTableCell-root": {
                       borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
                     },
+                    ".css-1ex1afd-MuiTableCell-root": {
+                      borderBottom: "none",
+                    },
                   }}
                 >
                   <TableCell align="center">{exercise.name}</TableCell>
@@ -51,6 +55,7 @@ const ProgramExerciseList = ({ day }) => {
                   <TableCell>
                     <CustomMenu>
                       <DeleteProgramExerciseButton exerciseId={exercise.id} />
+                      <EditProgramExerciseButton />
                     </CustomMenu>
                   </TableCell>
                 </TableRow>
