@@ -8,12 +8,12 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
-import Divider from "@mui/material/Divider";
 
 import AddProgramExercise from "./AddProgramExercise";
 import CustomMenu from "../../../utils/CustomMenu";
 import DeleteProgramExerciseButton from "./DeleteProgramExerciseButton";
 import EditProgramExerciseButton from "./EditProgramExerciseButton";
+import Typography from "@mui/material/Typography";
 
 const ProgramExerciseList = ({ day }) => {
   return (
@@ -48,38 +48,50 @@ const ProgramExerciseList = ({ day }) => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {day.exercises?.map((exercise) => (
-                  <TableRow
-                    key={exercise.id}
-                    sx={{
-                      ".css-1yhpg23-MuiTableCell-root": {
-                        borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
-                      },
-                      ".css-dsuxgy-MuiTableCell-root": {
-                        borderBottom: "none",
-                      },
-                    }}
+                {day.exercises.length === 0 ? (
+                  <TableCell
+                    colSpan={4}
+                    align="center"
+                    sx={{ borderBottom: "none" }}
                   >
-                    <TableCell
-                      align="center"
-                      sx={{ maxWidth: "150px", overflow: "hidden" }}
+                    <Typography variant="caption">No exercises</Typography>
+                  </TableCell>
+                ) : (
+                  day.exercises?.map((exercise) => (
+                    <TableRow
+                      key={exercise.id}
+                      sx={{
+                        ".css-1yhpg23-MuiTableCell-root": {
+                          borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+                        },
+                        ".css-dsuxgy-MuiTableCell-root": {
+                          borderBottom: "none",
+                        },
+                      }}
                     >
-                      {exercise.name}
-                    </TableCell>
-                    <TableCell align="center">
-                      {exercise.min_sets}-{exercise.max_sets}
-                    </TableCell>
-                    <TableCell align="center">
-                      {exercise.min_reps}-{exercise.max_reps}
-                    </TableCell>
-                    <TableCell>
-                      <CustomMenu>
-                        <DeleteProgramExerciseButton exerciseId={exercise.id} />
-                        <EditProgramExerciseButton />
-                      </CustomMenu>
-                    </TableCell>
-                  </TableRow>
-                ))}
+                      <TableCell
+                        align="center"
+                        sx={{ maxWidth: "150px", overflow: "hidden" }}
+                      >
+                        {exercise.name}
+                      </TableCell>
+                      <TableCell align="center">
+                        {exercise.min_sets}-{exercise.max_sets}
+                      </TableCell>
+                      <TableCell align="center">
+                        {exercise.min_reps}-{exercise.max_reps}
+                      </TableCell>
+                      <TableCell>
+                        <CustomMenu>
+                          <DeleteProgramExerciseButton
+                            exerciseId={exercise.id}
+                          />
+                          <EditProgramExerciseButton />
+                        </CustomMenu>
+                      </TableCell>
+                    </TableRow>
+                  ))
+                )}
               </TableBody>
             </Table>
           </TableContainer>
