@@ -10,6 +10,7 @@ import TableCell from "@mui/material/TableCell";
 import Stack from "@mui/material/Stack";
 
 import AddProgramExercise from "./AddProgramExercise";
+import CustomMenu from "../../../utils/CustomMenu";
 
 const ProgramExerciseList = ({ day, handleDeleteExercise }) => {
   return (
@@ -40,17 +41,19 @@ const ProgramExerciseList = ({ day, handleDeleteExercise }) => {
                     },
                   }}
                 >
-                  <TableCell align="center">
-                    {exercise.name}
-                    <button onClick={() => handleDeleteExercise(exercise.id)}>
-                      <RemoveIcon style={{ color: "#E84444" }} />
-                    </button>
-                  </TableCell>
+                  <TableCell align="center">{exercise.name}</TableCell>
                   <TableCell align="center">
                     {exercise.min_sets}-{exercise.max_sets}
                   </TableCell>
                   <TableCell align="center">
                     {exercise.min_reps}-{exercise.max_reps}
+                  </TableCell>
+                  <TableCell>
+                    <CustomMenu>
+                      <button onClick={() => handleDeleteExercise(exercise.id)}>
+                        <RemoveIcon style={{ color: "#E84444" }} />
+                      </button>
+                    </CustomMenu>
                   </TableCell>
                 </TableRow>
               ))}
