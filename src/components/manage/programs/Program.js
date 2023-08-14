@@ -10,7 +10,9 @@ import Stack from "@mui/material/Stack";
 import { Zoom } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
 
-import ProgramMenu from "./ProgramMenu";
+import CustomMenu from "../../../utils/CustomMenu";
+import AccessProgramButton from "./AccessProgramButton";
+import DeleteProgramButton from "./DeleteProgramButton";
 
 const Program = ({ program }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,7 +47,10 @@ const Program = ({ program }) => {
                 <HelpOutlineIcon fontSize="small" />
               </IconButton>
             </Tooltip>
-            <ProgramMenu programId={program.id} />
+            <CustomMenu>
+              <AccessProgramButton programId={program.id} />
+              <DeleteProgramButton programId={program.id} />
+            </CustomMenu>
           </Stack>
         </Paper>
       </Grid>

@@ -14,10 +14,13 @@ import Table from "@mui/material/Table";
 import Stack from "@mui/material/Stack";
 import IconButton from "@mui/material/IconButton";
 
-import WorkoutExerciseMenu from "./WorkoutExerciseMenu";
-import WorkoutExerciseSetMenu from "./WorkoutExerciseSetMenu";
 import AddWorkoutExerciseSet from "./AddWorkoutExerciseSet";
 import { UnitContext } from "../../../context/UnitContext";
+import CustomMenu from "../../../utils/CustomMenu";
+import EditWorkoutExerciseButton from "./EditWorkoutExerciseButton";
+import DeleteWorkoutExerciseButton from "./DeleteWorkoutExerciseButton";
+import EditWorkoutExerciseSetButton from "./EditWorkoutExerciseSetButton";
+import DeleteWorkoutExerciseSetButton from "./DeleteWorkoutExerciseSetButton";
 
 const CollapsibleRow = ({ row }) => {
   const { unit } = useContext(UnitContext);
@@ -46,7 +49,10 @@ const CollapsibleRow = ({ row }) => {
               sx={{ width: "100%" }}
             >
               <Typography>{row.name}</Typography>
-              <WorkoutExerciseMenu exerciseId={row.id} />
+              <CustomMenu>
+                <EditWorkoutExerciseButton />
+                <DeleteWorkoutExerciseButton exerciseId={row.id} />
+              </CustomMenu>
             </Stack>
           </Stack>
         </TableCell>
@@ -102,7 +108,10 @@ const CollapsibleRow = ({ row }) => {
                         {unit}
                       </TableCell>
                       <TableCell>
-                        <WorkoutExerciseSetMenu setId={set.id} />
+                        <CustomMenu>
+                          <EditWorkoutExerciseSetButton />
+                          <DeleteWorkoutExerciseSetButton setId={set.id} />
+                        </CustomMenu>
                       </TableCell>
                     </TableRow>
                   ))}
