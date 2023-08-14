@@ -30,7 +30,7 @@ const ProgramDaysList = () => {
       <Grid container spacing={4}>
         {days.map((day, i) => (
           <Grid xs={6} key={day.id}>
-            <Card sx={{ backgroundColor: "#f5eeda" }}>
+            <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
               <CardTitle>Day {i + 1}</CardTitle>
               <ProgramExerciseList day={day} />
               <button onClick={() => handleDeleteDay(day.id)}>
