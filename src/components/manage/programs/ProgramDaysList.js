@@ -3,27 +3,20 @@ import React, { useContext } from "react";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Grid from "@mui/material/Unstable_Grid2";
 import Card from "@mui/material/Card";
+import Stack from "@mui/material/Stack";
+import Divider from "@mui/material/Divider";
 
 import useInterceptor from "../../../utils/useInterceptor";
 import ProgramExerciseList from "./ProgramExerciseList";
 import AddDay from "./AddDay";
 import { ProgramContext } from "../../../context/ProgramContext";
 import CardTitle from "../../../utils/CardTitle";
+import CustomMenu from "../../../utils/CustomMenu";
+import DeleteProgramDayButton from "./DeleteProgramDayButton";
 
 const ProgramDaysList = () => {
   const { days, setDays, programId } = useContext(ProgramContext);
   const axiosInterceptor = useInterceptor();
-
-  const handleDeleteDay = async (dayId) => {
-    try {
-      await axiosInterceptor.delete(`/program_days/${dayId}`);
-      axiosInterceptor.get(`/programs/${programId}`).then((response) => {
-        setDays(response.data.days);
-      });
-    } catch (err) {
-      console.log("error: ", err);
-    }
-  };
 
   return (
     <>
@@ -32,10 +25,13 @@ const ProgramDaysList = () => {
           <Grid xs={6} key={day.id}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
               <CardTitle>Day {i + 1}</CardTitle>
-              <ProgramExerciseList day={day} />
-              <button onClick={() => handleDeleteDay(day.id)}>
-                <DeleteForeverIcon style={{ color: "#E84444" }} />
-              </button>
+              <Stack spacing={2} sx={{ padding: "0 20px" }}>
+                <ProgramExerciseList day={day} />
+                <Divider></Divider>
+                <CustomMenu>
+                  <DeleteProgramDayButton dayId={day.id} />
+                </CustomMenu>
+              </Stack>
             </Card>
           </Grid>
         ))}

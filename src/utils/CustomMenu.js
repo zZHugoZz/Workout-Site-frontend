@@ -11,7 +11,10 @@ const CustomMenu = ({ children }) => {
 
   return (
     <>
-      <IconButton onClick={(e) => setAnchor(e.currentTarget)}>
+      <IconButton
+        onClick={(e) => setAnchor(e.currentTarget)}
+        sx={{ width: "max-content" }}
+      >
         <MoreHorizIcon />
       </IconButton>
       <Menu

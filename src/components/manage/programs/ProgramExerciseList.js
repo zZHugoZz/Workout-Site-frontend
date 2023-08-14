@@ -17,7 +17,7 @@ import EditProgramExerciseButton from "./EditProgramExerciseButton";
 const ProgramExerciseList = ({ day }) => {
   return (
     <>
-      <Stack alignItems="start" spacing={2} sx={{ padding: "0 20px" }}>
+      <Stack alignItems="start" spacing={2}>
         <Paper
           component={Stack}
           alignItems="center"
@@ -28,7 +28,7 @@ const ProgramExerciseList = ({ day }) => {
           <TableContainer
             sx={{
               maxWidth: "500px",
-              maxHeight: "175px",
+              height: "160px",
               padding: "10px 30px",
             }}
           >
