@@ -44,16 +44,16 @@ const ProgramDaysList = () => {
     <>
       <Grid container spacing={4}>
         {days.map((day, i) => (
-          <Grid xs={6}>
+          <Grid xs={6} key={day.id}>
             <Card sx={{ backgroundColor: "#f5eeda" }}>
               <CardTitle>Day {i + 1}</CardTitle>
-              <button onClick={() => handleDeleteDay(day.id)}>
-                <DeleteForeverIcon style={{ color: "#E84444" }} />
-              </button>
               <ProgramExerciseList
                 day={day}
                 handleDeleteExercise={handleDeleteExercise}
               />
+              <button onClick={() => handleDeleteDay(day.id)}>
+                <DeleteForeverIcon style={{ color: "#E84444" }} />
+              </button>
             </Card>
           </Grid>
         ))}

@@ -27,8 +27,10 @@ const AddWorkoutExerciseSetForm = () => {
         formData
       );
       const updatedExercises = exercises.map((exercise) => {
-        const updatedSets = [...exercise.sets, response.data];
-        return { ...exercise, sets: updatedSets };
+        if (exercise.id === exerciseId) {
+          return { ...exercise, sets: [...exercise.sets, response.data] };
+        }
+        return exercise;
       });
       setExercises(updatedExercises);
       setFormData({

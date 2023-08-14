@@ -18,7 +18,13 @@ const ProgramExerciseList = ({ day, handleDeleteExercise }) => {
         <TableContainer sx={{ maxWidth: "500px", padding: "0 20px" }}>
           <Table>
             <TableHead>
-              <TableRow>
+              <TableRow
+                sx={{
+                  ".css-1ndpvdd-MuiTableCell-root": {
+                    borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+                  },
+                }}
+              >
                 <TableCell align="center">Exercise</TableCell>
                 <TableCell align="center">Set range</TableCell>
                 <TableCell align="center">Rep range</TableCell>

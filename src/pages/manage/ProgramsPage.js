@@ -15,6 +15,7 @@ const ProgramsPage = () => {
 
   useEffect(() => {
     axiosInterceptor.get(`/programs/${id}`).then((response) => {
+      console.log("response: ", response.data.days);
       setDays(response.data.days);
     });
   }, []);

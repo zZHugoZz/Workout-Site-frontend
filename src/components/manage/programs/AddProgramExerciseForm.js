@@ -24,6 +24,7 @@ const AddProgramExerciseForm = ({ dayId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("day: ", dayId);
     try {
       setIsLoading(true);
       const response = await axiosInterceptor.post(
@@ -31,8 +32,10 @@ const AddProgramExerciseForm = ({ dayId }) => {
         formData
       );
       const updatedDays = days.map((day) => {
-        const updatedExercises = [...day.exercises, response.data];
-        return { ...day, exercises: updatedExercises };
+        if (day.id === dayId) {
+          return { ...day, exercises: [...day.exercises, response.data] };
+        }
+        return day;
       });
       setDays(updatedDays);
       setFormData({
