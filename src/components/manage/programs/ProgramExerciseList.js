@@ -32,7 +32,14 @@ const ProgramExerciseList = ({ day, handleDeleteExercise }) => {
             </TableHead>
             <TableBody>
               {day.exercises?.map((exercise) => (
-                <TableRow key={exercise.id}>
+                <TableRow
+                  key={exercise.id}
+                  sx={{
+                    ".css-1yhpg23-MuiTableCell-root": {
+                      borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
+                    },
+                  }}
+                >
                   <TableCell align="center">
                     {exercise.name}
                     <button onClick={() => handleDeleteExercise(exercise.id)}>
