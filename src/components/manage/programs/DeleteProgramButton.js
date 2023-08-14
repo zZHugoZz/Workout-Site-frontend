@@ -1,10 +1,8 @@
 import React, { useContext, useState } from "react";
 
-import LoadingButton from "@mui/lab/LoadingButton";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-
 import { ProgramsContext } from "../../../context/ProgramsContext";
 import useInterceptor from "../../../utils/useInterceptor";
+import DeleteTextButton from "../../../utils/DeleteTextButton";
 
 const DeleteProgramButton = ({ programId }) => {
   const { programs, setPrograms } = useContext(ProgramsContext);
@@ -26,17 +24,10 @@ const DeleteProgramButton = ({ programId }) => {
 
   return (
     <>
-      <LoadingButton
+      <DeleteTextButton
+        isLoading={isLoading}
         onClick={() => handleDeleteProgram(programId)}
-        variant="text"
-        color="error"
-        loading={isLoading}
-        loadingPosition="start"
-        startIcon={<DeleteForeverIcon />}
-        title="Delete program"
-      >
-        <span>Delete</span>
-      </LoadingButton>
+      />
     </>
   );
 };

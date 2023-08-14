@@ -1,10 +1,8 @@
 import React, { useState, useContext } from "react";
 
-import LoadingButton from "@mui/lab/LoadingButton";
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
-
 import useInterceptor from "../../../utils/useInterceptor";
 import { WorkoutContext } from "../../../context/WorkoutContext";
+import DeleteTextButton from "../../../utils/DeleteTextButton";
 
 const DeleteWorkoutExerciseSetButton = ({ setId }) => {
   const { setExercises, exercises } = useContext(WorkoutContext);
@@ -29,17 +27,11 @@ const DeleteWorkoutExerciseSetButton = ({ setId }) => {
 
   return (
     <>
-      <LoadingButton
-        variant="text"
-        size="small"
-        loading={isLoading}
-        startIcon={<DeleteForeverIcon />}
-        loadingPosition="start"
-        color="error"
+      <DeleteTextButton
+        isLoading={isLoading}
         onClick={() => handleDeleteWorkoutExerciseSet(setId)}
-      >
-        delete
-      </LoadingButton>
+        size="small"
+      />
     </>
   );
 };

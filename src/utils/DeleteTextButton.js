@@ -3,7 +3,7 @@ import React from "react";
 import LoadingButton from "@mui/lab/LoadingButton";
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 
-const DeleteTextButton = ({ children, isLoading, onClick, size }) => {
+const DeleteTextButton = ({ isLoading, onClick, size }) => {
   return (
     <>
       <LoadingButton
@@ -15,7 +15,7 @@ const DeleteTextButton = ({ children, isLoading, onClick, size }) => {
         loadingPosition="start"
         startIcon={<DeleteForeverIcon />}
       >
-        <span>{children}</span>
+        <span>Delete</span>
       </LoadingButton>
     </>
   );
