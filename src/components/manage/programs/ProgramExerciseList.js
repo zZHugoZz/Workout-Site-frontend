@@ -8,6 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
+import Divider from "@mui/material/Divider";
 
 import AddProgramExercise from "./AddProgramExercise";
 import CustomMenu from "../../../utils/CustomMenu";

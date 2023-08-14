@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 
-import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import Grid from "@mui/material/Unstable_Grid2";
 import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
@@ -25,7 +24,12 @@ const ProgramDaysList = () => {
           <Grid xs={6} key={day.id}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
               <CardTitle>Day {i + 1}</CardTitle>
-              <Stack spacing={2} sx={{ padding: "0 20px" }}>
+              <Stack
+                spacing={1.5}
+                sx={{
+                  padding: "0 20px",
+                }}
+              >
                 <ProgramExerciseList day={day} />
                 <Divider></Divider>
                 <CustomMenu>
