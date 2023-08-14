@@ -5,7 +5,6 @@ import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 
-import useInterceptor from "../../../utils/useInterceptor";
 import ProgramExerciseList from "./ProgramExerciseList";
 import AddDay from "./AddDay";
 import { ProgramContext } from "../../../context/ProgramContext";
@@ -14,8 +13,7 @@ import CustomMenu from "../../../utils/CustomMenu";
 import DeleteProgramDayButton from "./DeleteProgramDayButton";
 
 const ProgramDaysList = () => {
-  const { days, setDays, programId } = useContext(ProgramContext);
-  const axiosInterceptor = useInterceptor();
+  const { days } = useContext(ProgramContext);
 
   return (
     <>
@@ -40,7 +38,6 @@ const ProgramDaysList = () => {
           </Grid>
         ))}
       </Grid>
-
       <section>
         <AddDay />
       </section>
