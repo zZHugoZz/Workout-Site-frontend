@@ -4,6 +4,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Card from "@mui/material/Card";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
+import Box from "@mui/material/Box";
 
 import ProgramExerciseList from "./ProgramExerciseList";
 import AddDay from "./AddDay";
@@ -29,7 +30,7 @@ const ProgramDaysList = () => {
                 }}
               >
                 <ProgramExerciseList day={day} />
-                <Divider></Divider>
+                <Divider sx={{ maxWidth: "505px" }}></Divider>
                 <CustomMenu>
                   <DeleteProgramDayButton dayId={day.id} />
                 </CustomMenu>
@@ -37,10 +38,20 @@ const ProgramDaysList = () => {
             </Card>
           </Grid>
         ))}
+        <Grid xs={6}>
+          <Card sx={{ height: "350px", backgroundColor: "#cfffd7" }}>
+            <CardTitle titleColor="#176717">Add day</CardTitle>
+            <Box
+              component={Stack}
+              justifyContent="center"
+              height="250px"
+              direction="row"
+            >
+              <AddDay />
+            </Box>
+          </Card>
+        </Grid>
       </Grid>
-      <section>
-        <AddDay />
-      </section>
     </>
   );
 };

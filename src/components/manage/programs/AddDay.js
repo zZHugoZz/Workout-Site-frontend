@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 
-import AddIcon from "@mui/icons-material/Add";
+import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
+import IconButton from "@mui/material/IconButton";
 
 import useInterceptor from "../../../utils/useInterceptor";
 import { ProgramContext } from "../../../context/ProgramContext";
@@ -22,9 +23,9 @@ const AddDay = () => {
 
   return (
     <>
-      <button onClick={handleAddDay}>
-        <AddIcon />
-      </button>
+      <IconButton onClick={handleAddDay} sx={{ width: "max-content" }}>
+        <AddCircleOutlinedIcon color="success" fontSize="large" />
+      </IconButton>
     </>
   );
 };

@@ -29,7 +29,7 @@ const ProgramExerciseList = ({ day }) => {
           <TableContainer
             sx={{
               maxWidth: "500px",
-              height: "160px",
+              height: "163px",
               padding: "10px 30px",
             }}
           >
@@ -55,12 +55,17 @@ const ProgramExerciseList = ({ day }) => {
                       ".css-1yhpg23-MuiTableCell-root": {
                         borderBottom: "1px solid rgba(0, 0, 0, 0.12)",
                       },
-                      ".css-1ex1afd-MuiTableCell-root": {
+                      ".css-dsuxgy-MuiTableCell-root": {
                         borderBottom: "none",
                       },
                     }}
                   >
-                    <TableCell align="center">{exercise.name}</TableCell>
+                    <TableCell
+                      align="center"
+                      sx={{ maxWidth: "150px", overflow: "hidden" }}
+                    >
+                      {exercise.name}
+                    </TableCell>
                     <TableCell align="center">
                       {exercise.min_sets}-{exercise.max_sets}
                     </TableCell>
