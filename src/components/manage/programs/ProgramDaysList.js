@@ -44,6 +44,7 @@ const ProgramDaysList = () => {
             <Box
               component={Stack}
               justifyContent="center"
+              alignItems="center"
               height="250px"
               direction="row"
             >

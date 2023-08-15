@@ -21,7 +21,7 @@ const AddWorkoutExerciseSet = ({ exerciseId }) => {
           setIsOpen(true);
         }}
       >
-        <AddCircleOutlinedIcon color="success" />
+        <AddCircleOutlinedIcon htmlColor="green" />
       </IconButton>
       <CustomDialog title="Add set" isOpen={isOpen} setIsOpen={setIsOpen}>
         <AddWorkoutExerciseSetForm />

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 
-import AddIcon from "@mui/icons-material/Add";
+import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 import IconButton from "@mui/material/IconButton";
 
 import CustomDialog from "../../../utils/CustomDialog";
@@ -13,7 +13,7 @@ const AddProgram = () => {
   return (
     <>
       <IconButton onClick={() => setIsOpen(true)} title="Create new program">
-        <AddIcon sx={{ color: "green" }} />
+        <AddCircleOutlinedIcon htmlColor="green" />
       </IconButton>
       <CustomDialog
         title="Create new program"

@@ -1,12 +1,26 @@
-import React, { useContext } from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import AddIcon from "@mui/icons-material/Add";
+import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 import IconButton from "@mui/material/IconButton";
-
-import { WorkoutsContext } from "../../../context/WorkoutsContext";
+import useInterceptor from "../../../utils/useInterceptor";
 
 const AddWorkout = () => {
-  const { handleAddWorkout } = useContext(WorkoutsContext);
+  const navigate = useNavigate();
+  const axiosInterceptor = useInterceptor();
+
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  const handleAddWorkout = async () => {
+    try {
+      setIsDisabled(true);
+      const response = await axiosInterceptor.post("/workouts/");
+      navigate(`/manage/workouts/${response.data.id}`);
+      setIsDisabled(false);
+    } catch (error) {
+      console.log("error: ", error);
+    }
+  };
 
   return (
     <>
@@ -14,8 +28,9 @@ const AddWorkout = () => {
         onClick={handleAddWorkout}
         title="Add new workout"
         sx={{ width: "max-content" }}
+        disabled={isDisabled}
       >
-        <AddIcon sx={{ color: "green" }} />
+        <AddCircleOutlinedIcon htmlColor="green" />
       </IconButton>
     </>
   );

@@ -23,8 +23,11 @@ const AddDay = () => {
 
   return (
     <>
-      <IconButton onClick={handleAddDay} sx={{ width: "max-content" }}>
-        <AddCircleOutlinedIcon color="success" fontSize="large" />
+      <IconButton
+        onClick={handleAddDay}
+        sx={{ width: "max-content", height: "max-content" }}
+      >
+        <AddCircleOutlinedIcon htmlColor="green" fontSize="large" />
       </IconButton>
     </>
   );
