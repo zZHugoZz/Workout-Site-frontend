@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Line } from "react-chartjs-2";
 import { Chart } from "chart.js/auto";
 
 import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
+
+import { UnitContext } from "../../../context/UnitContext";
 
 Chart.defaults.color = "#AFC0CF";
 Chart.defaults.borderColor = "#131821";
 
-const ProgressionChart = ({ data, unit }) => {
+const ProgressionChart = ({ data }) => {
+  const { unit } = useContext(UnitContext);
+
   const options = {
     responsive: true,
     animation: false,
@@ -21,27 +24,28 @@ const ProgressionChart = ({ data, unit }) => {
           },
         },
       },
-    },
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: "Sessions",
+      tooltip: {
+        callbacks: {
+          label: function (context) {
+            console.log("context: ", context.dataset.label);
+            context.raw = `${context.dataset.label}: ${context.raw}${unit}`;
+            return context.raw;
+          },
         },
       },
+    },
+    scales: {
       y: {
-        title: {
-          display: true,
-          text: `Weight (${unit})`,
+        ticks: {
+          callback: function (value) {
+            return `${value}${unit}`;
+          },
         },
       },
     },
   };
   return (
     <>
-      {/* <div style={{ position: "relative", minHeight: "200px", width: "100%" }}>
-        <Line data={data} options={options} />
-      </div> */}
       <Paper sx={{ minHeight: "200px", padding: "10px" }}>
         <Line data={data} options={options} />
       </Paper>

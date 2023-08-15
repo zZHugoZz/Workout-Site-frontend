@@ -10,13 +10,21 @@ import ProgressionsList from "./ProgressionsList";
 import AddProgression from "./AddProgression";
 import CardTitle from "../../../utils/CardTitle";
 import { ProgressionsContext } from "../../../context/ProgressionsContext";
+import { UnitContext } from "../../../context/UnitContext";
 
 const Progressions = ({ progressionsList }) => {
   const { setProgressions, progressions } = useContext(ProgressionsContext);
+  const { unit } = useContext(UnitContext);
 
   const [datasets, setDatasets] = useState([]);
   const [longestProgression, setLongestProgression] = useState(0);
-  const [labels, setLabels] = useState([1, 2, 3, 4, 5]);
+  const [labels, setLabels] = useState([
+    "Session 1",
+    "Session 2",
+    "Session 3",
+    "Session 4",
+    "Session 5",
+  ]);
   const [chartData, setChartData] = useState({
     labels: labels,
     datasets: datasets,
@@ -53,7 +61,7 @@ const Progressions = ({ progressionsList }) => {
     if (longestProgression > labels.length) {
       let newLabels = [];
       for (let i = 1; i <= longestProgression; i++) {
-        newLabels.push(i);
+        newLabels.push(`Session ${i}`);
       }
       setLabels(newLabels);
     }
