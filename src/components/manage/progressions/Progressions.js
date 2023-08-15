@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext } from "react";
 
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
+import Divider from "@mui/material/Divider";
+import Box from "@mui/material/Box";
 
 import ProgressionChart from "./ProgressionChart";
 import ProgressionsList from "./ProgressionsList";
@@ -65,8 +67,11 @@ const Progressions = ({ progressionsList }) => {
           <AddProgression setProgressions={setProgressions} />
         </Stack>
       </CardTitle>
+      <Box sx={{ margin: "0 20px" }}>
+        <ProgressionChart data={chartData} />
+      </Box>
+      <Divider sx={{ paddingTop: "20px" }} />
       {/* <ProgressionsList /> */}
-      <ProgressionChart data={chartData} />
     </>
   );
 };

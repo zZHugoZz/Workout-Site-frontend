@@ -2,6 +2,9 @@ import React from "react";
 import { Line } from "react-chartjs-2";
 import { Chart } from "chart.js/auto";
 
+import Paper from "@mui/material/Paper";
+import Box from "@mui/material/Box";
+
 Chart.defaults.color = "#AFC0CF";
 Chart.defaults.borderColor = "#131821";
 
@@ -36,9 +39,12 @@ const ProgressionChart = ({ data, unit }) => {
   };
   return (
     <>
-      <div style={{ position: "relative", minHeight: "300px", width: "100%" }}>
+      {/* <div style={{ position: "relative", minHeight: "200px", width: "100%" }}>
         <Line data={data} options={options} />
-      </div>
+      </div> */}
+      <Paper sx={{ minHeight: "200px", padding: "10px" }}>
+        <Line data={data} options={options} />
+      </Paper>
     </>
   );
 };
