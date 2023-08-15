@@ -7,7 +7,7 @@ import Workouts from "../../components/manage/workouts/Workouts";
 import WorkoutsProvider from "../../context/WorkoutsContext";
 import Programs from "../../components/manage/programs/Programs";
 import ProgramsProvider from "../../context/ProgramsContext";
-import Progression from "../../components/manage/progressions/Progression";
+import Progressions from "../../components/manage/progressions/Progressions";
 import ProgressionsProvider from "../../context/ProgressionsContext";
 import OneRmCalculator from "../../components/manage/oneRMcalculator/OneRmCalculator";
 import useInterceptor from "../../utils/useInterceptor";
@@ -55,7 +55,7 @@ const ManagePage = () => {
           <Grid xs={9}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
               <ProgressionsProvider>
-                <Progression progressionsList={progressionsList} />
+                <Progressions progressionsList={progressionsList} />
               </ProgressionsProvider>
             </Card>
           </Grid>

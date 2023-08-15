@@ -1,44 +1,15 @@
-import React from "react";
-import { Line } from "react-chartjs-2";
-import { Chart } from "chart.js/auto";
+import React, { useContext } from "react";
 
-Chart.defaults.color = "#AFC0CF";
-Chart.defaults.borderColor = "#131821";
+import { LineChart } from "@mui/x-charts/LineChart";
 
-const ProgressionChart = ({ data, unit }) => {
-  const options = {
-    responsive: true,
-    animation: false,
-    maintainAspectRatio: false,
-    plugins: {
-      legend: {
-        labels: {
-          font: {
-            family: "Regular",
-          },
-        },
-      },
-    },
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: "Sessions",
-        },
-      },
-      y: {
-        title: {
-          display: true,
-          text: `Weight (${unit})`,
-        },
-      },
-    },
-  };
+import { ProgressionsContext } from "../../../context/ProgressionsContext";
+
+const ProgressionChart = () => {
+  const { progressions } = useContext(ProgressionsContext);
+
   return (
     <>
-      <div style={{ position: "relative", minHeight: "300px", width: "100%" }}>
-        <Line data={data} options={options} />
-      </div>
+      <LineChart />
     </>
   );
 };

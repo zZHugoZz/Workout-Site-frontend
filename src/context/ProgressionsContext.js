@@ -7,7 +7,7 @@ export default function ProgressionsProvider({ children }) {
 
   const contextData = {
     progressions: progressions,
-    setProgression: setProgressions,
+    setProgressions: setProgressions,
   };
 
   return (
