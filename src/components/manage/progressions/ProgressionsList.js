@@ -7,16 +7,6 @@ import AddPerformanceForm from "./AddPerformanceForm";
 const ProgressionsList = ({ progressions, unit, setProgressions }) => {
   const axiosInterceptor = useInterceptor();
 
-  const openDialog = (e) => {
-    const dialog = document.querySelector(`.dialog-${e.target.id}`);
-    dialog.showModal();
-  };
-
-  const closeDialog = (e) => {
-    const dialog = document.querySelector(`.dialog-${e.target.id}`);
-    dialog.close();
-  };
-
   const handleDeleteProgression = async (id) => {
     await axiosInterceptor.delete(`/progressions/${id}`);
     axiosInterceptor.get("/progressions").then((response) => {
