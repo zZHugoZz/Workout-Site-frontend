@@ -4,12 +4,13 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Card from "@mui/material/Card";
 
 import Workouts from "../../components/manage/workouts/Workouts";
+import WorkoutsProvider from "../../context/WorkoutsContext";
 import Programs from "../../components/manage/programs/Programs";
+import ProgramsProvider from "../../context/ProgramsContext";
 import Progression from "../../components/manage/progressions/Progression";
+import ProgressionsProvider from "../../context/ProgressionsContext";
 import OneRmCalculator from "../../components/manage/oneRMcalculator/OneRmCalculator";
 import useInterceptor from "../../utils/useInterceptor";
-import WorkoutsProvider from "../../context/WorkoutsContext";
-import ProgramsProvider from "../../context/ProgramsContext";
 import PageContainer from "../../utils/PageContainer";
 
 const ManagePage = () => {
@@ -17,14 +18,14 @@ const ManagePage = () => {
 
   const [workoutsList, setWorkoutsList] = useState([]);
   const [programsList, setProgramsList] = useState([]);
-  const [progressions, setProgressions] = useState([]);
+  const [progressionsList, setProgressionsList] = useState([]);
 
   useEffect(() => {
     axiosInterceptor.get("/manage").then((response) => {
       console.table(response.data);
       setWorkoutsList(response.data.workouts);
       setProgramsList(response.data.programs);
-      setProgressions(response.data.progressions);
+      setProgressionsList(response.data.progressions);
     });
   }, []);
 
@@ -53,7 +54,9 @@ const ManagePage = () => {
           </Grid>
           <Grid xs={9}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
-              {/* <Progression /> */}
+              <ProgressionsProvider>
+                <Progression progressionsList={progressionsList} />
+              </ProgressionsProvider>
             </Card>
           </Grid>
         </Grid>

@@ -10,7 +10,7 @@ import ProgressionsList from "./ProgressionsList";
 import AddProgression from "./AddProgression";
 import CardTitle from "../../../utils/CardTitle";
 
-const Progression = () => {
+const Progression = ({ progressionsList }) => {
   const [progressions, setProgressions] = useState([]);
   const [datasets, setDatasets] = useState([]);
   const [longestProgression, setLongestProgression] = useState(0);
