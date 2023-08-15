@@ -8,14 +8,12 @@ import useInterceptor from "../../../utils/useInterceptor";
 import ProgressionChart from "./ProgressionChart";
 import ProgressionsList from "./ProgressionsList";
 import AddProgression from "./AddProgression";
-import SelectProgressionUnit from "./SelectProgressionUnit";
 import CardTitle from "../../../utils/CardTitle";
 
 const Progression = () => {
   const [progressions, setProgressions] = useState([]);
   const [datasets, setDatasets] = useState([]);
   const [longestProgression, setLongestProgression] = useState(0);
-  const [unit, setUnit] = useState("");
   const [labels, setLabels] = useState([1, 2, 3, 4, 5]);
   const [chartData, setChartData] = useState({
     labels: labels,
@@ -23,19 +21,6 @@ const Progression = () => {
   });
 
   const axiosInterceptor = useInterceptor();
-
-  const handleUnitChange = (e) => {
-    setUnit(e.target.value);
-    axiosInterceptor.put("/units", {
-      unit: e.target.value,
-    });
-  };
-
-  useEffect(() => {
-    axiosInterceptor.get("/units").then((response) => {
-      setUnit(response.data.unit);
-    });
-  }, []);
 
   useEffect(() => {
     axiosInterceptor.get("/progressions").then((response) => {
@@ -84,13 +69,11 @@ const Progression = () => {
           <AddProgression setProgressions={setProgressions} />
         </Stack>
       </CardTitle>
-      <SelectProgressionUnit handleUnitChange={handleUnitChange} unit={unit} />
       <ProgressionsList
         progressions={progressions}
-        unit={unit}
         setProgressions={setProgressions}
       />
-      <ProgressionChart data={chartData} unit={unit} />
+      <ProgressionChart data={chartData} />
     </>
   );
 };
