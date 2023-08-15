@@ -18,7 +18,7 @@ import Typography from "@mui/material/Typography";
 const ProgramExerciseList = ({ day }) => {
   return (
     <>
-      <Stack alignItems="start" spacing={2}>
+      <Stack alignItems="start" spacing={2} sx={{ paddingLeft: "20px" }}>
         <Paper
           component={Stack}
           alignItems="center"

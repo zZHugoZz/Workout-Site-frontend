@@ -40,7 +40,10 @@ const WorkoutsPage = () => {
           .then((response) => {
             setUnit(response.data.unit);
           })
-      );
+      )
+      .catch((err) => {
+        console.log("error: ", err);
+      });
   }, []);
 
   useEffect(() => {

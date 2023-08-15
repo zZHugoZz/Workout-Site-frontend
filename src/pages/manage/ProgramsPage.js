@@ -14,10 +14,14 @@ const ProgramsPage = () => {
   const axiosInterceptor = useInterceptor();
 
   useEffect(() => {
-    axiosInterceptor.get(`/programs/${id}`).then((response) => {
-      console.log("response: ", response.data.days);
-      setDays(response.data.days);
-    });
+    axiosInterceptor
+      .get(`/programs/${id}`)
+      .then((response) => {
+        setDays(response.data.days);
+      })
+      .catch((err) => {
+        console.log("error: ", err);
+      });
   }, []);
 
   useEffect(() => {

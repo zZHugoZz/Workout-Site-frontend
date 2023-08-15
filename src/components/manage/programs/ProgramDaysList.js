@@ -23,17 +23,14 @@ const ProgramDaysList = () => {
           <Grid xs={6} key={day.id}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
               <CardTitle>Day {i + 1}</CardTitle>
-              <Stack
-                spacing={1.5}
-                sx={{
-                  padding: "0 20px",
-                }}
-              >
+              <Stack spacing={1.5}>
                 <ProgramExerciseList day={day} />
-                <Divider sx={{ maxWidth: "505px" }}></Divider>
-                <CustomMenu>
-                  <DeleteProgramDayButton dayId={day.id} />
-                </CustomMenu>
+                <Divider></Divider>
+                <Box paddingLeft="20px">
+                  <CustomMenu>
+                    <DeleteProgramDayButton dayId={day.id} />
+                  </CustomMenu>
+                </Box>
               </Stack>
             </Card>
           </Grid>
