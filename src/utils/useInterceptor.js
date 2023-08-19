@@ -20,7 +20,7 @@ const useInterceptor = () => {
 
     if (!isExpired) return request;
 
-    const response = await axios.get("/refresh_token/", {
+    const response = await axios.post("/refresh_token/", {
       headers: {
         Authorization: `Bearer ${authTokens.refresh_token}`,
       },

@@ -103,7 +103,9 @@ const AddProgramForm = () => {
             required
           >
             {menuItems.map((item, i) => (
-              <MenuItem value={i + 1}>{item}</MenuItem>
+              <MenuItem value={i + 1} key={i}>
+                {item}
+              </MenuItem>
             ))}
           </Select>
         </FormControl>

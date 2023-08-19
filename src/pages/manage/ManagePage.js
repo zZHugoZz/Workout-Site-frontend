@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import axios from "axios";
 
 import Grid from "@mui/material/Unstable_Grid2";
 import Card from "@mui/material/Card";
@@ -12,8 +13,10 @@ import ProgressionsProvider from "../../context/ProgressionsContext";
 import OneRmCalculator from "../../components/manage/oneRMcalculator/OneRmCalculator";
 import useInterceptor from "../../utils/useInterceptor";
 import PageContainer from "../../utils/PageContainer";
+import { UnitContext } from "../../context/UnitContext";
 
 const ManagePage = () => {
+  const { setUnit } = useContext(UnitContext);
   const axiosInterceptor = useInterceptor();
 
   const [workoutsList, setWorkoutsList] = useState([]);
@@ -21,12 +24,27 @@ const ManagePage = () => {
   const [progressionsList, setProgressionsList] = useState([]);
 
   useEffect(() => {
-    axiosInterceptor.get("/manage").then((response) => {
-      console.table(response.data);
-      setWorkoutsList(response.data.workouts);
-      setProgramsList(response.data.programs);
-      setProgressionsList(response.data.progressions);
-    });
+    axiosInterceptor
+      .get("/manage")
+      .then((response) => {
+        console.table(response.data);
+        setWorkoutsList(response.data.workouts);
+        setProgramsList(response.data.programs);
+        setProgressionsList(response.data.progressions);
+      })
+      .then(
+        axios
+          .get("/units", {
+            headers: {
+              Authorization: `Bearer ${
+                JSON.parse(localStorage.getItem("authTokens")).access_token
+              }`,
+            },
+          })
+          .then((response) => {
+            setUnit(response.data.unit);
+          })
+      );
   }, []);
 
   return (
