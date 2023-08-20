@@ -8,12 +8,16 @@ import Workout from "./Workout";
 import { WorkoutsContext } from "../../../context/WorkoutsContext";
 import CardTitle from "../../../utils/CardTitle";
 
-const Workouts = ({ workoutsList }) => {
-  const { setWorkouts } = useContext(WorkoutsContext);
+const Workouts = ({ workoutsList, todaysWorkout }) => {
+  const { setWorkouts, setTodaysWorkout } = useContext(WorkoutsContext);
 
   useEffect(() => {
     setWorkouts(workoutsList);
   }, [workoutsList]);
+
+  useEffect(() => {
+    setTodaysWorkout(todaysWorkout);
+  });
 
   return (
     <>

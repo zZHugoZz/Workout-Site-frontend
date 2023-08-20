@@ -20,6 +20,7 @@ const ManagePage = () => {
   const axiosInterceptor = useInterceptor();
 
   const [workoutsList, setWorkoutsList] = useState([]);
+  const [todaysWorkout, setTodaysWorkout] = useState(null);
   const [programsList, setProgramsList] = useState([]);
   const [progressionsList, setProgressionsList] = useState([]);
 
@@ -27,8 +28,9 @@ const ManagePage = () => {
     axiosInterceptor
       .get("/manage")
       .then((response) => {
-        console.table(response.data);
+        console.log("response: ", response.data);
         setWorkoutsList(response.data.workouts);
+        setTodaysWorkout(response.data.todays_workout);
         setProgramsList(response.data.programs);
         setProgressionsList(response.data.progressions);
       })
@@ -54,7 +56,10 @@ const ManagePage = () => {
           <Grid xs={7}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
               <WorkoutsProvider>
-                <Workouts workoutsList={workoutsList} />
+                <Workouts
+                  workoutsList={workoutsList}
+                  todaysWorkout={todaysWorkout}
+                />
               </WorkoutsProvider>
             </Card>
           </Grid>
