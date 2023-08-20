@@ -21,7 +21,7 @@ const useFilterWorkouts = () => {
     }
   };
 
-  return { highlightedDays, filterWorkouts };
+  return { highlightedDays, setHighlightedDays, filterWorkouts };
 };
 
 export default useFilterWorkouts;

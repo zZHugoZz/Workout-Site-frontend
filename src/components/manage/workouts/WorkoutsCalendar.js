@@ -13,7 +13,8 @@ import useFilterWorkouts from "../../../utils/useFilterWorkouts";
 
 const WorkoutsCalendar = () => {
   const { setDate } = useContext(WorkoutsContext);
-  const { highlightedDays, filterWorkouts } = useFilterWorkouts();
+  const { highlightedDays, setHighlightedDays, filterWorkouts } =
+    useFilterWorkouts();
   const axiosInterceptor = useInterceptor();
 
   const [value, setValue] = useState(dayjs());
@@ -27,7 +28,19 @@ const WorkoutsCalendar = () => {
   };
 
   useEffect(() => {
+    axiosInterceptor
+      .get("/workouts/filter/", {
+        params: {
+          month: value.$M + 1,
+          year: value.$y,
+        },
+      })
+      .then((response) => setHighlightedDays(response.data));
+  }, []);
+
+  useEffect(() => {
     setDate(value);
+    console.log("value: ", value);
   }, [value]);
 
   return (
