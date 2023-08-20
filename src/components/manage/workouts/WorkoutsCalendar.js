@@ -5,6 +5,7 @@ import dayjs from "dayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+import { DayCalendarSkeleton } from "@mui/x-date-pickers/DayCalendarSkeleton";
 
 import WorkoutDay from "./WorkoutDay";
 import useInterceptor from "../../../utils/useInterceptor";
@@ -13,15 +14,19 @@ import useFilterWorkouts from "../../../utils/useFilterWorkouts";
 
 const WorkoutsCalendar = () => {
   const { setTodaysWorkout, setDate } = useContext(WorkoutsContext);
-  const { highlightedDays, setHighlightedDays, filterWorkouts } =
-    useFilterWorkouts();
   const axiosInterceptor = useInterceptor();
 
   const [value, setValue] = useState(dayjs());
+  const [isLoading, setIsLoading] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  const { highlightedDays, setHighlightedDays, filterWorkouts } =
+    useFilterWorkouts(setIsLoading);
 
   const handleChange = async (value) => {
     setValue(value);
     try {
+      setIsDisabled(true);
       const response = await axiosInterceptor.get(
         "/workouts/workout_by_date/",
         {
@@ -31,6 +36,7 @@ const WorkoutsCalendar = () => {
         }
       );
       setTodaysWorkout(response.data);
+      setIsDisabled(false);
     } catch (err) {
       console.log("error: ", err);
     }
@@ -64,6 +70,9 @@ const WorkoutsCalendar = () => {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateCalendar
           value={value}
+          disabled={isDisabled}
+          loading={isLoading}
+          renderLoading={() => <DayCalendarSkeleton />}
           sx={{ margin: "0" }}
           onChange={handleChange}
           onMonthChange={handleMonthChange}

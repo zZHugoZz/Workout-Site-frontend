@@ -4,7 +4,6 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
 
 import AddWorkout from "./AddWorkout";
 import { WorkoutsContext } from "../../../context/WorkoutsContext";
@@ -20,6 +19,7 @@ const Workout = () => {
           padding: "5px",
           marginRight: "10px",
           backgroundColor: "#f9ffdf",
+          width: "210px",
         }}
         elevation={2}
       >
@@ -30,12 +30,12 @@ const Workout = () => {
           {todaysWorkout ? (
             <Typography variant="body1">{todaysWorkout.date}</Typography>
           ) : (
-            <Box>
+            <Stack alignItems="center">
               <Typography variant="body1">
                 You didn't workout this day
               </Typography>
               <AddWorkout />
-            </Box>
+            </Stack>
           )}
         </Stack>
       </Paper>
