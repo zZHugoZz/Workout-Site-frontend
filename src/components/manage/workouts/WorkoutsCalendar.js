@@ -9,19 +9,21 @@ import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import WorkoutDay from "./WorkoutDay";
 import useInterceptor from "../../../utils/useInterceptor";
 import { WorkoutsContext } from "../../../context/WorkoutsContext";
+import useFilterWorkouts from "../../../utils/useFilterWorkouts";
 
 const WorkoutsCalendar = () => {
   const { setDate } = useContext(WorkoutsContext);
+  const { highlightedDays, filterWorkouts } = useFilterWorkouts();
   const axiosInterceptor = useInterceptor();
 
-  const [highlightedDays, setHighlightedDays] = useState([2]);
   const [value, setValue] = useState(dayjs());
 
   const handleMonthChange = async (month) => {
-    // try {
-    //   axiosInterceptor.get()
-    // }
-    console.log("new month: ", month);
+    await filterWorkouts(month.$M, month.$y);
+  };
+
+  const handleYearChange = async (year) => {
+    await filterWorkouts(year.$M, year.$y);
   };
 
   useEffect(() => {
@@ -36,6 +38,7 @@ const WorkoutsCalendar = () => {
           sx={{ margin: "0" }}
           onChange={(value) => setValue(value)}
           onMonthChange={handleMonthChange}
+          onYearChange={handleYearChange}
           defaultValue={dayjs()}
           slots={{
             day: WorkoutDay,
