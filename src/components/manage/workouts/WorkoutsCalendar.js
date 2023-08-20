@@ -12,12 +12,29 @@ import { WorkoutsContext } from "../../../context/WorkoutsContext";
 import useFilterWorkouts from "../../../utils/useFilterWorkouts";
 
 const WorkoutsCalendar = () => {
-  const { setDate } = useContext(WorkoutsContext);
+  const { setTodaysWorkout, setDate } = useContext(WorkoutsContext);
   const { highlightedDays, setHighlightedDays, filterWorkouts } =
     useFilterWorkouts();
   const axiosInterceptor = useInterceptor();
 
   const [value, setValue] = useState(dayjs());
+
+  const handleChange = async (value) => {
+    setValue(value);
+    try {
+      const response = await axiosInterceptor.get(
+        "/workouts/workout_by_date/",
+        {
+          params: {
+            date: dayjs(value.$d).format("YYYY-MM-DD"),
+          },
+        }
+      );
+      setTodaysWorkout(response.data);
+    } catch (err) {
+      console.log("error: ", err);
+    }
+  };
 
   const handleMonthChange = async (month) => {
     await filterWorkouts(month.$M, month.$y);
@@ -40,7 +57,6 @@ const WorkoutsCalendar = () => {
 
   useEffect(() => {
     setDate(value);
-    console.log("value: ", value);
   }, [value]);
 
   return (
@@ -49,7 +65,7 @@ const WorkoutsCalendar = () => {
         <DateCalendar
           value={value}
           sx={{ margin: "0" }}
-          onChange={(value) => setValue(value)}
+          onChange={handleChange}
           onMonthChange={handleMonthChange}
           onYearChange={handleYearChange}
           defaultValue={dayjs()}

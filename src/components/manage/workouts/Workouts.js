@@ -17,7 +17,7 @@ const Workouts = ({ workoutsList, todaysWorkout }) => {
 
   useEffect(() => {
     setTodaysWorkout(todaysWorkout);
-  });
+  }, [todaysWorkout]);
 
   return (
     <>
