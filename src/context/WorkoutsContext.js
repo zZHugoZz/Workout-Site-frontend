@@ -1,6 +1,5 @@
 import React from "react";
 import { createContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 import useInterceptor from "../utils/useInterceptor";
 
@@ -10,6 +9,7 @@ export default function WorkoutsProvider({ children }) {
   const axiosInterceptor = useInterceptor();
 
   const [workouts, setWorkouts] = useState([]);
+  const [date, setDate] = useState("");
 
   const handleDelete = async (id) => {
     try {
@@ -24,6 +24,8 @@ export default function WorkoutsProvider({ children }) {
   const contextData = {
     workouts: workouts,
     setWorkouts: setWorkouts,
+    date: date,
+    setDate: setDate,
     handleDelete: handleDelete,
   };
 

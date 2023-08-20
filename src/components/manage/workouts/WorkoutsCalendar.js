@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useState } from "react";
 import dayjs from "dayjs";
 
@@ -7,13 +7,25 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 
 import WorkoutDay from "./WorkoutDay";
+import useInterceptor from "../../../utils/useInterceptor";
+import { WorkoutsContext } from "../../../context/WorkoutsContext";
 
 const WorkoutsCalendar = () => {
-  const [highlightedDays, setHighlightedDays] = useState([4, 5, 14]);
+  const { setDate } = useContext(WorkoutsContext);
+  const axiosInterceptor = useInterceptor();
+
+  const [highlightedDays, setHighlightedDays] = useState([2]);
   const [value, setValue] = useState(dayjs());
 
+  const handleMonthChange = async (month) => {
+    // try {
+    //   axiosInterceptor.get()
+    // }
+    console.log("new month: ", month);
+  };
+
   useEffect(() => {
-    console.log("value: ", dayjs(value.$d).format("YYYY-MM-DD"));
+    setDate(value);
   }, [value]);
 
   return (
@@ -23,6 +35,7 @@ const WorkoutsCalendar = () => {
           value={value}
           sx={{ margin: "0" }}
           onChange={(value) => setValue(value)}
+          onMonthChange={handleMonthChange}
           defaultValue={dayjs()}
           slots={{
             day: WorkoutDay,
