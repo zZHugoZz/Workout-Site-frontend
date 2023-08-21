@@ -86,7 +86,6 @@ const WorkoutsCalendar = () => {
           focusedView="month"
           loading={isLoading}
           renderLoading={() => <DayCalendarSkeleton />}
-          sx={{ margin: "0" }}
           onChange={handleChange}
           onMonthChange={handleMonthChange}
           onYearChange={handleYearChange}
@@ -97,6 +96,12 @@ const WorkoutsCalendar = () => {
           slotProps={{
             day: {
               highlightedDays,
+            },
+          }}
+          sx={{
+            margin: "0",
+            ".css-1lkpf4l-MuiYearCalendar-root": {
+              height: "210px",
             },
           }}
         />
