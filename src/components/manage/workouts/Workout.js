@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import dayjs from "dayjs";
 
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
@@ -9,7 +10,7 @@ import AddWorkout from "./AddWorkout";
 import { WorkoutsContext } from "../../../context/WorkoutsContext";
 
 const Workout = () => {
-  const { todaysWorkout } = useContext(WorkoutsContext);
+  const { todaysWorkout, date } = useContext(WorkoutsContext);
 
   return (
     <>
@@ -25,7 +26,9 @@ const Workout = () => {
       >
         <Stack alignItems="center">
           <Divider textAlign="center" sx={{ width: "100%" }}>
-            <Typography variant="h6">Workout</Typography>
+            <Typography variant="h6">
+              {dayjs(date.$d).format("YYYY-MM-DD")}
+            </Typography>
           </Divider>
           {todaysWorkout ? (
             <Typography variant="body1">{todaysWorkout.date}</Typography>

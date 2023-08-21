@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import dayjs from "dayjs";
 
 import AddCircleOutlinedIcon from "@mui/icons-material/AddCircleOutlined";
 import IconButton from "@mui/material/IconButton";
@@ -18,7 +19,7 @@ const AddWorkout = () => {
     try {
       setIsDisabled(true);
       const response = await axiosInterceptor.post("/workouts", {
-        date: date.format("YYYY-MM-DD"),
+        date: dayjs(date.$d).format("YYYY-MM-DD"),
         day: date.date(),
         month: date.month() + 1,
         year: date.year(),
