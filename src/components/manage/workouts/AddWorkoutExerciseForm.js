@@ -14,7 +14,7 @@ const AddWorkoutExerciseForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
-    n_sets: 1,
+    n_sets: 0,
     workout_id: workoutId,
   });
 

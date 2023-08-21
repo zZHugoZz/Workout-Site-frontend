@@ -5,6 +5,9 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import Stack from "@mui/material/Stack";
 import Paper from "@mui/material/Paper";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import Box from "@mui/material/Box";
 
 import AddWorkout from "./AddWorkout";
 import { WorkoutsContext } from "../../../context/WorkoutsContext";
@@ -31,7 +34,20 @@ const Workout = () => {
             </Typography>
           </Divider>
           {todaysWorkout ? (
-            <Typography variant="body1">{todaysWorkout.date}</Typography>
+            <Box width="100%">
+              <List sx={{ height: "180px" }}>
+                {todaysWorkout.exercises.map((exercise) => (
+                  <ListItem
+                    key={exercise.id}
+                    disablePadding
+                    sx={{ paddingLeft: "10px" }}
+                  >
+                    - {exercise.name}
+                  </ListItem>
+                ))}
+              </List>
+              <Divider />
+            </Box>
           ) : (
             <Stack alignItems="center">
               <Typography variant="body1">
