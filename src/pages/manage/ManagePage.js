@@ -19,7 +19,6 @@ const ManagePage = () => {
   const { setUnit } = useContext(UnitContext);
   const axiosInterceptor = useInterceptor();
 
-  const [workoutsList, setWorkoutsList] = useState([]);
   const [todaysWorkout, setTodaysWorkout] = useState(null);
   const [programsList, setProgramsList] = useState([]);
   const [progressionsList, setProgressionsList] = useState([]);
@@ -29,7 +28,6 @@ const ManagePage = () => {
       .get("/manage")
       .then((response) => {
         console.log("response: ", response.data);
-        setWorkoutsList(response.data.workouts);
         setTodaysWorkout(response.data.todays_workout);
         setProgramsList(response.data.programs);
         setProgressionsList(response.data.progressions);
@@ -56,10 +54,7 @@ const ManagePage = () => {
           <Grid xs={7}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
               <WorkoutsProvider>
-                <Workouts
-                  workoutsList={workoutsList}
-                  todaysWorkout={todaysWorkout}
-                />
+                <Workouts todaysWorkout={todaysWorkout} />
               </WorkoutsProvider>
             </Card>
           </Grid>
@@ -72,7 +67,7 @@ const ManagePage = () => {
           </Grid>
           <Grid xs={3}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
-              {/* <OneRmCalculator /> */}
+              <OneRmCalculator />
             </Card>
           </Grid>
           <Grid xs={9}>

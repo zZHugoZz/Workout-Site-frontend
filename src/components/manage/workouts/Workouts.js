@@ -2,18 +2,13 @@ import React, { useContext, useEffect } from "react";
 
 import Stack from "@mui/material/Stack";
 
-import WorkoutsList from "./WorkoutsList";
 import WorkoutsCalendar from "./WorkoutsCalendar";
 import Workout from "./Workout";
 import { WorkoutsContext } from "../../../context/WorkoutsContext";
 import CardTitle from "../../../utils/CardTitle";
 
-const Workouts = ({ workoutsList, todaysWorkout }) => {
-  const { setWorkouts, setTodaysWorkout } = useContext(WorkoutsContext);
-
-  useEffect(() => {
-    setWorkouts(workoutsList);
-  }, [workoutsList]);
+const Workouts = ({ todaysWorkout }) => {
+  const { setTodaysWorkout } = useContext(WorkoutsContext);
 
   useEffect(() => {
     setTodaysWorkout(todaysWorkout);
@@ -26,7 +21,6 @@ const Workouts = ({ workoutsList, todaysWorkout }) => {
         <WorkoutsCalendar />
         <Workout />
       </Stack>
-      <WorkoutsList />
     </>
   );
 };

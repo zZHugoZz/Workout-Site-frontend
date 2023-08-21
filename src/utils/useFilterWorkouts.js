@@ -16,7 +16,11 @@ const useFilterWorkouts = (setIsLoading) => {
           year,
         },
       });
-      setHighlightedDays(response.data);
+      setHighlightedDays(
+        response.data.map((workout) => {
+          return workout.day;
+        })
+      );
       setIsLoading(false);
     } catch (err) {
       console.log("error: ", err);
