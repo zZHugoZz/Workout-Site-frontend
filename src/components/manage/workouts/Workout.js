@@ -42,7 +42,16 @@ const Workout = () => {
                     disablePadding
                     sx={{ paddingLeft: "10px" }}
                   >
-                    - {exercise.name}
+                    <Typography variant="body2">
+                      - {exercise.name}&nbsp;
+                    </Typography>{" "}
+                    ({exercise.n_sets}
+                    {exercise.n_sets > 1 ? (
+                      <Typography variant="body2">&nbsp;sets</Typography>
+                    ) : (
+                      <Typography variant="body2">&nbsp;set</Typography>
+                    )}
+                    )
                   </ListItem>
                 ))}
               </List>
