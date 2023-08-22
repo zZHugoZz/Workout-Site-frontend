@@ -82,7 +82,7 @@ const WorkoutsCalendar = () => {
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateCalendar
           value={value}
-          focusedView="month"
+          focusedView="year"
           loading={isLoading}
           renderLoading={() => <DayCalendarSkeleton />}
           onChange={handleChange}

@@ -13,6 +13,7 @@ import AddWorkout from "./AddWorkout";
 import { WorkoutsContext } from "../../../context/WorkoutsContext";
 import CustomMenu from "../../../utils/CustomMenu";
 import DeleteWorkout from "./DeleteWorkout";
+import AccessWorkout from "./AccessWorkout";
 
 const Workout = () => {
   const { todaysWorkout, date } = useContext(WorkoutsContext);
@@ -58,6 +59,7 @@ const Workout = () => {
               <Stack paddingTop={0.8} alignItems="end">
                 <CustomMenu>
                   <DeleteWorkout workoutId={todaysWorkout.id} />
+                  <AccessWorkout workoutId={todaysWorkout.id} />
                 </CustomMenu>
               </Stack>
             </Box>

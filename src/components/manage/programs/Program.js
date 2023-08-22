@@ -11,7 +11,7 @@ import { Zoom } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
 
 import CustomMenu from "../../../utils/CustomMenu";
-import AccessProgramButton from "./AccessProgramButton";
+import AccessProgram from "./AccessProgram";
 import DeleteProgramButton from "./DeleteProgramButton";
 
 const Program = ({ program }) => {
@@ -48,7 +48,7 @@ const Program = ({ program }) => {
               </IconButton>
             </Tooltip>
             <CustomMenu>
-              <AccessProgramButton programId={program.id} />
+              <AccessProgram programId={program.id} />
               <DeleteProgramButton programId={program.id} />
             </CustomMenu>
           </Stack>
