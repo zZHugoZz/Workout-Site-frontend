@@ -8,6 +8,7 @@ export default function WorkoutsProvider({ children }) {
   const [monthlyWorkouts, setMonthlyWorkouts] = useState([]);
   const [date, setDate] = useState("");
   const [dates, setDates] = useState([]);
+  const [highlightedDays, setHighlightedDays] = useState([]);
 
   const contextData = {
     todaysWorkout: todaysWorkout,
@@ -18,6 +19,8 @@ export default function WorkoutsProvider({ children }) {
     setDate: setDate,
     dates: dates,
     setDates: setDates,
+    highlightedDays: highlightedDays,
+    setHighlightedDays: setHighlightedDays,
   };
 
   useEffect(() => {
@@ -27,6 +30,10 @@ export default function WorkoutsProvider({ children }) {
   useEffect(() => {
     console.log("dates: ", dates);
   }, [dates]);
+
+  useEffect(() => {
+    console.log("highlighted days: ", highlightedDays);
+  }, [highlightedDays]);
 
   return (
     <WorkoutsContext.Provider value={contextData}>

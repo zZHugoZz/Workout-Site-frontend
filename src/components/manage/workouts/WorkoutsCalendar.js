@@ -20,25 +20,24 @@ const WorkoutsCalendar = () => {
     setDate,
     dates,
     setDates,
+    highlightedDays,
+    setHighlightedDays,
   } = useContext(WorkoutsContext);
   const axiosInterceptor = useInterceptor();
 
   const [value, setValue] = useState(dayjs());
   const [isLoading, setIsLoading] = useState(false);
 
-  const { highlightedDays, setHighlightedDays, filterWorkouts } =
-    useFilterWorkouts(setIsLoading);
+  const { filterWorkouts } = useFilterWorkouts(setIsLoading);
 
   const handleChange = async (value) => {
     setValue(value);
     const currentDate = dayjs(value.$d).format("YYYY-MM-DD");
     if (dates.includes(currentDate)) {
-      console.log("includes");
       setTodaysWorkout(
         monthlyWorkouts.find((workout) => workout.date === currentDate)
       );
     } else {
-      console.log("not includes");
       setTodaysWorkout(null);
     }
   };

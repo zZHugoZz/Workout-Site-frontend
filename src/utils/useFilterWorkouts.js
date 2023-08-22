@@ -1,13 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 
 import useInterceptor from "./useInterceptor";
 import { WorkoutsContext } from "../context/WorkoutsContext";
 
 const useFilterWorkouts = (setIsLoading) => {
-  const { setMonthlyWorkouts, setDates } = useContext(WorkoutsContext);
+  const { setMonthlyWorkouts, setDates, setHighlightedDays } =
+    useContext(WorkoutsContext);
   const axiosInterceptor = useInterceptor();
-
-  const [highlightedDays, setHighlightedDays] = useState([]);
 
   const filterWorkouts = async (month, year) => {
     try {
@@ -35,7 +34,7 @@ const useFilterWorkouts = (setIsLoading) => {
     }
   };
 
-  return { highlightedDays, setHighlightedDays, filterWorkouts };
+  return { filterWorkouts };
 };
 
 export default useFilterWorkouts;
