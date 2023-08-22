@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import dayjs from "dayjs";
 
 import Typography from "@mui/material/Typography";
@@ -8,6 +9,7 @@ import Paper from "@mui/material/Paper";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Box from "@mui/material/Box";
+import { Link as MUILink } from "@mui/material";
 
 import AddWorkout from "./AddWorkout";
 import { WorkoutsContext } from "../../../context/WorkoutsContext";
@@ -38,23 +40,38 @@ const Workout = () => {
           </Divider>
           {todaysWorkout ? (
             <Box width="100%">
-              <List sx={{ height: "180px" }}>
-                {todaysWorkout.exercises.map((exercise) => (
-                  <ListItem
-                    key={exercise.id}
-                    disablePadding
-                    sx={{ paddingLeft: "10px" }}
-                  >
-                    <Typography variant="body2">
-                      - {exercise.name}&nbsp;
-                    </Typography>{" "}
-                    <Typography variant="body2">
-                      ({exercise.n_sets}
-                      {exercise.n_sets > 1 ? <>&nbsp;sets</> : <>&nbsp;set</>})
-                    </Typography>
-                  </ListItem>
-                ))}
-              </List>
+              {todaysWorkout.exercises.length === 0 ? (
+                <Stack alignItems="center" sx={{ height: "180px" }}>
+                  <Typography variant="body2">
+                    No exercises, add one{" "}
+                    <MUILink
+                      component={Link}
+                      to={`workouts/${todaysWorkout.id}`}
+                    >
+                      here
+                    </MUILink>
+                  </Typography>
+                </Stack>
+              ) : (
+                <List sx={{ height: "180px" }}>
+                  {todaysWorkout.exercises.map((exercise) => (
+                    <ListItem
+                      key={exercise.id}
+                      disablePadding
+                      sx={{ paddingLeft: "10px" }}
+                    >
+                      <Typography variant="body2">
+                        - {exercise.name}&nbsp;
+                      </Typography>{" "}
+                      <Typography variant="body2">
+                        ({exercise.n_sets}
+                        {exercise.n_sets > 1 ? <>&nbsp;sets</> : <>&nbsp;set</>}
+                        )
+                      </Typography>
+                    </ListItem>
+                  ))}
+                </List>
+              )}
               <Divider />
               <Stack paddingTop={0.8} alignItems="end">
                 <CustomMenu>

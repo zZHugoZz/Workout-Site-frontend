@@ -88,7 +88,6 @@ const WorkoutsCalendar = () => {
           onChange={handleChange}
           onMonthChange={handleMonthChange}
           onYearChange={handleYearChange}
-          defaultValue={dayjs()}
           slots={{
             day: WorkoutDay,
           }}
