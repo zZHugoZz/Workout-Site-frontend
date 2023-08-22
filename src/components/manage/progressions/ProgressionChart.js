@@ -9,7 +9,7 @@ import { UnitContext } from "../../../context/UnitContext";
 Chart.defaults.color = "black";
 Chart.defaults.borderColor = "rgba(0, 0, 0, 0.12)";
 
-const ProgressionChart = ({ data }) => {
+const ProgressionChart = ({ data, progressions }) => {
   const { unit } = useContext(UnitContext);
 
   const options = {
@@ -27,8 +27,13 @@ const ProgressionChart = ({ data }) => {
       tooltip: {
         callbacks: {
           label: function (context) {
-            console.log("date: ");
-            context.raw = `${context.dataset.label}: ${context.raw}${unit}`;
+            console.log("context: ", context);
+            const datasetLabel = context.dataset.label;
+            const progression = progressions.find(
+              (progression) => progression.name === datasetLabel
+            );
+            const performance = progression.performances[context.dataIndex];
+            context.raw = `${context.dataset.label}: ${context.raw}${unit} (${performance.date})`;
             return context.raw;
           },
         },

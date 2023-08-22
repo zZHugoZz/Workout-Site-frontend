@@ -69,6 +69,10 @@ const Progressions = ({ progressionsList }) => {
     }
   }, [longestProgression, labels.length]);
 
+  useEffect(() => {
+    console.log("datasets: ", datasets);
+  }, [datasets]);
+
   return (
     <>
       <CardTitle>
@@ -78,7 +82,7 @@ const Progressions = ({ progressionsList }) => {
         </Stack>
       </CardTitle>
       <Box sx={{ margin: "0 20px" }}>
-        <ProgressionChart data={chartData} />
+        <ProgressionChart data={chartData} progressions={progressions} />
       </Box>
       <Divider sx={{ paddingTop: "20px" }} />
       {/* <ProgressionsList /> */}
