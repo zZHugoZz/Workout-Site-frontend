@@ -10,11 +10,9 @@ import ProgressionsList from "./ProgressionsList";
 import AddProgression from "./AddProgression";
 import CardTitle from "../../../utils/CardTitle";
 import { ProgressionsContext } from "../../../context/ProgressionsContext";
-import { UnitContext } from "../../../context/UnitContext";
 
 const Progressions = ({ progressionsList }) => {
   const { setProgressions, progressions } = useContext(ProgressionsContext);
-  const { unit } = useContext(UnitContext);
 
   const [datasets, setDatasets] = useState([]);
   const [longestProgression, setLongestProgression] = useState(0);
@@ -38,7 +36,11 @@ const Progressions = ({ progressionsList }) => {
     const lengths = progressions.map(
       (progression) => progression.performances.length
     );
-    setLongestProgression(Math.max(...lengths));
+    if (lengths.length === 0) {
+      setLongestProgression(0);
+    } else {
+      setLongestProgression(Math.max(...lengths));
+    }
     setDatasets(
       progressions.map((progression) => ({
         label: progression.name,
@@ -72,7 +74,7 @@ const Progressions = ({ progressionsList }) => {
       <CardTitle>
         <Stack direction="row" alignItems="center">
           <Typography variant="h5">Progressions</Typography>
-          <AddProgression setProgressions={setProgressions} />
+          <AddProgression />
         </Stack>
       </CardTitle>
       <Box sx={{ margin: "0 20px" }}>

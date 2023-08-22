@@ -6,8 +6,8 @@ import Paper from "@mui/material/Paper";
 
 import { UnitContext } from "../../../context/UnitContext";
 
-Chart.defaults.color = "#AFC0CF";
-Chart.defaults.borderColor = "#131821";
+Chart.defaults.color = "black";
+Chart.defaults.borderColor = "rgba(0, 0, 0, 0.12)";
 
 const ProgressionChart = ({ data }) => {
   const { unit } = useContext(UnitContext);
@@ -27,7 +27,7 @@ const ProgressionChart = ({ data }) => {
       tooltip: {
         callbacks: {
           label: function (context) {
-            console.log("context: ", context.dataset.label);
+            console.log("date: ");
             context.raw = `${context.dataset.label}: ${context.raw}${unit}`;
             return context.raw;
           },
@@ -46,7 +46,9 @@ const ProgressionChart = ({ data }) => {
   };
   return (
     <>
-      <Paper sx={{ minHeight: "200px", padding: "10px" }}>
+      <Paper
+        sx={{ minHeight: "200px", padding: "10px", backgroundColor: "#f9ffdf" }}
+      >
         <Line data={data} options={options} />
       </Paper>
     </>

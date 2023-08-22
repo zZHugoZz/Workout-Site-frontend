@@ -34,7 +34,7 @@ const ProgramsList = () => {
     <>
       {programs.length === 0 ? (
         <Stack alignItems="center" height="184px">
-          <Typography variant="body2">No programs</Typography>
+          <Typography variant="body2">You don't have any programs</Typography>
         </Stack>
       ) : (
         <Grid

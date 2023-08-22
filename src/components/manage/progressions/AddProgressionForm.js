@@ -1,15 +1,20 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useContext } from "react";
+
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
 
 import useInterceptor from "../../../utils/useInterceptor";
+import { ProgressionsContext } from "../../../context/ProgressionsContext";
+import FormAddButton from "../../../utils/FormAddButton";
 
-const AddProgressionForm = ({ setProgressions }) => {
+const AddProgressionForm = () => {
+  const { setProgressions } = useContext(ProgressionsContext);
+  const axiosInterceptor = useInterceptor();
+
   const [formData, setFormData] = useState({
     name: "",
-    color: "#FF7543",
+    color: "#14FF63",
   });
-
-  const axiosInterceptor = useInterceptor();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +24,7 @@ const AddProgressionForm = ({ setProgressions }) => {
     });
     setFormData({
       name: "",
-      color: "#FF7543",
+      color: "#14FF63",
     });
   };
 
@@ -29,10 +34,19 @@ const AddProgressionForm = ({ setProgressions }) => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <input
+      <Stack
+        width="300px"
+        component="form"
+        onSubmit={handleSubmit}
+        paddingTop="10px"
+        spacing={3}
+      >
+        <TextField
           type="text"
-          placeholder="Exercise..."
+          variant="outlined"
+          label="Exercise"
+          size="small"
+          color="success"
           onChange={handleChange}
           name="name"
           value={formData.name}
@@ -43,10 +57,11 @@ const AddProgressionForm = ({ setProgressions }) => {
           onChange={handleChange}
           name="color"
           value={formData.color}
+          style={{ background: "black" }}
           required
         />
-        <button>Create</button>
-      </form>
+        <FormAddButton>Create</FormAddButton>
+      </Stack>
     </>
   );
 };
