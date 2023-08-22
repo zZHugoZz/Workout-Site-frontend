@@ -58,12 +58,15 @@ const Workout = () => {
               <Divider />
             </Box>
           ) : (
-            <Stack alignItems="center">
-              <Typography variant="body1">
-                You didn't workout this day
-              </Typography>
-              <AddWorkout />
-            </Stack>
+            <Box>
+              <Stack alignItems="center" sx={{ height: "180px" }}>
+                <Typography variant="body1">
+                  You didn't workout this day
+                </Typography>
+                <AddWorkout />
+              </Stack>
+              <Divider flexItem />
+            </Box>
           )}
         </Stack>
       </Paper>
