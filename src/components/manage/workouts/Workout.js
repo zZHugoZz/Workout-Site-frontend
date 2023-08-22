@@ -11,6 +11,7 @@ import Box from "@mui/material/Box";
 
 import AddWorkout from "./AddWorkout";
 import { WorkoutsContext } from "../../../context/WorkoutsContext";
+import CustomMenu from "../../../utils/CustomMenu";
 
 const Workout = () => {
   const { todaysWorkout, date } = useContext(WorkoutsContext);
@@ -53,6 +54,7 @@ const Workout = () => {
                 ))}
               </List>
               <Divider />
+              <CustomMenu />
             </Box>
           ) : (
             <Box>

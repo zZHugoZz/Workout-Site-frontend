@@ -35,18 +35,17 @@ const AddProgramForm = () => {
     n_days: "",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       setIsLoading(true);
-      axiosInterceptor.post("/programs", formData).then((response) => {
-        for (let i = 1; i <= formData.n_days; i++) {
-          axiosInterceptor.post("/program_days", {
-            program_id: response.data.id,
-          });
-        }
-        navigate(`programs/${response.data.id}`);
-      });
+      const response = await axiosInterceptor.post("/programs", formData);
+      for (let i = 1; i <= formData.n_days; i++) {
+        await axiosInterceptor.post("/program_days", {
+          program_id: response.data.id,
+        });
+      }
+      navigate(`programs/${response.data.id}`);
       setFormData({
         name: "",
         description: "",
