@@ -44,7 +44,13 @@ const ManagePage = () => {
           .then((response) => {
             setUnit(response.data.unit);
           })
-      );
+          .catch((err) => {
+            console.log("error in unit request: ", err);
+          })
+      )
+      .catch((err) => {
+        console.log("error in manage request: ", err);
+      });
   }, []);
 
   return (

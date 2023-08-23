@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 
 import useInterceptor from "../../../utils/useInterceptor";
 import PerformancesList from "./PerformancesList";
@@ -9,9 +10,14 @@ const ProgressionsList = ({ progressions, unit, setProgressions }) => {
 
   const handleDeleteProgression = async (id) => {
     await axiosInterceptor.delete(`/progressions/${id}`);
-    axiosInterceptor.get("/progressions").then((response) => {
-      setProgressions(response.data);
+    const response = axios.get("/progressions", {
+      headers: {
+        Authorization: `Bearer ${
+          JSON.parse(localStorage.getItem("authTokens")).access_token
+        }`,
+      },
     });
+    setProgressions(response.data);
   };
 
   return (
@@ -20,23 +26,11 @@ const ProgressionsList = ({ progressions, unit, setProgressions }) => {
         {progressions.map((progression) => (
           <li key={progression.id}>
             {progression.name}
-            <button onClick={openDialog} id={progression.id}>
-              Access
-            </button>
-            <button onClick={() => handleDeleteProgression(progression.id)}>
-              delete
-            </button>
-            <dialog className={`dialog-${progression.id}`}>
-              <h2>{progression.name}</h2>
-              <PerformancesList progression={progression} unit={unit} />
-              <AddPerformanceForm
-                progressionId={progression.id}
-                setProgressions={setProgressions}
-              />
-              <button onClick={closeDialog} id={progression.id}>
-                Close
-              </button>
-            </dialog>
+            <PerformancesList progression={progression} unit={unit} />
+            <AddPerformanceForm
+              progressionId={progression.id}
+              setProgressions={setProgressions}
+            />
           </li>
         ))}
       </ul>

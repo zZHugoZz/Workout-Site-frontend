@@ -49,13 +49,15 @@ const ProgramExerciseList = ({ day }) => {
               </TableHead>
               <TableBody>
                 {day.exercises.length === 0 ? (
-                  <TableCell
-                    colSpan={4}
-                    align="center"
-                    sx={{ borderBottom: "none" }}
-                  >
-                    <Typography variant="caption">No exercises</Typography>
-                  </TableCell>
+                  <TableRow>
+                    <TableCell
+                      colSpan={4}
+                      align="center"
+                      sx={{ borderBottom: "none" }}
+                    >
+                      <Typography variant="caption">No exercises</Typography>
+                    </TableCell>
+                  </TableRow>
                 ) : (
                   day.exercises?.map((exercise) => (
                     <TableRow
