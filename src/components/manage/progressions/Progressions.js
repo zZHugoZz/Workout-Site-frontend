@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 
 import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
@@ -12,66 +12,11 @@ import CardTitle from "../../../utils/CardTitle";
 import { ProgressionsContext } from "../../../context/ProgressionsContext";
 
 const Progressions = ({ progressionsList }) => {
-  const { setProgressions, progressions } = useContext(ProgressionsContext);
-
-  const [datasets, setDatasets] = useState([]);
-  const [longestProgression, setLongestProgression] = useState(0);
-  const [labels, setLabels] = useState([
-    "Session 1",
-    "Session 2",
-    "Session 3",
-    "Session 4",
-    "Session 5",
-  ]);
-  const [chartData, setChartData] = useState({
-    labels: labels,
-    datasets: datasets,
-  });
+  const { setProgressions } = useContext(ProgressionsContext);
 
   useEffect(() => {
     setProgressions(progressionsList);
   }, [progressionsList]);
-
-  useEffect(() => {
-    const lengths = progressions.map(
-      (progression) => progression.performances.length
-    );
-    if (lengths.length === 0) {
-      setLongestProgression(0);
-    } else {
-      setLongestProgression(Math.max(...lengths));
-    }
-    setDatasets(
-      progressions.map((progression) => ({
-        label: progression.name,
-        data: progression.performances.map((performance) => performance.weight),
-        borderColor: progression.color,
-        backgroundColor: progression.color,
-        color: "#AFC0CF",
-      }))
-    );
-  }, [progressions]);
-
-  useEffect(() => {
-    setChartData({
-      labels: labels,
-      datasets: datasets,
-    });
-  }, [datasets, labels]);
-
-  useEffect(() => {
-    if (longestProgression > labels.length) {
-      let newLabels = [];
-      for (let i = 1; i <= longestProgression; i++) {
-        newLabels.push(`Session ${i}`);
-      }
-      setLabels(newLabels);
-    }
-  }, [longestProgression, labels.length]);
-
-  useEffect(() => {
-    console.log("datasets: ", datasets);
-  }, [datasets]);
 
   return (
     <>
@@ -82,7 +27,7 @@ const Progressions = ({ progressionsList }) => {
         </Stack>
       </CardTitle>
       <Box sx={{ margin: "0 20px" }}>
-        <ProgressionChart data={chartData} progressions={progressions} />
+        <ProgressionChart />
       </Box>
       <Divider sx={{ paddingTop: "20px" }} />
       {/* <ProgressionsList /> */}
