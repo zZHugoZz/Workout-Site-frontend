@@ -4,6 +4,7 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 import Box from "@mui/material/Box";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 
 import ProgressionChart from "./ProgressionChart";
 import ProgressionsList from "./ProgressionsList";

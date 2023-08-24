@@ -4,11 +4,11 @@ import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import Grid from "@mui/material/Unstable_Grid2";
 import Stack from "@mui/material/Stack";
-import { Zoom } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
+import HelpIcon from "@mui/icons-material/Help";
+import Zoom from "@mui/material/Zoom";
 
 import CustomMenu from "../../../utils/CustomMenu";
 import AccessProgram from "./AccessProgram";
@@ -44,7 +44,7 @@ const Program = ({ program }) => {
               TransitionComponent={Zoom}
             >
               <IconButton onClick={() => setIsOpen(true)}>
-                <HelpOutlineIcon fontSize="small" />
+                <HelpIcon fontSize="small" />
               </IconButton>
             </Tooltip>
             <CustomMenu>

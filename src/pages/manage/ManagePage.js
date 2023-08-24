@@ -71,12 +71,12 @@ const ManagePage = () => {
               </ProgramsProvider>
             </Card>
           </Grid>
-          <Grid xs={3}>
+          {/* <Grid xs={3}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
               <OneRmCalculator />
             </Card>
-          </Grid>
-          <Grid xs={9}>
+          </Grid> */}
+          <Grid xs={12}>
             <Card sx={{ backgroundColor: "#f5eeda", height: "350px" }}>
               <ProgressionsProvider>
                 <Progressions progressionsList={progressionsList} />

@@ -8,7 +8,7 @@ import { ProgressionsContext } from "../../../context/ProgressionsContext";
 import FormAddButton from "../../../utils/FormAddButton";
 
 const AddProgressionForm = () => {
-  const { setProgressions } = useContext(ProgressionsContext);
+  const { progressions, setProgressions } = useContext(ProgressionsContext);
   const axiosInterceptor = useInterceptor();
 
   const [formData, setFormData] = useState({
@@ -18,14 +18,16 @@ const AddProgressionForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axiosInterceptor.post("/progressions", formData);
-    await axiosInterceptor.get("/progressions").then((response) => {
-      setProgressions(response.data);
-    });
-    setFormData({
-      name: "",
-      color: "#14FF63",
-    });
+    try {
+      const response = await axiosInterceptor.post("/progressions", formData);
+      setProgressions([...progressions, response.data]);
+      setFormData({
+        name: "",
+        color: "#14FF63",
+      });
+    } catch (err) {
+      console.log("error in add progression post request: ", err);
+    }
   };
 
   const handleChange = (event) => {

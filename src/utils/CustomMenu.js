@@ -22,6 +22,7 @@ const CustomMenu = ({ children }) => {
         anchorEl={anchor}
         onClose={() => setAnchor(null)}
         disableScrollLock={true}
+        sx={{ maxWidth: "200px" }}
       >
         <Stack alignItems="start" spacing={1} padding="0 10px">
           {children}
