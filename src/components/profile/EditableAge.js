@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import useInterceptor from "../../utils/useInterceptor";
 
-const EditableAge = ({ age, setAge, gender }) => {
+const EditableAge = ({ age, setAge }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const axiosInterceptor = useInterceptor();
@@ -10,7 +10,6 @@ const EditableAge = ({ age, setAge, gender }) => {
   const handleSubmitNewAge = async () => {
     await axiosInterceptor.put("/profiles", {
       age: age,
-      gender: gender,
     });
     setIsEditing(false);
   };

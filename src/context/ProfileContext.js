@@ -11,3 +11,5 @@ export default function ProfileProvider({ children }) {
     </ProfileContext.Provider>
   );
 }
+
+// Probably not needed

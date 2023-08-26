@@ -31,8 +31,8 @@ const ProfilePage = () => {
       <h3>profile picture: {profile.profile_picture}</h3>
       <h3>Hello {username}</h3>
       <h3>email: {email}</h3>
-      <EditableAge age={age} setAge={setAge} gender={gender} />
-      <EditableGender gender={gender} setGender={setGender} age={age} />
+      <EditableAge age={age} setAge={setAge} />
+      <EditableGender gender={gender} setGender={setGender} />
     </>
   );
 };

@@ -1,15 +1,14 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import useInterceptor from "../../utils/useInterceptor";
 
-const EditableGender = ({ gender, setGender, age }) => {
+const EditableGender = ({ gender, setGender }) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const axiosInterceptor = useInterceptor();
 
   const handleSubmitNewGender = async () => {
     await axiosInterceptor.put("/profiles", {
-      age: age,
       gender: gender,
     });
     setIsEditing(false);
